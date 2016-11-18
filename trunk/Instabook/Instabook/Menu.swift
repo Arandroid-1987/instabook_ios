@@ -21,6 +21,7 @@ class Menu: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.ImageMenuArray = ["dollar.png","search.png","book.png","setting.png"];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
