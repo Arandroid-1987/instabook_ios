@@ -10,10 +10,15 @@
 		8611CD261DDF597D005FE9DB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611CD251DDF597D005FE9DB /* CardView.swift */; };
 		8611CD281DDF62C9005FE9DB /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 8611CD271DDF62C9005FE9DB /* heart.png */; };
 		8611CD2A1DDF62DC005FE9DB /* shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 8611CD291DDF62DC005FE9DB /* shared.png */; };
+		8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D21DE088D500BC4C17 /* HTMLNode.swift */; };
+		8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D31DE088D500BC4C17 /* HTMLParser.swift */; };
+		8613B7D81DE089DF00BC4C17 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8613B7D71DE089DF00BC4C17 /* libxml2.dylib */; };
+		8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7DA1DE0B72200BC4C17 /* Book.swift */; };
+		86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86184A751DDFC0C300559293 /* MondadoriParser.swift */; };
 		86351E751DDF140400185FB3 /* CellCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86351E741DDF140400185FB3 /* CellCustom.xib */; };
 		8637ED591DDDBA0D00238833 /* instant_book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8637ED571DDDBA0D00238833 /* instant_book_icon.png */; };
 		8637ED5A1DDDBA0D00238833 /* powered_by_google.png in Resources */ = {isa = PBXBuildFile; fileRef = 8637ED581DDDBA0D00238833 /* powered_by_google.png */; };
-		8637ED5C1DDDF76E00238833 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637ED5B1DDDF76E00238833 /* Utils.swift */; };
+		8637ED5C1DDDF76E00238833 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637ED5B1DDDF76E00238833 /* Constants.swift */; };
 		863DC1601DDE1134008CB892 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863DC15F1DDE1134008CB892 /* Helpers.swift */; };
 		864301BA1DDD333D00E78810 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B61DDD333D00E78810 /* book.png */; };
 		864301BB1DDD333D00E78810 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B71DDD333D00E78810 /* dollar.png */; };
@@ -47,10 +52,16 @@
 		8611CD251DDF597D005FE9DB /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8611CD271DDF62C9005FE9DB /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
 		8611CD291DDF62DC005FE9DB /* shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shared.png; sourceTree = "<group>"; };
+		8613B7D21DE088D500BC4C17 /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNode.swift; sourceTree = "<group>"; };
+		8613B7D31DE088D500BC4C17 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		8613B7D61DE088E700BC4C17 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
+		8613B7D71DE089DF00BC4C17 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		8613B7DA1DE0B72200BC4C17 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		86184A751DDFC0C300559293 /* MondadoriParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondadoriParser.swift; sourceTree = "<group>"; };
 		86351E741DDF140400185FB3 /* CellCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellCustom.xib; sourceTree = "<group>"; };
 		8637ED571DDDBA0D00238833 /* instant_book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instant_book_icon.png; sourceTree = "<group>"; };
 		8637ED581DDDBA0D00238833 /* powered_by_google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powered_by_google.png; sourceTree = "<group>"; };
-		8637ED5B1DDDF76E00238833 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		8637ED5B1DDDF76E00238833 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		863DC15F1DDE1134008CB892 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		864301B61DDD333D00E78810 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
 		864301B71DDD333D00E78810 /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
@@ -81,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8613B7D81DE089DF00BC4C17 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +106,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8613B7D91DE0B71300BC4C17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8613B7DA1DE0B72200BC4C17 /* Book.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		86184A741DDFC08A00559293 /* Mondadori */ = {
+			isa = PBXGroup;
+			children = (
+				86184A751DDFC0C300559293 /* MondadoriParser.swift */,
+			);
+			name = Mondadori;
+			sourceTree = "<group>";
+		};
+		86184A791DDFCB0100559293 /* HTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				8613B7D21DE088D500BC4C17 /* HTMLNode.swift */,
+				8613B7D31DE088D500BC4C17 /* HTMLParser.swift */,
+			);
+			name = HTMLParser;
+			sourceTree = "<group>";
+		};
 		86351E731DDF13DC00185FB3 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				864301C11DDD3CA900E78810 /* ImageRotation.swift */,
-				8637ED5B1DDDF76E00238833 /* Utils.swift */,
+				8637ED5B1DDDF76E00238833 /* Constants.swift */,
 				863DC15F1DDE1134008CB892 /* Helpers.swift */,
 			);
 			name = Utils;
@@ -133,6 +170,7 @@
 		86914D4F1DDD16220099C88A = {
 			isa = PBXGroup;
 			children = (
+				8613B7D71DE089DF00BC4C17 /* libxml2.dylib */,
 				86914D5A1DDD16230099C88A /* Instabook */,
 				86914D701DDD16230099C88A /* InstabookTests */,
 				86914D591DDD16230099C88A /* Products */,
@@ -151,6 +189,9 @@
 		86914D5A1DDD16230099C88A /* Instabook */ = {
 			isa = PBXGroup;
 			children = (
+				8613B7D91DE0B71300BC4C17 /* Model */,
+				86184A791DDFCB0100559293 /* HTMLParser */,
+				86184A741DDFC08A00559293 /* Mondadori */,
 				86351E731DDF13DC00185FB3 /* CustomView */,
 				869F30581DDE7BA8003FD98B /* Main.storyboard */,
 				864301C01DDD3C9100E78810 /* Utils */,
@@ -169,6 +210,7 @@
 		86914D5B1DDD16230099C88A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8613B7D61DE088E700BC4C17 /* Swift-HTML-Parser-Bridging-Header.h */,
 				86914D7E1DDD176B0099C88A /* SWRevealViewController.h */,
 				86914D7F1DDD176B0099C88A /* SWRevealViewController.m */,
 				86914D5C1DDD16230099C88A /* Info.plist */,
@@ -306,14 +348,18 @@
 			files = (
 				864301C21DDD3CA900E78810 /* ImageRotation.swift in Sources */,
 				863DC1601DDE1134008CB892 /* Helpers.swift in Sources */,
+				8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */,
 				86914D601DDD16230099C88A /* ViewController.swift in Sources */,
 				86A68E961DDF20850041FD62 /* MainPage.swift in Sources */,
 				8611CD261DDF597D005FE9DB /* CardView.swift in Sources */,
 				86914D5E1DDD16230099C88A /* AppDelegate.swift in Sources */,
+				86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */,
 				86914D821DDD1F1F0099C88A /* Menu.swift in Sources */,
+				8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */,
 				86914D801DDD176B0099C88A /* SWRevealViewController.m in Sources */,
+				8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */,
 				86A68E981DDF24680041FD62 /* CellCustom.swift in Sources */,
-				8637ED5C1DDDF76E00238833 /* Utils.swift in Sources */,
+				8637ED5C1DDDF76E00238833 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
