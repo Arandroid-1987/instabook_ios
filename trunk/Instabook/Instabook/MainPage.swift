@@ -9,20 +9,32 @@
 import Foundation
 import UIKit
 
+
 public class MainPage: UITableViewController
 {
 
-    var floatingButton : UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+    
     var positionFloatingButton: CGFloat = 0.0
     var bookArray = [Any]();
+    var keyboardOpened = false;
+    var keyboardHeight: CGFloat = 0.0;
+    let floatingButton : UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+    
     @IBOutlet var Open: UIBarButtonItem!
     @IBOutlet var textFieldCitazione: UITextField!
     public override func viewDidLoad() {
         super.viewDidLoad();
         
+        floatingButton.frame = CGRectMake(40, 40, 80, 80)
+        floatingButton.layer.cornerRadius = 0.5 * floatingButton.bounds.size.width
+        floatingButton.setImage(UIImage(named:"fulmine.png"), forState: .Normal)
+        floatingButton.backgroundColor = UIColor.yellowColor()
+        floatingButton.addTarget(self, action: "buttonClicked", forControlEvents: UIControlEvents.TouchUpInside)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+
         
         self.tableView.registerNib(UINib(nibName: "CellCustom", bundle: nil), forCellReuseIdentifier: "rowTable");
         //self.tableView.rowHeight = 250;
@@ -42,16 +54,62 @@ public class MainPage: UITableViewController
         
     }
     
-    public override func scrollViewDidScroll(scrollView: UIScrollView) {
-        floatingButton.frame = CGRectMake(40, 60, 100, 24)
-        let cellHeight: CGFloat = 44.0
-        positionFloatingButton = tableView.bounds.height + scrollView.contentOffset.y - 50;
-        floatingButton.center = CGPoint(x: view.bounds.width - 100, y: positionFloatingButton)
-        floatingButton.backgroundColor = UIColor.redColor()
-        floatingButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        floatingButton.setTitle("Click Me !", forState: UIControlState.Normal)
-        self.tableView.addSubview(floatingButton)
+    public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         
+        positionFloatingButton = size.height - 60;
+        if(keyboardOpened)
+        {
+            positionFloatingButton -= keyboardHeight
+        }
+        self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: size.width, position: positionFloatingButton))
+    }
+        
+    public override func scrollViewDidScroll(scrollView: UIScrollView) {
+
+        positionFloatingButton = view.bounds.height + scrollView.contentOffset.y;
+        if(keyboardOpened)
+        {
+            positionFloatingButton -= keyboardHeight
+        }
+        self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
+        
+    }
+    
+    //ACTION WHEN CLICK THE FLOATING BUTTON
+    func buttonClicked()
+    {
+        var citazione:NSString = self.textFieldCitazione.text!
+        var autore:NSString = self.textFieldCitazione.text!;
+        //self.textView.textColor != UIColor.whiteColor() ||
+        if(citazione.isEqualToString(""))
+        {
+            var alertView:UIAlertView = UIAlertView();
+            alertView.title = "Dati Mancanti!";
+            alertView.message = "Inserisci la citazione che vuoi cercare";
+            alertView.delegate = self;
+            alertView.addButtonWithTitle("OK");
+            alertView.show();
+        }
+        else
+        {
+            let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+            
+            let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+            
+            
+            dispatch_async(backgroundQueue, {
+                
+                GoogleBook.searchCitanzione(citazione, authorFromMainPage: autore);
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    self.tableView.reloadData();
+                    
+                })
+                
+            })
+            
+        }
     }
     
     deinit {
@@ -59,28 +117,22 @@ public class MainPage: UITableViewController
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            floatingButton.frame = CGRectMake(40, 60, 100, 24)
-            let cellHeight: CGFloat = 44.0
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        {
+            keyboardHeight = keyboardSize.height
+            keyboardOpened = true
             positionFloatingButton = positionFloatingButton - keyboardSize.height
-            floatingButton.center = CGPoint(x: view.bounds.width - 100 , y: positionFloatingButton )
-            floatingButton.backgroundColor = UIColor.redColor()
-            floatingButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-            floatingButton.setTitle("Click Me !", forState: UIControlState.Normal)
-            self.tableView.addSubview(floatingButton)
+            self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-            floatingButton.frame = CGRectMake(40, 60, 100, 24)
-            let cellHeight: CGFloat = 44.0
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue()
+        {
+            keyboardHeight = 0.0
+            keyboardOpened = false;
             positionFloatingButton = positionFloatingButton + keyboardSize.height
-            floatingButton.center = CGPoint(x: view.bounds.width - 100 , y: positionFloatingButton )
-            floatingButton.backgroundColor = UIColor.redColor()
-            floatingButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-            floatingButton.setTitle("Click Me !", forState: UIControlState.Normal)
-            self.tableView.addSubview(floatingButton)
+            self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
         }
     }
     
@@ -125,28 +177,28 @@ public class MainPage: UITableViewController
         let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as CellCustom
         
         //Configure CardViewLeft
-        let tapCuoreLeft = UITapGestureRecognizer(target:self, action:Selector("connected:"))
+        let tapCuoreLeft = UITapGestureRecognizer(target:self, action:Selector("heartLeftCardView:"))
         cell.cuoreCardViewLeft.addGestureRecognizer(tapCuoreLeft)
         cell.cuoreCardViewLeft.tag = indexPath.row
         
-        var tapCardViewLeft = UITapGestureRecognizer(target: self, action: Selector("connected2:"))
+        var tapCardViewLeft = UITapGestureRecognizer(target: self, action: Selector("goToDetailsLeft:"))
         cell.cardViewLeft.addGestureRecognizer(tapCardViewLeft)
         cell.cardViewLeft.tag = indexPath.row
         
-        let tapSharedLeft = UITapGestureRecognizer(target:self, action:Selector("connected1:"))
+        let tapSharedLeft = UITapGestureRecognizer(target:self, action:Selector("sharedLeftCardView:"))
         cell.sharedCardViewLeft.addGestureRecognizer(tapSharedLeft)
         cell.sharedCardViewLeft.tag = indexPath.row
         
         //Configure CardViewRight
-        let tapCuoreRight = UITapGestureRecognizer(target:self, action:Selector("connected:"))
+        let tapCuoreRight = UITapGestureRecognizer(target:self, action:Selector("heartRightCardView:"))
         cell.cuoreCardViewRight.addGestureRecognizer(tapCuoreRight)
         cell.cuoreCardViewRight.tag = indexPath.row
         
-        let tapCardViewRight = UITapGestureRecognizer(target: self, action: Selector("connected2:"))
+        let tapCardViewRight = UITapGestureRecognizer(target: self, action: Selector("goToDetailsRight:"))
         cell.cardViewRight.addGestureRecognizer(tapCardViewRight)
         cell.cardViewRight.tag = indexPath.row
         
-        let tapSharedRight = UITapGestureRecognizer(target:self, action:Selector("connected1:"))
+        let tapSharedRight = UITapGestureRecognizer(target:self, action:Selector("sharedRightCardView:"))
         cell.sharedCardViewRight.addGestureRecognizer(tapSharedRight)
         cell.sharedCardViewRight.tag = indexPath.row
         
@@ -223,19 +275,68 @@ public class MainPage: UITableViewController
         return cell;
     }
     
-    func connected(sender: UITapGestureRecognizer!) {
-        
-        println(sender.description)
+    //PRESS BUTTON SHARED LEFT CARD
+    func sharedLeftCardView(sender: UITapGestureRecognizer)
+    {
+        if let button = sender.view as? UIImageView {
+            var bookPressed: Book = self.bookArray[2*button.tag] as Book
+            var strinShared = Constants.SHARED + bookPressed.title + " - " + bookPressed.link
+            let vc = UIActivityViewController(activityItems: [strinShared], applicationActivities: [])
+            vc.popoverPresentationController?.sourceView = self.view;
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+
     }
     
-    func connected1(sender: UITapGestureRecognizer!) {
-        
-        println(sender.description)
+    
+    //PRESS BUTTON SHARED RIGHT CARD
+    func sharedRightCardView(sender: UITapGestureRecognizer)
+    {
+        if let button = sender.view as? UIImageView {
+            var bookPressed: Book = self.bookArray[(2*button.tag)+1] as Book
+            var stringShared = Constants.SHARED + bookPressed.title + " - " + bookPressed.link
+            let vc = UIActivityViewController(activityItems: [stringShared], applicationActivities: [])
+            vc.popoverPresentationController?.sourceView = self.view;
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+
     }
     
-    func connected2(sender: UITapGestureRecognizer!) {
+    //PRESS HEART RIGHT
+    func heartRightCardView(sender: UITapGestureRecognizer!) {
+        if let button = sender.view as? UIImageView {
+                button.image = UIImage(named:"heart-full.png")
+        }
+    }
+    
+    //PRESS HEART LEFT
+    func heartLeftCardView(sender: UITapGestureRecognizer!) {
+        if let button = sender.view as? UIImageView {
+
+                button.image = UIImage(named:"heart-full.png")
+            
+            
+        }
+    }
+    
+    //PRESS CARDVIEW RIGHT
+    func goToDetailsRight(sender: UITapGestureRecognizer!) {
+        /*TODO
         
-        println("tap")
+        self.navigationController?.pushViewController(vc, animated: true)
+        */
+    }
+    
+    //PRESS CARDVIEW LEFT
+    func goToDetailsLeft(sender: UITapGestureRecognizer!) {
+        /*let vc = UIActivityViewController(activityItems: [], applicationActivities: [])
+        self.navigationController?.pushViewController(vc, animated: true)
+        */
+        
+    }
+    
+    public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        println("TODO")
     }
     
 

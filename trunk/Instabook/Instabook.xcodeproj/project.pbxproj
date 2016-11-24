@@ -12,7 +12,6 @@
 		8611CD2A1DDF62DC005FE9DB /* shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 8611CD291DDF62DC005FE9DB /* shared.png */; };
 		8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D21DE088D500BC4C17 /* HTMLNode.swift */; };
 		8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D31DE088D500BC4C17 /* HTMLParser.swift */; };
-		8613B7D81DE089DF00BC4C17 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8613B7D71DE089DF00BC4C17 /* libxml2.dylib */; };
 		8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7DA1DE0B72200BC4C17 /* Book.swift */; };
 		86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86184A751DDFC0C300559293 /* MondadoriParser.swift */; };
 		86351E751DDF140400185FB3 /* CellCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86351E741DDF140400185FB3 /* CellCustom.xib */; };
@@ -33,9 +32,14 @@
 		86914D741DDD16230099C88A /* InstabookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86914D731DDD16230099C88A /* InstabookTests.swift */; };
 		86914D801DDD176B0099C88A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86914D7F1DDD176B0099C88A /* SWRevealViewController.m */; };
 		86914D821DDD1F1F0099C88A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86914D811DDD1F1F0099C88A /* Menu.swift */; };
+		869CA9EC1DE753980072E736 /* heart-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 869CA9EB1DE753980072E736 /* heart-full.png */; };
 		869F305A1DDE7BA8003FD98B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869F30581DDE7BA8003FD98B /* Main.storyboard */; };
+		86A14F481DE6463C00C01866 /* fulmine.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A14F471DE6463C00C01866 /* fulmine.png */; };
+		86A14F4B1DE6469800C01866 /* GoogleBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A14F4A1DE6469800C01866 /* GoogleBook.swift */; };
+		86A27DFB1DE4FAFA00703DD7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A27DFA1DE4FAFA00703DD7 /* Utils.swift */; };
 		86A68E961DDF20850041FD62 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A68E951DDF20850041FD62 /* MainPage.swift */; };
 		86A68E981DDF24680041FD62 /* CellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A68E971DDF24680041FD62 /* CellCustom.swift */; };
+		86A69CDF1DE3992300290EA4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A69CDE1DE3992300290EA4 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +59,6 @@
 		8613B7D21DE088D500BC4C17 /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNode.swift; sourceTree = "<group>"; };
 		8613B7D31DE088D500BC4C17 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
 		8613B7D61DE088E700BC4C17 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
-		8613B7D71DE089DF00BC4C17 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		8613B7DA1DE0B72200BC4C17 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		86184A751DDFC0C300559293 /* MondadoriParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondadoriParser.swift; sourceTree = "<group>"; };
 		86351E741DDF140400185FB3 /* CellCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellCustom.xib; sourceTree = "<group>"; };
@@ -82,9 +85,14 @@
 		86914D7E1DDD176B0099C88A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		86914D7F1DDD176B0099C88A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		86914D811DDD1F1F0099C88A /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		869CA9EB1DE753980072E736 /* heart-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-full.png"; path = "../../Image/heart-full.png"; sourceTree = "<group>"; };
 		869F30591DDE7BA8003FD98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86A14F471DE6463C00C01866 /* fulmine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fulmine.png; path = ../../Image/fulmine.png; sourceTree = "<group>"; };
+		86A14F4A1DE6469800C01866 /* GoogleBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBook.swift; sourceTree = "<group>"; };
+		86A27DFA1DE4FAFA00703DD7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		86A68E951DDF20850041FD62 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		86A68E971DDF24680041FD62 /* CellCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCustom.swift; sourceTree = "<group>"; };
+		86A69CDE1DE3992300290EA4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8613B7D81DE089DF00BC4C17 /* libxml2.dylib in Frameworks */,
+				86A69CDF1DE3992300290EA4 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +152,8 @@
 		864301B51DDD332E00E78810 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				869CA9EB1DE753980072E736 /* heart-full.png */,
+				86A14F471DE6463C00C01866 /* fulmine.png */,
 				8611CD291DDF62DC005FE9DB /* shared.png */,
 				8611CD271DDF62C9005FE9DB /* heart.png */,
 				8637ED571DDDBA0D00238833 /* instant_book_icon.png */,
@@ -163,6 +173,7 @@
 				864301C11DDD3CA900E78810 /* ImageRotation.swift */,
 				8637ED5B1DDDF76E00238833 /* Constants.swift */,
 				863DC15F1DDE1134008CB892 /* Helpers.swift */,
+				86A27DFA1DE4FAFA00703DD7 /* Utils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -170,7 +181,7 @@
 		86914D4F1DDD16220099C88A = {
 			isa = PBXGroup;
 			children = (
-				8613B7D71DE089DF00BC4C17 /* libxml2.dylib */,
+				86A69CDE1DE3992300290EA4 /* libxml2.dylib */,
 				86914D5A1DDD16230099C88A /* Instabook */,
 				86914D701DDD16230099C88A /* InstabookTests */,
 				86914D591DDD16230099C88A /* Products */,
@@ -189,6 +200,7 @@
 		86914D5A1DDD16230099C88A /* Instabook */ = {
 			isa = PBXGroup;
 			children = (
+				86A14F491DE6468300C01866 /* GoogleBook */,
 				8613B7D91DE0B71300BC4C17 /* Model */,
 				86184A791DDFCB0100559293 /* HTMLParser */,
 				86184A741DDFC08A00559293 /* Mondadori */,
@@ -234,6 +246,14 @@
 				86914D721DDD16230099C88A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86A14F491DE6468300C01866 /* GoogleBook */ = {
+			isa = PBXGroup;
+			children = (
+				86A14F4A1DE6469800C01866 /* GoogleBook.swift */,
+			);
+			name = GoogleBook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,8 +342,10 @@
 				864301BC1DDD333D00E78810 /* search.png in Resources */,
 				86351E751DDF140400185FB3 /* CellCustom.xib in Resources */,
 				8611CD281DDF62C9005FE9DB /* heart.png in Resources */,
+				86A14F481DE6463C00C01866 /* fulmine.png in Resources */,
 				86914D681DDD16230099C88A /* LaunchScreen.xib in Resources */,
 				864301BD1DDD333D00E78810 /* setting.png in Resources */,
+				869CA9EC1DE753980072E736 /* heart-full.png in Resources */,
 				864301BA1DDD333D00E78810 /* book.png in Resources */,
 				86914D651DDD16230099C88A /* Images.xcassets in Resources */,
 				8637ED591DDDBA0D00238833 /* instant_book_icon.png in Resources */,
@@ -349,8 +371,10 @@
 				864301C21DDD3CA900E78810 /* ImageRotation.swift in Sources */,
 				863DC1601DDE1134008CB892 /* Helpers.swift in Sources */,
 				8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */,
+				86A14F4B1DE6469800C01866 /* GoogleBook.swift in Sources */,
 				86914D601DDD16230099C88A /* ViewController.swift in Sources */,
 				86A68E961DDF20850041FD62 /* MainPage.swift in Sources */,
+				86A27DFB1DE4FAFA00703DD7 /* Utils.swift in Sources */,
 				8611CD261DDF597D005FE9DB /* CardView.swift in Sources */,
 				86914D5E1DDD16230099C88A /* AppDelegate.swift in Sources */,
 				86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */,
