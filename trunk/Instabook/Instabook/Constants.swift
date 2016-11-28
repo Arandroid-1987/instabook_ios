@@ -10,6 +10,12 @@ import Foundation
 
 public struct Constants
 {
+    public static let MY_SEARCH_STORED = "mySearch";
+    public static let MY_BOOKS_LIKE_STORED = "myBooksLike";
+    public static let BOOKS_MONDADORI_STORED = "mondadoriBooks";
+    public static let BOOKS_MONDADORI_STORED_DATE = "mondadoriBooksDate";
+    public static let BOOKS_MONDADORI_STORED_BEST_SELLER = "mondadoriBooksBestSeller";
+    public static let BOOKS_MONDADORI_STORED_DATE_BEST_SELLER = "mondadoriBooksDateBestSeller";
     
     public static let SHARED = "Condiviso usando InstaBook. Ti potrebbe interessare ";
     public static let myColor = UIColor(red: 48.0/255.0, green: 63.0/255.0, blue: 159.0/255.0, alpha: 0.9);

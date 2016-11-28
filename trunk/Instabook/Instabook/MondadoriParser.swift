@@ -12,6 +12,8 @@ public class MondadoriParser
 {
     private var urlClassifica = "";
     private var urlNovita = "";
+    private var cache = CacheManager();
+    
     
     public func MondadoriParser(){}
     
@@ -133,7 +135,11 @@ public class MondadoriParser
         {
             println("Error: \(self.urlNovita) doesn't seem to be a valid URL")
         }
-
+        cache.storeBookFromMondadori(bookArray)
+        var todaysDate:NSDate = NSDate()
+        var dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        cache.storeLastUpdatedDateFromMondadori(dateFormatter.stringFromDate(todaysDate))
         return bookArray;
     }
     
