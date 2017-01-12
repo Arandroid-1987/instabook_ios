@@ -1,0 +1,6 @@
+framework module Pods_InstabookTests {
+  umbrella header "Pods-InstabookTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

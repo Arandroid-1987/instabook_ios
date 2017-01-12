@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "Gestione Licenza"; ObjectID = "3ar-oM-zYr"; */
+"3ar-oM-zYr.text" = "Gestione Licenza";
+
+/* Class = "UILabel"; text = "Cancella Le ricerche recenti"; ObjectID = "7t0-F5-P82"; */
+"7t0-F5-P82.text" = "Cancella Le ricerche recenti";
+
+/* Class = "UILabel"; text = "Licenza Attuale: Licenza Free"; ObjectID = "8K4-qf-zTK"; */
+"8K4-qf-zTK.text" = "Licenza Attuale: Licenza Free";
+
+/* Class = "UIButton"; normalTitle = "RIMUOVI PUBBLICITA'"; ObjectID = "Brc-HD-ZgP"; */
+"Brc-HD-ZgP.normalTitle" = "RIMUOVI PUBBLICITA'";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Fqa-TO-6Sb"; */
+"Fqa-TO-6Sb.text" = "Label";
+
+/* Class = "UILabel"; text = "arandroid.developers@gmail.com"; ObjectID = "GbH-83-gkF"; */
+"GbH-83-gkF.text" = "arandroid.developers@gmail.com";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "L7Q-gl-HAL"; */
+"L7Q-gl-HAL.text" = "Label";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor inc"; ObjectID = "UzG-k8-XSF"; */
+"UzG-k8-XSF.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor inc";
+
+/* Class = "UILabel"; text = "ARAndroid"; ObjectID = "Zqr-X2-Ipd"; */
+"Zqr-X2-Ipd.text" = "ARAndroid";
+
+/* Class = "UILabel"; text = "Titolo"; ObjectID = "jXV-hT-4Ag"; */
+"jXV-hT-4Ag.text" = "Titolo";
+
+/* Class = "UILabel"; text = "Cancella i best seller salvati"; ObjectID = "mYa-Ve-DJB"; */
+"mYa-Ve-DJB.text" = "Cancella i best seller salvati";
+
+/* Class = "UILabel"; text = "Cancella i libri preferiti"; ObjectID = "mlR-pd-2m1"; */
+"mlR-pd-2m1.text" = "Cancella i libri preferiti";
+
+/* Class = "UILabel"; text = "Cancella Le novità salvate"; ObjectID = "mwt-bk-nkh"; */
+"mwt-bk-nkh.text" = "Cancella Le novità salvate";
+
+/* Class = "UILabel"; text = "Gestione Memoria"; ObjectID = "rgY-pp-2Qe"; */
+"rgY-pp-2Qe.text" = "Gestione Memoria";
+
+/* Class = "UITextField"; placeholder = "(opzionale) Autore del Libro"; ObjectID = "tec-ZU-06Q"; */
+"tec-ZU-06Q.placeholder" = "(opzionale) Autore del Libro";
+
+/* Class = "UILabel"; text = "Link"; ObjectID = "u04-R6-ejo"; */
+"u04-R6-ejo.text" = "Link";
+
+/* Class = "UINavigationItem"; title = "Instabook"; ObjectID = "wBl-9Q-Gqm"; */
+"wBl-9Q-Gqm.title" = "Instabook";

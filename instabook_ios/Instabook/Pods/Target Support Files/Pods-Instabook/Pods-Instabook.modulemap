@@ -1,0 +1,6 @@
+framework module Pods_Instabook {
+  umbrella header "Pods-Instabook-umbrella.h"
+
+  export *
+  module * { export * }
+}
