@@ -1,0 +1,1206 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B8FCC2376413373AD1C581F /* Pods_InstabookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1B19B1E9B86F1732CF1611 /* Pods_InstabookTests.framework */; };
+		7812D6FB1DF4BC490087522A /* MemoriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7812D6FA1DF4BC490087522A /* MemoriaView.swift */; };
+		78148B4E1DF07CCF0065E81A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78148B4D1DF07CCF0065E81A /* LoadingView.swift */; };
+		78148B501DF0D6620065E81A /* gbs_preview_sticker1.png in Resources */ = {isa = PBXBuildFile; fileRef = 78148B4F1DF0D6620065E81A /* gbs_preview_sticker1.png */; };
+		78148B531DF0D9CE0065E81A /* star-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 78148B511DF0D9CE0065E81A /* star-full.png */; };
+		78148B541DF0D9CE0065E81A /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 78148B521DF0D9CE0065E81A /* star.png */; };
+		78148B561DF1D38E0065E81A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78148B551DF1D38E0065E81A /* StoreKit.framework */; };
+		78165B601DF8207E00E6C1F1 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78165B5F1DF8207E00E6C1F1 /* Reachability.swift */; };
+		7816FC801DEE3B0700A32BAC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7816FC7F1DEE3B0700A32BAC /* WebViewController.swift */; };
+		781B9F6E1DF5CF4B007D8166 /* carPlay_120pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F481DF5CF4B007D8166 /* carPlay_120pt_@1x.png */; };
+		781B9F6F1DF5CF4B007D8166 /* iPad_100pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F491DF5CF4B007D8166 /* iPad_100pt_@2x.png */; };
+		781B9F701DF5CF4B007D8166 /* iPad_144pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4A1DF5CF4B007D8166 /* iPad_144pt_@2x.png */; };
+		781B9F711DF5CF4B007D8166 /* iPad_152pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4B1DF5CF4B007D8166 /* iPad_152pt_@2x.png */; };
+		781B9F721DF5CF4B007D8166 /* iPad_29pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4C1DF5CF4B007D8166 /* iPad_29pt_@1x.png */; };
+		781B9F731DF5CF4B007D8166 /* iPad_40pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4D1DF5CF4B007D8166 /* iPad_40pt_@1x.png */; };
+		781B9F741DF5CF4B007D8166 /* iPad_50pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4E1DF5CF4B007D8166 /* iPad_50pt_@1x.png */; };
+		781B9F751DF5CF4B007D8166 /* iPad_58pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F4F1DF5CF4B007D8166 /* iPad_58pt_@2x.png */; };
+		781B9F761DF5CF4B007D8166 /* iPad_72pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F501DF5CF4B007D8166 /* iPad_72pt_@1x.png */; };
+		781B9F771DF5CF4B007D8166 /* iPad_76pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F511DF5CF4B007D8166 /* iPad_76pt_@1x.png */; };
+		781B9F781DF5CF4B007D8166 /* iPad_80pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F521DF5CF4B007D8166 /* iPad_80pt_@2x.png */; };
+		781B9F791DF5CF4B007D8166 /* iPadPro_167pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F531DF5CF4B007D8166 /* iPadPro_167pt_@2x.png */; };
+		781B9F7A1DF5CF4B007D8166 /* iPhone_114pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F541DF5CF4B007D8166 /* iPhone_114pt_@2x.png */; };
+		781B9F7B1DF5CF4B007D8166 /* iPhone_120pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F551DF5CF4B007D8166 /* iPhone_120pt_@2x.png */; };
+		781B9F7C1DF5CF4B007D8166 /* iPhone_120pt_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F561DF5CF4B007D8166 /* iPhone_120pt_@3x.png */; };
+		781B9F7D1DF5CF4B007D8166 /* iPhone_180pt_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F571DF5CF4B007D8166 /* iPhone_180pt_@3x.png */; };
+		781B9F7E1DF5CF4B007D8166 /* iPhone_29pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F581DF5CF4B007D8166 /* iPhone_29pt_@1x.png */; };
+		781B9F7F1DF5CF4B007D8166 /* iPhone_40pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F591DF5CF4B007D8166 /* iPhone_40pt_@1x.png */; };
+		781B9F801DF5CF4B007D8166 /* iPhone_57pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5A1DF5CF4B007D8166 /* iPhone_57pt_@1x.png */; };
+		781B9F811DF5CF4B007D8166 /* iPhone_58pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5B1DF5CF4B007D8166 /* iPhone_58pt_@2x.png */; };
+		781B9F821DF5CF4B007D8166 /* iPhone_60pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5C1DF5CF4B007D8166 /* iPhone_60pt_@1x.png */; };
+		781B9F831DF5CF4B007D8166 /* iPhone_80pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5D1DF5CF4B007D8166 /* iPhone_80pt_@2x.png */; };
+		781B9F841DF5CF4B007D8166 /* iPhone_87pt_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5E1DF5CF4B007D8166 /* iPhone_87pt_@3x.png */; };
+		781B9F851DF5CF4B007D8166 /* iTunes_1024pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F5F1DF5CF4B007D8166 /* iTunes_1024pt_@2x.png */; };
+		781B9F861DF5CF4B007D8166 /* iTunes_512pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F601DF5CF4B007D8166 /* iTunes_512pt_@1x.png */; };
+		781B9F871DF5CF4B007D8166 /* macOS_128pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F611DF5CF4B007D8166 /* macOS_128pt_@1x.png */; };
+		781B9F881DF5CF4B007D8166 /* macOS_16pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F621DF5CF4B007D8166 /* macOS_16pt_@1x.png */; };
+		781B9F891DF5CF4B007D8166 /* macOS_256pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F631DF5CF4B007D8166 /* macOS_256pt_@1x.png */; };
+		781B9F8A1DF5CF4B007D8166 /* macOS_32pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F641DF5CF4B007D8166 /* macOS_32pt_@1x.png */; };
+		781B9F8B1DF5CF4B007D8166 /* macOS_64pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F651DF5CF4B007D8166 /* macOS_64pt_@1x.png */; };
+		781B9F8C1DF5CF4B007D8166 /* watchOS_172pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F661DF5CF4B007D8166 /* watchOS_172pt_@1x.png */; };
+		781B9F8D1DF5CF4B007D8166 /* watchOS_196pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F671DF5CF4B007D8166 /* watchOS_196pt_@1x.png */; };
+		781B9F8E1DF5CF4B007D8166 /* watchOS_48pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F681DF5CF4B007D8166 /* watchOS_48pt_@1x.png */; };
+		781B9F8F1DF5CF4B007D8166 /* watchOS_55pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F691DF5CF4B007D8166 /* watchOS_55pt_@1x.png */; };
+		781B9F901DF5CF4B007D8166 /* watchOS_58pt_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F6A1DF5CF4B007D8166 /* watchOS_58pt_@2x.png */; };
+		781B9F911DF5CF4B007D8166 /* watchOS_80pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F6B1DF5CF4B007D8166 /* watchOS_80pt_@1x.png */; };
+		781B9F921DF5CF4B007D8166 /* watchOS_87pt_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F6C1DF5CF4B007D8166 /* watchOS_87pt_@3x.png */; };
+		781B9F931DF5CF4B007D8166 /* watchOS_88pt_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 781B9F6D1DF5CF4B007D8166 /* watchOS_88pt_@1x.png */; };
+		781BA3801DF460DA0032EB21 /* LicenzaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781BA37F1DF460DA0032EB21 /* LicenzaView.swift */; };
+		782F28611DED8B2B00EBD10F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F285F1DED8B2B00EBD10F /* CacheManager.swift */; };
+		782F28621DED8B2B00EBD10F /* MySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F28601DED8B2B00EBD10F /* MySearch.swift */; };
+		782F28651DEDF29C00EBD10F /* DatabaseRealtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782F28641DEDF29C00EBD10F /* DatabaseRealtime.swift */; };
+		7833C7D41DEC7DDB00C30528 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7833C7D31DEC7DDB00C30528 /* GoogleService-Info.plist */; };
+		7833ECE11DF707FB008073C7 /* share_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7833ECE01DF707FB008073C7 /* share_yellow.png */; };
+		783420971DEB7E3400D4AFFC /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 783420961DEB7E3400D4AFFC /* SettingsCell.xib */; };
+		783420991DEB812300D4AFFC /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783420981DEB812300D4AFFC /* SettingsCell.swift */; };
+		7875E3EE1DE9E89C00C3D351 /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875E3ED1DE9E89C00C3D351 /* Books.swift */; };
+		78841D9C1DE78E9F005EFBFB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78841D9B1DE78E9F005EFBFB /* Data.swift */; };
+		789134831DE1BF1F00FFCA75 /* SingleBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789134821DE1BF1F00FFCA75 /* SingleBookView.swift */; };
+		789A033C1E056D86004AB0A8 /* MKSnackbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A033B1E056D86004AB0A8 /* MKSnackbar.swift */; };
+		789A03401E056EC9004AB0A8 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 789A033F1E056EC9004AB0A8 /* libxml2.2.dylib */; };
+		789A03481E057C48004AB0A8 /* heart-white-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A03471E057C48004AB0A8 /* heart-white-full.png */; };
+		789A034A1E057C52004AB0A8 /* heart-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A03491E057C52004AB0A8 /* heart-white.png */; };
+		78A261041DE4F0BB00FB79BF /* SearchBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */; };
+		78A261061DE4F34000FB79BF /* SearchBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A261051DE4F34000FB79BF /* SearchBookCell.swift */; };
+		78A261081DE50C0B00FB79BF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78A261071DE50C0B00FB79BF /* DescriptionCell.xib */; };
+		78A2610A1DE513E300FB79BF /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A261091DE513E300FB79BF /* DescriptionCell.swift */; };
+		78DFCB561E1B1D95003326D8 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB551E1B1D95003326D8 /* delete.png */; };
+		78DFCB581E1B1DA6003326D8 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB571E1B1DA6003326D8 /* microphone.png */; };
+		78DFCB5A1E1B1DB6003326D8 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB591E1B1DB6003326D8 /* share.png */; };
+		78DFCB5C1E1B1E8B003326D8 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB5B1E1B1E8B003326D8 /* twitter.png */; };
+		78DFCB5E1E1B1E93003326D8 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB5D1E1B1E93003326D8 /* instagram.png */; };
+		78DFCB601E1B1E9F003326D8 /* powered_by_google_on_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB5F1E1B1E9F003326D8 /* powered_by_google_on_white.png */; };
+		78DFCB621E1B1EBE003326D8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB611E1B1EBE003326D8 /* back.png */; };
+		78DFCB641E1B1ECD003326D8 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB631E1B1ECD003326D8 /* facebook.png */; };
+		78DFCB661E1B1EDF003326D8 /* ic_book_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB651E1B1EDF003326D8 /* ic_book_white.png */; };
+		78DFCB681E1B1EEF003326D8 /* powered_by_google_on_non_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 78DFCB671E1B1EEF003326D8 /* powered_by_google_on_non_white.png */; };
+		78FDBE8F1DE0B360004345E4 /* BookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78FDBE8E1DE0B360004345E4 /* BookCell.xib */; };
+		78FDBE911DE0B374004345E4 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDBE901DE0B374004345E4 /* BooksView.swift */; };
+		78FDBE931DE0B39F004345E4 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FDBE921DE0B39F004345E4 /* BookCell.swift */; };
+		8611CD261DDF597D005FE9DB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8611CD251DDF597D005FE9DB /* CardView.swift */; };
+		8611CD281DDF62C9005FE9DB /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 8611CD271DDF62C9005FE9DB /* heart.png */; };
+		8611CD2A1DDF62DC005FE9DB /* shared.png in Resources */ = {isa = PBXBuildFile; fileRef = 8611CD291DDF62DC005FE9DB /* shared.png */; };
+		8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D21DE088D500BC4C17 /* HTMLNode.swift */; };
+		8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7D31DE088D500BC4C17 /* HTMLParser.swift */; };
+		8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613B7DA1DE0B72200BC4C17 /* Book.swift */; };
+		86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86184A751DDFC0C300559293 /* MondadoriParser.swift */; };
+		86351E751DDF140400185FB3 /* CellCustom.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86351E741DDF140400185FB3 /* CellCustom.xib */; };
+		8637ED591DDDBA0D00238833 /* instant_book_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8637ED571DDDBA0D00238833 /* instant_book_icon.png */; };
+		8637ED5A1DDDBA0D00238833 /* powered_by_google.png in Resources */ = {isa = PBXBuildFile; fileRef = 8637ED581DDDBA0D00238833 /* powered_by_google.png */; };
+		8637ED5C1DDDF76E00238833 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8637ED5B1DDDF76E00238833 /* Constants.swift */; };
+		863DC1601DDE1134008CB892 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863DC15F1DDE1134008CB892 /* Helpers.swift */; };
+		864301BA1DDD333D00E78810 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B61DDD333D00E78810 /* book.png */; };
+		864301BB1DDD333D00E78810 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B71DDD333D00E78810 /* dollar.png */; };
+		864301BC1DDD333D00E78810 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B81DDD333D00E78810 /* search.png */; };
+		864301BD1DDD333D00E78810 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301B91DDD333D00E78810 /* setting.png */; };
+		864301BF1DDD37DF00E78810 /* menu-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 864301BE1DDD37DF00E78810 /* menu-button.png */; };
+		864301C21DDD3CA900E78810 /* ImageRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864301C11DDD3CA900E78810 /* ImageRotation.swift */; };
+		86914D5E1DDD16230099C88A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86914D5D1DDD16230099C88A /* AppDelegate.swift */; };
+		86914D651DDD16230099C88A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86914D641DDD16230099C88A /* Images.xcassets */; };
+		86914D681DDD16230099C88A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86914D661DDD16230099C88A /* LaunchScreen.xib */; };
+		86914D741DDD16230099C88A /* InstabookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86914D731DDD16230099C88A /* InstabookTests.swift */; };
+		86914D801DDD176B0099C88A /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86914D7F1DDD176B0099C88A /* SWRevealViewController.m */; };
+		86914D821DDD1F1F0099C88A /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86914D811DDD1F1F0099C88A /* Menu.swift */; };
+		869CA9EC1DE753980072E736 /* heart-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 869CA9EB1DE753980072E736 /* heart-full.png */; };
+		869F305A1DDE7BA8003FD98B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 869F30581DDE7BA8003FD98B /* Main.storyboard */; };
+		86A14F481DE6463C00C01866 /* fulmine.png in Resources */ = {isa = PBXBuildFile; fileRef = 86A14F471DE6463C00C01866 /* fulmine.png */; };
+		86A14F4B1DE6469800C01866 /* GoogleBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A14F4A1DE6469800C01866 /* GoogleBook.swift */; };
+		86A27DFB1DE4FAFA00703DD7 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A27DFA1DE4FAFA00703DD7 /* Utils.swift */; };
+		86A68E961DDF20850041FD62 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A68E951DDF20850041FD62 /* MainPage.swift */; };
+		86A68E981DDF24680041FD62 /* CellCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A68E971DDF24680041FD62 /* CellCustom.swift */; };
+		B18C7467BD73EE2F93D4AB4A /* Pods_Instabook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08DA43CAAF60AF49CA22E7DC /* Pods_Instabook.framework */; };
+		FA8D69451E1C581E004BADC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8D69431E1C581E004BADC3 /* Localizable.strings */; };
+		FAA9D3521E1D426700FAF713 /* birra.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA9D3511E1D426700FAF713 /* birra.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86914D6E1DDD16230099C88A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86914D501DDD16220099C88A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86914D571DDD16220099C88A;
+			remoteInfo = Instabook;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08DA43CAAF60AF49CA22E7DC /* Pods_Instabook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instabook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43B15DE1E04D51B22884BF25 /* Pods-InstabookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstabookTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstabookTests/Pods-InstabookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4633B155EB1484D1A5DDF865 /* Pods-Instabook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instabook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instabook/Pods-Instabook.debug.xcconfig"; sourceTree = "<group>"; };
+		61635C2D79DD306B4218CADE /* Pods-InstabookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstabookTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstabookTests/Pods-InstabookTests.release.xcconfig"; sourceTree = "<group>"; };
+		7812D6FA1DF4BC490087522A /* MemoriaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoriaView.swift; sourceTree = "<group>"; };
+		78148B4D1DF07CCF0065E81A /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		78148B4F1DF0D6620065E81A /* gbs_preview_sticker1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gbs_preview_sticker1.png; path = ../../Image/gbs_preview_sticker1.png; sourceTree = "<group>"; };
+		78148B511DF0D9CE0065E81A /* star-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star-full.png"; path = "../../Image/star-full.png"; sourceTree = "<group>"; };
+		78148B521DF0D9CE0065E81A /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../Image/star.png; sourceTree = "<group>"; };
+		78148B551DF1D38E0065E81A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		78165B5F1DF8207E00E6C1F1 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		7816FC7F1DEE3B0700A32BAC /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		781B9F481DF5CF4B007D8166 /* carPlay_120pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carPlay_120pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F491DF5CF4B007D8166 /* iPad_100pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_100pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F4A1DF5CF4B007D8166 /* iPad_144pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_144pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F4B1DF5CF4B007D8166 /* iPad_152pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_152pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F4C1DF5CF4B007D8166 /* iPad_29pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_29pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F4D1DF5CF4B007D8166 /* iPad_40pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_40pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F4E1DF5CF4B007D8166 /* iPad_50pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_50pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F4F1DF5CF4B007D8166 /* iPad_58pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_58pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F501DF5CF4B007D8166 /* iPad_72pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_72pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F511DF5CF4B007D8166 /* iPad_76pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_76pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F521DF5CF4B007D8166 /* iPad_80pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPad_80pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F531DF5CF4B007D8166 /* iPadPro_167pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPadPro_167pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F541DF5CF4B007D8166 /* iPhone_114pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_114pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F551DF5CF4B007D8166 /* iPhone_120pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_120pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F561DF5CF4B007D8166 /* iPhone_120pt_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_120pt_@3x.png"; sourceTree = "<group>"; };
+		781B9F571DF5CF4B007D8166 /* iPhone_180pt_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_180pt_@3x.png"; sourceTree = "<group>"; };
+		781B9F581DF5CF4B007D8166 /* iPhone_29pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_29pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F591DF5CF4B007D8166 /* iPhone_40pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_40pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F5A1DF5CF4B007D8166 /* iPhone_57pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_57pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F5B1DF5CF4B007D8166 /* iPhone_58pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_58pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F5C1DF5CF4B007D8166 /* iPhone_60pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_60pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F5D1DF5CF4B007D8166 /* iPhone_80pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_80pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F5E1DF5CF4B007D8166 /* iPhone_87pt_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iPhone_87pt_@3x.png"; sourceTree = "<group>"; };
+		781B9F5F1DF5CF4B007D8166 /* iTunes_1024pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes_1024pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F601DF5CF4B007D8166 /* iTunes_512pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunes_512pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F611DF5CF4B007D8166 /* macOS_128pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "macOS_128pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F621DF5CF4B007D8166 /* macOS_16pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "macOS_16pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F631DF5CF4B007D8166 /* macOS_256pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "macOS_256pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F641DF5CF4B007D8166 /* macOS_32pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "macOS_32pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F651DF5CF4B007D8166 /* macOS_64pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "macOS_64pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F661DF5CF4B007D8166 /* watchOS_172pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_172pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F671DF5CF4B007D8166 /* watchOS_196pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_196pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F681DF5CF4B007D8166 /* watchOS_48pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_48pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F691DF5CF4B007D8166 /* watchOS_55pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_55pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F6A1DF5CF4B007D8166 /* watchOS_58pt_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_58pt_@2x.png"; sourceTree = "<group>"; };
+		781B9F6B1DF5CF4B007D8166 /* watchOS_80pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_80pt_@1x.png"; sourceTree = "<group>"; };
+		781B9F6C1DF5CF4B007D8166 /* watchOS_87pt_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_87pt_@3x.png"; sourceTree = "<group>"; };
+		781B9F6D1DF5CF4B007D8166 /* watchOS_88pt_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watchOS_88pt_@1x.png"; sourceTree = "<group>"; };
+		781BA37F1DF460DA0032EB21 /* LicenzaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenzaView.swift; sourceTree = "<group>"; };
+		782F285F1DED8B2B00EBD10F /* CacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		782F28601DED8B2B00EBD10F /* MySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySearch.swift; sourceTree = "<group>"; };
+		782F28641DEDF29C00EBD10F /* DatabaseRealtime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseRealtime.swift; sourceTree = "<group>"; };
+		7833C7D31DEC7DDB00C30528 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../Firebase/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7833ECE01DF707FB008073C7 /* share_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share_yellow.png; path = ../../Image/share_yellow.png; sourceTree = "<group>"; };
+		783420961DEB7E3400D4AFFC /* SettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		783420981DEB812300D4AFFC /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		7875E3ED1DE9E89C00C3D351 /* Books.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
+		78841D9B1DE78E9F005EFBFB /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		789134821DE1BF1F00FFCA75 /* SingleBookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleBookView.swift; sourceTree = "<group>"; };
+		789A033B1E056D86004AB0A8 /* MKSnackbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKSnackbar.swift; sourceTree = "<group>"; };
+		789A033D1E056DE7004AB0A8 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		789A033F1E056EC9004AB0A8 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = /usr/lib/libxml2.2.dylib; sourceTree = "<absolute>"; };
+		789A03471E057C48004AB0A8 /* heart-white-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-white-full.png"; path = "../../../../Downloads/Image/heart-white-full.png"; sourceTree = "<group>"; };
+		789A03491E057C52004AB0A8 /* heart-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-white.png"; path = "../../../../Downloads/Image/heart-white.png"; sourceTree = "<group>"; };
+		78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBookCell.xib; sourceTree = "<group>"; };
+		78A261051DE4F34000FB79BF /* SearchBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookCell.swift; sourceTree = "<group>"; };
+		78A261071DE50C0B00FB79BF /* DescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
+		78A261091DE513E300FB79BF /* DescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
+		78D97D0A1DE396BB00D68D70 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
+		78DFCB551E1B1D95003326D8 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete.png; path = ../../Image/delete.png; sourceTree = "<group>"; };
+		78DFCB571E1B1DA6003326D8 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = microphone.png; path = ../../Image/microphone.png; sourceTree = "<group>"; };
+		78DFCB591E1B1DB6003326D8 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share.png; path = ../../Image/share.png; sourceTree = "<group>"; };
+		78DFCB5B1E1B1E8B003326D8 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = twitter.png; path = ../../Image/twitter.png; sourceTree = "<group>"; };
+		78DFCB5D1E1B1E93003326D8 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = instagram.png; path = ../../Image/instagram.png; sourceTree = "<group>"; };
+		78DFCB5F1E1B1E9F003326D8 /* powered_by_google_on_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powered_by_google_on_white.png; path = ../../Image/powered_by_google_on_white.png; sourceTree = "<group>"; };
+		78DFCB611E1B1EBE003326D8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back.png; path = ../../Image/back.png; sourceTree = "<group>"; };
+		78DFCB631E1B1ECD003326D8 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../Image/facebook.png; sourceTree = "<group>"; };
+		78DFCB651E1B1EDF003326D8 /* ic_book_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_book_white.png; path = ../../Image/ic_book_white.png; sourceTree = "<group>"; };
+		78DFCB671E1B1EEF003326D8 /* powered_by_google_on_non_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = powered_by_google_on_non_white.png; path = ../../Image/powered_by_google_on_non_white.png; sourceTree = "<group>"; };
+		78FDBE8E1DE0B360004345E4 /* BookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCell.xib; sourceTree = "<group>"; };
+		78FDBE901DE0B374004345E4 /* BooksView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		78FDBE921DE0B39F004345E4 /* BookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		8611CD251DDF597D005FE9DB /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8611CD271DDF62C9005FE9DB /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		8611CD291DDF62DC005FE9DB /* shared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shared.png; sourceTree = "<group>"; };
+		8613B7D21DE088D500BC4C17 /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNode.swift; sourceTree = "<group>"; };
+		8613B7D31DE088D500BC4C17 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		8613B7D61DE088E700BC4C17 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
+		8613B7DA1DE0B72200BC4C17 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		86184A751DDFC0C300559293 /* MondadoriParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondadoriParser.swift; sourceTree = "<group>"; };
+		86351E741DDF140400185FB3 /* CellCustom.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellCustom.xib; sourceTree = "<group>"; };
+		8637ED571DDDBA0D00238833 /* instant_book_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instant_book_icon.png; sourceTree = "<group>"; };
+		8637ED581DDDBA0D00238833 /* powered_by_google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = powered_by_google.png; sourceTree = "<group>"; };
+		8637ED5B1DDDF76E00238833 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		863DC15F1DDE1134008CB892 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		864301B61DDD333D00E78810 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		864301B71DDD333D00E78810 /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		864301B81DDD333D00E78810 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		864301B91DDD333D00E78810 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
+		864301BE1DDD37DF00E78810 /* menu-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-button.png"; sourceTree = "<group>"; };
+		864301C11DDD3CA900E78810 /* ImageRotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRotation.swift; sourceTree = "<group>"; };
+		86914D581DDD16230099C88A /* Instabook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instabook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86914D5C1DDD16230099C88A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86914D5D1DDD16230099C88A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		86914D641DDD16230099C88A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		86914D671DDD16230099C88A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		86914D6D1DDD16230099C88A /* InstabookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstabookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86914D721DDD16230099C88A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86914D731DDD16230099C88A /* InstabookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstabookTests.swift; sourceTree = "<group>"; };
+		86914D7D1DDD176B0099C88A /* Instabook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Instabook-Bridging-Header.h"; sourceTree = "<group>"; };
+		86914D7E1DDD176B0099C88A /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		86914D7F1DDD176B0099C88A /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		86914D811DDD1F1F0099C88A /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		869CA9EB1DE753980072E736 /* heart-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-full.png"; path = "../../Image/heart-full.png"; sourceTree = "<group>"; };
+		869F30591DDE7BA8003FD98B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86A14F471DE6463C00C01866 /* fulmine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fulmine.png; path = ../../Image/fulmine.png; sourceTree = "<group>"; };
+		86A14F4A1DE6469800C01866 /* GoogleBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleBook.swift; sourceTree = "<group>"; };
+		86A27DFA1DE4FAFA00703DD7 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		86A68E951DDF20850041FD62 /* MainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
+		86A68E971DDF24680041FD62 /* CellCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCustom.swift; sourceTree = "<group>"; };
+		8944611E7FEE9BDC1C07D451 /* Pods-Instabook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instabook.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instabook/Pods-Instabook.release.xcconfig"; sourceTree = "<group>"; };
+		CB1B19B1E9B86F1732CF1611 /* Pods_InstabookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstabookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA8D693F1E1C5382004BADC3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D69401E1C5382004BADC3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D69411E1C538B004BADC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D69421E1C538B004BADC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D69441E1C581E004BADC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Instabook/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D69461E1C5867004BADC3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = Instabook/it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D69471E1C5897004BADC3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D69481E1C5897004BADC3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D69491E1C5897004BADC3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Instabook/es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D694A1E1C58C6004BADC3 /* fi-FI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fi-FI"; path = "fi-FI.lproj/Main.strings"; sourceTree = "<group>"; };
+		FA8D694B1E1C58C6004BADC3 /* fi-FI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fi-FI"; path = "fi-FI.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		FA8D694C1E1C58C6004BADC3 /* fi-FI */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fi-FI"; path = "Instabook/fi-FI.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FA8D694D1E1C5A8A004BADC3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D694E1E1C5A8A004BADC3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D694F1E1C5A8A004BADC3 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = Instabook/pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D69501E1C5AC2004BADC3 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "tr-TR.lproj/Main.strings"; sourceTree = "<group>"; };
+		FA8D69511E1C5AC3004BADC3 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "tr-TR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		FA8D69521E1C5AC3004BADC3 /* tr-TR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "tr-TR"; path = "Instabook/tr-TR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FA8D69531E1C5AED004BADC3 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D69541E1C5AED004BADC3 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = sr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D69551E1C5AED004BADC3 /* sr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sr; path = Instabook/sr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D69561E1C5CA1004BADC3 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/Main.strings; sourceTree = "<group>"; };
+		FA8D69571E1C5CA1004BADC3 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = zh.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA8D69581E1C5CA1004BADC3 /* zh */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = zh; path = Instabook/zh.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FA8D69591E1C5F0D004BADC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Instabook/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FAA9D3511E1D426700FAF713 /* birra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birra.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86914D551DDD16220099C88A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78148B561DF1D38E0065E81A /* StoreKit.framework in Frameworks */,
+				B18C7467BD73EE2F93D4AB4A /* Pods_Instabook.framework in Frameworks */,
+				789A03401E056EC9004AB0A8 /* libxml2.2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86914D6A1DDD16230099C88A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B8FCC2376413373AD1C581F /* Pods_InstabookTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		781B9F471DF5CF4B007D8166 /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				781B9F481DF5CF4B007D8166 /* carPlay_120pt_@1x.png */,
+				781B9F491DF5CF4B007D8166 /* iPad_100pt_@2x.png */,
+				781B9F4A1DF5CF4B007D8166 /* iPad_144pt_@2x.png */,
+				781B9F4B1DF5CF4B007D8166 /* iPad_152pt_@2x.png */,
+				781B9F4C1DF5CF4B007D8166 /* iPad_29pt_@1x.png */,
+				781B9F4D1DF5CF4B007D8166 /* iPad_40pt_@1x.png */,
+				781B9F4E1DF5CF4B007D8166 /* iPad_50pt_@1x.png */,
+				781B9F4F1DF5CF4B007D8166 /* iPad_58pt_@2x.png */,
+				781B9F501DF5CF4B007D8166 /* iPad_72pt_@1x.png */,
+				781B9F511DF5CF4B007D8166 /* iPad_76pt_@1x.png */,
+				781B9F521DF5CF4B007D8166 /* iPad_80pt_@2x.png */,
+				781B9F531DF5CF4B007D8166 /* iPadPro_167pt_@2x.png */,
+				781B9F541DF5CF4B007D8166 /* iPhone_114pt_@2x.png */,
+				781B9F551DF5CF4B007D8166 /* iPhone_120pt_@2x.png */,
+				781B9F561DF5CF4B007D8166 /* iPhone_120pt_@3x.png */,
+				781B9F571DF5CF4B007D8166 /* iPhone_180pt_@3x.png */,
+				781B9F581DF5CF4B007D8166 /* iPhone_29pt_@1x.png */,
+				781B9F591DF5CF4B007D8166 /* iPhone_40pt_@1x.png */,
+				781B9F5A1DF5CF4B007D8166 /* iPhone_57pt_@1x.png */,
+				781B9F5B1DF5CF4B007D8166 /* iPhone_58pt_@2x.png */,
+				781B9F5C1DF5CF4B007D8166 /* iPhone_60pt_@1x.png */,
+				781B9F5D1DF5CF4B007D8166 /* iPhone_80pt_@2x.png */,
+				781B9F5E1DF5CF4B007D8166 /* iPhone_87pt_@3x.png */,
+				781B9F5F1DF5CF4B007D8166 /* iTunes_1024pt_@2x.png */,
+				781B9F601DF5CF4B007D8166 /* iTunes_512pt_@1x.png */,
+				781B9F611DF5CF4B007D8166 /* macOS_128pt_@1x.png */,
+				781B9F621DF5CF4B007D8166 /* macOS_16pt_@1x.png */,
+				781B9F631DF5CF4B007D8166 /* macOS_256pt_@1x.png */,
+				781B9F641DF5CF4B007D8166 /* macOS_32pt_@1x.png */,
+				781B9F651DF5CF4B007D8166 /* macOS_64pt_@1x.png */,
+				781B9F661DF5CF4B007D8166 /* watchOS_172pt_@1x.png */,
+				781B9F671DF5CF4B007D8166 /* watchOS_196pt_@1x.png */,
+				781B9F681DF5CF4B007D8166 /* watchOS_48pt_@1x.png */,
+				781B9F691DF5CF4B007D8166 /* watchOS_55pt_@1x.png */,
+				781B9F6A1DF5CF4B007D8166 /* watchOS_58pt_@2x.png */,
+				781B9F6B1DF5CF4B007D8166 /* watchOS_80pt_@1x.png */,
+				781B9F6C1DF5CF4B007D8166 /* watchOS_87pt_@3x.png */,
+				781B9F6D1DF5CF4B007D8166 /* watchOS_88pt_@1x.png */,
+			);
+			name = icon;
+			path = ../../Image/icon;
+			sourceTree = "<group>";
+		};
+		782F285E1DED8AFE00EBD10F /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				782F285F1DED8B2B00EBD10F /* CacheManager.swift */,
+				782F28601DED8B2B00EBD10F /* MySearch.swift */,
+			);
+			name = CacheManager;
+			sourceTree = "<group>";
+		};
+		782F28631DEDF28700EBD10F /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				782F28641DEDF29C00EBD10F /* DatabaseRealtime.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		8613B7D91DE0B71300BC4C17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8613B7DA1DE0B72200BC4C17 /* Book.swift */,
+				7875E3ED1DE9E89C00C3D351 /* Books.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		86184A741DDFC08A00559293 /* Mondadori */ = {
+			isa = PBXGroup;
+			children = (
+				86184A751DDFC0C300559293 /* MondadoriParser.swift */,
+			);
+			name = Mondadori;
+			sourceTree = "<group>";
+		};
+		86184A791DDFCB0100559293 /* HTMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				8613B7D21DE088D500BC4C17 /* HTMLNode.swift */,
+				8613B7D31DE088D500BC4C17 /* HTMLParser.swift */,
+			);
+			name = HTMLParser;
+			sourceTree = "<group>";
+		};
+		86351E731DDF13DC00185FB3 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				86351E741DDF140400185FB3 /* CellCustom.xib */,
+				86A68E971DDF24680041FD62 /* CellCustom.swift */,
+				8611CD251DDF597D005FE9DB /* CardView.swift */,
+				78FDBE921DE0B39F004345E4 /* BookCell.swift */,
+				78A261091DE513E300FB79BF /* DescriptionCell.swift */,
+				783420981DEB812300D4AFFC /* SettingsCell.swift */,
+				78A261051DE4F34000FB79BF /* SearchBookCell.swift */,
+				78FDBE8E1DE0B360004345E4 /* BookCell.xib */,
+				78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */,
+				78A261071DE50C0B00FB79BF /* DescriptionCell.xib */,
+				783420961DEB7E3400D4AFFC /* SettingsCell.xib */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
+		864301B51DDD332E00E78810 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				7833ECE01DF707FB008073C7 /* share_yellow.png */,
+				781B9F471DF5CF4B007D8166 /* icon */,
+				78148B511DF0D9CE0065E81A /* star-full.png */,
+				78148B521DF0D9CE0065E81A /* star.png */,
+				78148B4F1DF0D6620065E81A /* gbs_preview_sticker1.png */,
+				869CA9EB1DE753980072E736 /* heart-full.png */,
+				78DFCB671E1B1EEF003326D8 /* powered_by_google_on_non_white.png */,
+				78DFCB551E1B1D95003326D8 /* delete.png */,
+				78DFCB651E1B1EDF003326D8 /* ic_book_white.png */,
+				78DFCB631E1B1ECD003326D8 /* facebook.png */,
+				78DFCB611E1B1EBE003326D8 /* back.png */,
+				86A14F471DE6463C00C01866 /* fulmine.png */,
+				8611CD291DDF62DC005FE9DB /* shared.png */,
+				78DFCB5F1E1B1E9F003326D8 /* powered_by_google_on_white.png */,
+				789A03491E057C52004AB0A8 /* heart-white.png */,
+				78DFCB5D1E1B1E93003326D8 /* instagram.png */,
+				789A03471E057C48004AB0A8 /* heart-white-full.png */,
+				8611CD271DDF62C9005FE9DB /* heart.png */,
+				8637ED571DDDBA0D00238833 /* instant_book_icon.png */,
+				8637ED581DDDBA0D00238833 /* powered_by_google.png */,
+				78DFCB5B1E1B1E8B003326D8 /* twitter.png */,
+				864301BE1DDD37DF00E78810 /* menu-button.png */,
+				78DFCB571E1B1DA6003326D8 /* microphone.png */,
+				78DFCB591E1B1DB6003326D8 /* share.png */,
+				864301B61DDD333D00E78810 /* book.png */,
+				864301B71DDD333D00E78810 /* dollar.png */,
+				864301B81DDD333D00E78810 /* search.png */,
+				864301B91DDD333D00E78810 /* setting.png */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		864301C01DDD3C9100E78810 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAA9D3511E1D426700FAF713 /* birra.png */,
+				864301C11DDD3CA900E78810 /* ImageRotation.swift */,
+				78841D9B1DE78E9F005EFBFB /* Data.swift */,
+				8637ED5B1DDDF76E00238833 /* Constants.swift */,
+				863DC15F1DDE1134008CB892 /* Helpers.swift */,
+				86A27DFA1DE4FAFA00703DD7 /* Utils.swift */,
+				78148B4D1DF07CCF0065E81A /* LoadingView.swift */,
+				78165B5F1DF8207E00E6C1F1 /* Reachability.swift */,
+				789A033B1E056D86004AB0A8 /* MKSnackbar.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		86914D4F1DDD16220099C88A = {
+			isa = PBXGroup;
+			children = (
+				789A033F1E056EC9004AB0A8 /* libxml2.2.dylib */,
+				7833C7D31DEC7DDB00C30528 /* GoogleService-Info.plist */,
+				78D97D0A1DE396BB00D68D70 /* Swift-HTML-Parser-Bridging-Header.h */,
+				86914D5A1DDD16230099C88A /* Instabook */,
+				86914D701DDD16230099C88A /* InstabookTests */,
+				86914D591DDD16230099C88A /* Products */,
+				C6A78208FCF3A32CB0084649 /* Pods */,
+				C0B01228F84D8DA860850238 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		86914D591DDD16230099C88A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86914D581DDD16230099C88A /* Instabook.app */,
+				86914D6D1DDD16230099C88A /* InstabookTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86914D5A1DDD16230099C88A /* Instabook */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D695A1E1C6C83004BADC3 /* Resources */,
+				86351E731DDF13DC00185FB3 /* CustomView */,
+				782F28631DEDF28700EBD10F /* Firebase */,
+				782F285E1DED8AFE00EBD10F /* CacheManager */,
+				86A14F491DE6468300C01866 /* GoogleBook */,
+				8613B7D91DE0B71300BC4C17 /* Model */,
+				86184A791DDFCB0100559293 /* HTMLParser */,
+				86184A741DDFC08A00559293 /* Mondadori */,
+				869F30581DDE7BA8003FD98B /* Main.storyboard */,
+				864301C01DDD3C9100E78810 /* Utils */,
+				864301B51DDD332E00E78810 /* Image */,
+				86914D5D1DDD16230099C88A /* AppDelegate.swift */,
+				7812D6FA1DF4BC490087522A /* MemoriaView.swift */,
+				78FDBE901DE0B374004345E4 /* BooksView.swift */,
+				7816FC7F1DEE3B0700A32BAC /* WebViewController.swift */,
+				781BA37F1DF460DA0032EB21 /* LicenzaView.swift */,
+				86914D811DDD1F1F0099C88A /* Menu.swift */,
+				86914D641DDD16230099C88A /* Images.xcassets */,
+				86914D661DDD16230099C88A /* LaunchScreen.xib */,
+				86914D5B1DDD16230099C88A /* Supporting Files */,
+				86A68E951DDF20850041FD62 /* MainPage.swift */,
+				789134821DE1BF1F00FFCA75 /* SingleBookView.swift */,
+			);
+			path = Instabook;
+			sourceTree = "<group>";
+		};
+		86914D5B1DDD16230099C88A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8613B7D61DE088E700BC4C17 /* Swift-HTML-Parser-Bridging-Header.h */,
+				86914D7E1DDD176B0099C88A /* SWRevealViewController.h */,
+				86914D7F1DDD176B0099C88A /* SWRevealViewController.m */,
+				86914D5C1DDD16230099C88A /* Info.plist */,
+				86914D7D1DDD176B0099C88A /* Instabook-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86914D701DDD16230099C88A /* InstabookTests */ = {
+			isa = PBXGroup;
+			children = (
+				86914D731DDD16230099C88A /* InstabookTests.swift */,
+				86914D711DDD16230099C88A /* Supporting Files */,
+			);
+			path = InstabookTests;
+			sourceTree = "<group>";
+		};
+		86914D711DDD16230099C88A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86914D721DDD16230099C88A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86A14F491DE6468300C01866 /* GoogleBook */ = {
+			isa = PBXGroup;
+			children = (
+				86A14F4A1DE6469800C01866 /* GoogleBook.swift */,
+			);
+			name = GoogleBook;
+			sourceTree = "<group>";
+		};
+		C0B01228F84D8DA860850238 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				789A033D1E056DE7004AB0A8 /* libxml2.2.tbd */,
+				78148B551DF1D38E0065E81A /* StoreKit.framework */,
+				08DA43CAAF60AF49CA22E7DC /* Pods_Instabook.framework */,
+				CB1B19B1E9B86F1732CF1611 /* Pods_InstabookTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6A78208FCF3A32CB0084649 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4633B155EB1484D1A5DDF865 /* Pods-Instabook.debug.xcconfig */,
+				8944611E7FEE9BDC1C07D451 /* Pods-Instabook.release.xcconfig */,
+				43B15DE1E04D51B22884BF25 /* Pods-InstabookTests.debug.xcconfig */,
+				61635C2D79DD306B4218CADE /* Pods-InstabookTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA8D695A1E1C6C83004BADC3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA8D69431E1C581E004BADC3 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		86914D571DDD16220099C88A /* Instabook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86914D771DDD16230099C88A /* Build configuration list for PBXNativeTarget "Instabook" */;
+			buildPhases = (
+				298AAE01044F6D1A9D47ACC0 /* 📦 Check Pods Manifest.lock */,
+				86914D541DDD16220099C88A /* Sources */,
+				86914D551DDD16220099C88A /* Frameworks */,
+				86914D561DDD16220099C88A /* Resources */,
+				B09ACCCFB15D2F442BBC6BFE /* 📦 Embed Pods Frameworks */,
+				D3BAC799E190605CCD40BE50 /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Instabook;
+			productName = Instabook;
+			productReference = 86914D581DDD16230099C88A /* Instabook.app */;
+			productType = "com.apple.product-type.application";
+		};
+		86914D6C1DDD16230099C88A /* InstabookTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86914D7A1DDD16230099C88A /* Build configuration list for PBXNativeTarget "InstabookTests" */;
+			buildPhases = (
+				B76FC57A6C996BC3EE5378D9 /* 📦 Check Pods Manifest.lock */,
+				86914D691DDD16230099C88A /* Sources */,
+				86914D6A1DDD16230099C88A /* Frameworks */,
+				86914D6B1DDD16230099C88A /* Resources */,
+				BB1F1B47ABEC5445D2D49CB1 /* 📦 Embed Pods Frameworks */,
+				EB0999553B09D22E901F0F4C /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86914D6F1DDD16230099C88A /* PBXTargetDependency */,
+			);
+			name = InstabookTests;
+			productName = InstabookTests;
+			productReference = 86914D6D1DDD16230099C88A /* InstabookTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86914D501DDD16220099C88A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = instabook;
+				TargetAttributes = {
+					86914D571DDD16220099C88A = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8Y5K8UGM9Q;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+					86914D6C1DDD16230099C88A = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 86914D571DDD16220099C88A;
+					};
+				};
+			};
+			buildConfigurationList = 86914D531DDD16220099C88A /* Build configuration list for PBXProject "Instabook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				fr,
+				it,
+				es,
+				"fi-FI",
+				pt,
+				"tr-TR",
+				sr,
+				zh,
+			);
+			mainGroup = 86914D4F1DDD16220099C88A;
+			productRefGroup = 86914D591DDD16230099C88A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86914D571DDD16220099C88A /* Instabook */,
+				86914D6C1DDD16230099C88A /* InstabookTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86914D561DDD16220099C88A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				781B9F8A1DF5CF4B007D8166 /* macOS_32pt_@1x.png in Resources */,
+				781B9F8F1DF5CF4B007D8166 /* watchOS_55pt_@1x.png in Resources */,
+				781B9F901DF5CF4B007D8166 /* watchOS_58pt_@2x.png in Resources */,
+				78DFCB561E1B1D95003326D8 /* delete.png in Resources */,
+				781B9F8E1DF5CF4B007D8166 /* watchOS_48pt_@1x.png in Resources */,
+				8611CD2A1DDF62DC005FE9DB /* shared.png in Resources */,
+				781B9F931DF5CF4B007D8166 /* watchOS_88pt_@1x.png in Resources */,
+				78DFCB5A1E1B1DB6003326D8 /* share.png in Resources */,
+				781B9F891DF5CF4B007D8166 /* macOS_256pt_@1x.png in Resources */,
+				781B9F811DF5CF4B007D8166 /* iPhone_58pt_@2x.png in Resources */,
+				78DFCB621E1B1EBE003326D8 /* back.png in Resources */,
+				78DFCB681E1B1EEF003326D8 /* powered_by_google_on_non_white.png in Resources */,
+				78148B541DF0D9CE0065E81A /* star.png in Resources */,
+				78DFCB5C1E1B1E8B003326D8 /* twitter.png in Resources */,
+				FA8D69451E1C581E004BADC3 /* Localizable.strings in Resources */,
+				783420971DEB7E3400D4AFFC /* SettingsCell.xib in Resources */,
+				781B9F911DF5CF4B007D8166 /* watchOS_80pt_@1x.png in Resources */,
+				864301BF1DDD37DF00E78810 /* menu-button.png in Resources */,
+				869F305A1DDE7BA8003FD98B /* Main.storyboard in Resources */,
+				781B9F711DF5CF4B007D8166 /* iPad_152pt_@2x.png in Resources */,
+				864301BC1DDD333D00E78810 /* search.png in Resources */,
+				86351E751DDF140400185FB3 /* CellCustom.xib in Resources */,
+				781B9F8B1DF5CF4B007D8166 /* macOS_64pt_@1x.png in Resources */,
+				789A03481E057C48004AB0A8 /* heart-white-full.png in Resources */,
+				781B9F7D1DF5CF4B007D8166 /* iPhone_180pt_@3x.png in Resources */,
+				781B9F761DF5CF4B007D8166 /* iPad_72pt_@1x.png in Resources */,
+				781B9F741DF5CF4B007D8166 /* iPad_50pt_@1x.png in Resources */,
+				781B9F7C1DF5CF4B007D8166 /* iPhone_120pt_@3x.png in Resources */,
+				781B9F8D1DF5CF4B007D8166 /* watchOS_196pt_@1x.png in Resources */,
+				8611CD281DDF62C9005FE9DB /* heart.png in Resources */,
+				781B9F6F1DF5CF4B007D8166 /* iPad_100pt_@2x.png in Resources */,
+				781B9F751DF5CF4B007D8166 /* iPad_58pt_@2x.png in Resources */,
+				FAA9D3521E1D426700FAF713 /* birra.png in Resources */,
+				78148B501DF0D6620065E81A /* gbs_preview_sticker1.png in Resources */,
+				781B9F871DF5CF4B007D8166 /* macOS_128pt_@1x.png in Resources */,
+				781B9F801DF5CF4B007D8166 /* iPhone_57pt_@1x.png in Resources */,
+				781B9F831DF5CF4B007D8166 /* iPhone_80pt_@2x.png in Resources */,
+				781B9F921DF5CF4B007D8166 /* watchOS_87pt_@3x.png in Resources */,
+				86A14F481DE6463C00C01866 /* fulmine.png in Resources */,
+				781B9F771DF5CF4B007D8166 /* iPad_76pt_@1x.png in Resources */,
+				781B9F731DF5CF4B007D8166 /* iPad_40pt_@1x.png in Resources */,
+				7833ECE11DF707FB008073C7 /* share_yellow.png in Resources */,
+				78DFCB581E1B1DA6003326D8 /* microphone.png in Resources */,
+				86914D681DDD16230099C88A /* LaunchScreen.xib in Resources */,
+				78DFCB601E1B1E9F003326D8 /* powered_by_google_on_white.png in Resources */,
+				864301BD1DDD333D00E78810 /* setting.png in Resources */,
+				78A261081DE50C0B00FB79BF /* DescriptionCell.xib in Resources */,
+				781B9F821DF5CF4B007D8166 /* iPhone_60pt_@1x.png in Resources */,
+				78148B531DF0D9CE0065E81A /* star-full.png in Resources */,
+				869CA9EC1DE753980072E736 /* heart-full.png in Resources */,
+				781B9F7A1DF5CF4B007D8166 /* iPhone_114pt_@2x.png in Resources */,
+				864301BA1DDD333D00E78810 /* book.png in Resources */,
+				78A261041DE4F0BB00FB79BF /* SearchBookCell.xib in Resources */,
+				86914D651DDD16230099C88A /* Images.xcassets in Resources */,
+				781B9F701DF5CF4B007D8166 /* iPad_144pt_@2x.png in Resources */,
+				781B9F791DF5CF4B007D8166 /* iPadPro_167pt_@2x.png in Resources */,
+				781B9F861DF5CF4B007D8166 /* iTunes_512pt_@1x.png in Resources */,
+				78DFCB5E1E1B1E93003326D8 /* instagram.png in Resources */,
+				789A034A1E057C52004AB0A8 /* heart-white.png in Resources */,
+				781B9F841DF5CF4B007D8166 /* iPhone_87pt_@3x.png in Resources */,
+				8637ED591DDDBA0D00238833 /* instant_book_icon.png in Resources */,
+				8637ED5A1DDDBA0D00238833 /* powered_by_google.png in Resources */,
+				781B9F851DF5CF4B007D8166 /* iTunes_1024pt_@2x.png in Resources */,
+				781B9F881DF5CF4B007D8166 /* macOS_16pt_@1x.png in Resources */,
+				781B9F7B1DF5CF4B007D8166 /* iPhone_120pt_@2x.png in Resources */,
+				7833C7D41DEC7DDB00C30528 /* GoogleService-Info.plist in Resources */,
+				78FDBE8F1DE0B360004345E4 /* BookCell.xib in Resources */,
+				78DFCB661E1B1EDF003326D8 /* ic_book_white.png in Resources */,
+				781B9F7F1DF5CF4B007D8166 /* iPhone_40pt_@1x.png in Resources */,
+				78DFCB641E1B1ECD003326D8 /* facebook.png in Resources */,
+				781B9F7E1DF5CF4B007D8166 /* iPhone_29pt_@1x.png in Resources */,
+				864301BB1DDD333D00E78810 /* dollar.png in Resources */,
+				781B9F6E1DF5CF4B007D8166 /* carPlay_120pt_@1x.png in Resources */,
+				781B9F781DF5CF4B007D8166 /* iPad_80pt_@2x.png in Resources */,
+				781B9F721DF5CF4B007D8166 /* iPad_29pt_@1x.png in Resources */,
+				781B9F8C1DF5CF4B007D8166 /* watchOS_172pt_@1x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86914D6B1DDD16230099C88A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		298AAE01044F6D1A9D47ACC0 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B09ACCCFB15D2F442BBC6BFE /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instabook/Pods-Instabook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B76FC57A6C996BC3EE5378D9 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB1F1B47ABEC5445D2D49CB1 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstabookTests/Pods-InstabookTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3BAC799E190605CCD40BE50 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instabook/Pods-Instabook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB0999553B09D22E901F0F4C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstabookTests/Pods-InstabookTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		86914D541DDD16220099C88A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				782F28611DED8B2B00EBD10F /* CacheManager.swift in Sources */,
+				782F28621DED8B2B00EBD10F /* MySearch.swift in Sources */,
+				78FDBE931DE0B39F004345E4 /* BookCell.swift in Sources */,
+				864301C21DDD3CA900E78810 /* ImageRotation.swift in Sources */,
+				78148B4E1DF07CCF0065E81A /* LoadingView.swift in Sources */,
+				863DC1601DDE1134008CB892 /* Helpers.swift in Sources */,
+				782F28651DEDF29C00EBD10F /* DatabaseRealtime.swift in Sources */,
+				8613B7DB1DE0B72200BC4C17 /* Book.swift in Sources */,
+				789A033C1E056D86004AB0A8 /* MKSnackbar.swift in Sources */,
+				86A14F4B1DE6469800C01866 /* GoogleBook.swift in Sources */,
+				78FDBE911DE0B374004345E4 /* BooksView.swift in Sources */,
+				86A68E961DDF20850041FD62 /* MainPage.swift in Sources */,
+				781BA3801DF460DA0032EB21 /* LicenzaView.swift in Sources */,
+				78A2610A1DE513E300FB79BF /* DescriptionCell.swift in Sources */,
+				7816FC801DEE3B0700A32BAC /* WebViewController.swift in Sources */,
+				86A27DFB1DE4FAFA00703DD7 /* Utils.swift in Sources */,
+				8611CD261DDF597D005FE9DB /* CardView.swift in Sources */,
+				7875E3EE1DE9E89C00C3D351 /* Books.swift in Sources */,
+				789134831DE1BF1F00FFCA75 /* SingleBookView.swift in Sources */,
+				783420991DEB812300D4AFFC /* SettingsCell.swift in Sources */,
+				86914D5E1DDD16230099C88A /* AppDelegate.swift in Sources */,
+				86184A761DDFC0C300559293 /* MondadoriParser.swift in Sources */,
+				86914D821DDD1F1F0099C88A /* Menu.swift in Sources */,
+				78841D9C1DE78E9F005EFBFB /* Data.swift in Sources */,
+				8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */,
+				86914D801DDD176B0099C88A /* SWRevealViewController.m in Sources */,
+				78A261061DE4F34000FB79BF /* SearchBookCell.swift in Sources */,
+				8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */,
+				86A68E981DDF24680041FD62 /* CellCustom.swift in Sources */,
+				7812D6FB1DF4BC490087522A /* MemoriaView.swift in Sources */,
+				78165B601DF8207E00E6C1F1 /* Reachability.swift in Sources */,
+				8637ED5C1DDDF76E00238833 /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86914D691DDD16230099C88A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86914D741DDD16230099C88A /* InstabookTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86914D6F1DDD16230099C88A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86914D571DDD16220099C88A /* Instabook */;
+			targetProxy = 86914D6E1DDD16230099C88A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		86914D661DDD16230099C88A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86914D671DDD16230099C88A /* Base */,
+				FA8D69401E1C5382004BADC3 /* it */,
+				FA8D69421E1C538B004BADC3 /* fr */,
+				FA8D69481E1C5897004BADC3 /* es */,
+				FA8D694B1E1C58C6004BADC3 /* fi-FI */,
+				FA8D694E1E1C5A8A004BADC3 /* pt */,
+				FA8D69511E1C5AC3004BADC3 /* tr-TR */,
+				FA8D69541E1C5AED004BADC3 /* sr */,
+				FA8D69571E1C5CA1004BADC3 /* zh */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		869F30581DDE7BA8003FD98B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				869F30591DDE7BA8003FD98B /* Base */,
+				FA8D693F1E1C5382004BADC3 /* it */,
+				FA8D69411E1C538B004BADC3 /* fr */,
+				FA8D69471E1C5897004BADC3 /* es */,
+				FA8D694A1E1C58C6004BADC3 /* fi-FI */,
+				FA8D694D1E1C5A8A004BADC3 /* pt */,
+				FA8D69501E1C5AC2004BADC3 /* tr-TR */,
+				FA8D69531E1C5AED004BADC3 /* sr */,
+				FA8D69561E1C5CA1004BADC3 /* zh */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA8D69431E1C581E004BADC3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA8D69441E1C581E004BADC3 /* fr */,
+				FA8D69461E1C5867004BADC3 /* it */,
+				FA8D69491E1C5897004BADC3 /* es */,
+				FA8D694C1E1C58C6004BADC3 /* fi-FI */,
+				FA8D694F1E1C5A8A004BADC3 /* pt */,
+				FA8D69521E1C5AC3004BADC3 /* tr-TR */,
+				FA8D69551E1C5AED004BADC3 /* sr */,
+				FA8D69581E1C5CA1004BADC3 /* zh */,
+				FA8D69591E1C5F0D004BADC3 /* Base */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		86914D751DDD16230099C88A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		86914D761DDD16230099C88A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		86914D781DDD16230099C88A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4633B155EB1484D1A5DDF865 /* Pods-Instabook.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = Instabook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[arch=*]" = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arandroid.instabook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Instabook/Instabook-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		86914D791DDD16230099C88A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8944611E7FEE9BDC1C07D451 /* Pods-Instabook.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/Google-Mobile-Ads-SDK\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleInterchangeUtilities\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSymbolUtilities\"",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				INFOPLIST_FILE = Instabook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arandroid.instabook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Instabook/Instabook-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		86914D7B1DDD16230099C88A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43B15DE1E04D51B22884BF25 /* Pods-InstabookTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InstabookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "instabook.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instabook.app/Instabook";
+			};
+			name = Debug;
+		};
+		86914D7C1DDD16230099C88A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61635C2D79DD306B4218CADE /* Pods-InstabookTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = InstabookTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "instabook.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Instabook.app/Instabook";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86914D531DDD16220099C88A /* Build configuration list for PBXProject "Instabook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86914D751DDD16230099C88A /* Debug */,
+				86914D761DDD16230099C88A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86914D771DDD16230099C88A /* Build configuration list for PBXNativeTarget "Instabook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86914D781DDD16230099C88A /* Debug */,
+				86914D791DDD16230099C88A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86914D7A1DDD16230099C88A /* Build configuration list for PBXNativeTarget "InstabookTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86914D7B1DDD16230099C88A /* Debug */,
+				86914D7C1DDD16230099C88A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86914D501DDD16220099C88A /* Project object */;
+}

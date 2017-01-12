@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="164" id="bYr-wa-f19" userLabel="Settings Cell" customClass="SettingsCell" customModule="Instabook" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="549" height="164"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bYr-wa-f19" id="aGg-P0-LVY">
+                <rect key="frame" x="0.0" y="0.0" width="549" height="163.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tipologia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EkP-gr-ow5">
+                        <rect key="frame" x="21" y="30" width="520" height="46"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="46" id="TX4-bY-4YF"/>
+                            <constraint firstAttribute="width" constant="520" id="vnO-fn-MYg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.85292159369999998" blue="0.01281362313" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-Ag-1tX">
+                        <rect key="frame" x="21" y="84" width="426" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="426" id="6pg-yD-WKd"/>
+                            <constraint firstAttribute="height" constant="24" id="W4R-An-orx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descrizione" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQZ-TF-lbV">
+                        <rect key="frame" x="21" y="116" width="426" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="426" id="HZ4-TR-jzq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kz7-IA-Ktv">
+                        <rect key="frame" x="494" y="102" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="LU2-fq-m79"/>
+                            <constraint firstAttribute="width" constant="32" id="qQM-Jx-5J3"/>
+                        </constraints>
+                    </imageView>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bO4-t0-MFP">
+                        <rect key="frame" x="479" y="102" width="51" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="31" id="7hP-c0-EgT"/>
+                            <constraint firstAttribute="width" constant="49" id="bIH-Xe-l7b"/>
+                        </constraints>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="bO4-t0-MFP" secondAttribute="trailing" constant="13" id="7cK-sc-ChX"/>
+                    <constraint firstItem="bO4-t0-MFP" firstAttribute="leading" secondItem="oQZ-TF-lbV" secondAttribute="trailing" constant="32" id="9Em-rw-H6J"/>
+                    <constraint firstItem="EkP-gr-ow5" firstAttribute="leading" secondItem="aGg-P0-LVY" secondAttribute="leadingMargin" constant="13" id="Bf9-z4-5zU"/>
+                    <constraint firstItem="bO4-t0-MFP" firstAttribute="centerY" secondItem="Kz7-IA-Ktv" secondAttribute="centerY" constant="-0.5" id="CHb-qG-9Y9"/>
+                    <constraint firstItem="Kz7-IA-Ktv" firstAttribute="top" secondItem="gzc-Ag-1tX" secondAttribute="bottom" constant="-6" id="IEf-DK-mkh"/>
+                    <constraint firstItem="oQZ-TF-lbV" firstAttribute="top" secondItem="gzc-Ag-1tX" secondAttribute="bottom" constant="8" id="KzV-th-Fo0"/>
+                    <constraint firstItem="gzc-Ag-1tX" firstAttribute="top" secondItem="EkP-gr-ow5" secondAttribute="bottom" constant="8" id="MQR-Hp-gdR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="oQZ-TF-lbV" secondAttribute="bottom" constant="24" id="Q0n-xC-oHT"/>
+                    <constraint firstItem="bO4-t0-MFP" firstAttribute="leading" secondItem="gzc-Ag-1tX" secondAttribute="trailing" constant="32" id="RIA-EN-6ye"/>
+                    <constraint firstItem="EkP-gr-ow5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aGg-P0-LVY" secondAttribute="topMargin" constant="1" id="SyO-kT-fQJ"/>
+                    <constraint firstItem="Kz7-IA-Ktv" firstAttribute="leading" secondItem="oQZ-TF-lbV" secondAttribute="trailing" constant="47" id="TfF-sY-Wqm"/>
+                    <constraint firstItem="gzc-Ag-1tX" firstAttribute="leading" secondItem="aGg-P0-LVY" secondAttribute="leadingMargin" constant="13" id="bum-1q-UBx"/>
+                    <constraint firstItem="oQZ-TF-lbV" firstAttribute="leading" secondItem="aGg-P0-LVY" secondAttribute="leadingMargin" constant="13" id="cai-d7-fwf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EkP-gr-ow5" secondAttribute="trailing" id="vBn-PE-vZV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descrizione" destination="oQZ-TF-lbV" id="gaW-8D-9ad"/>
+                <outlet property="socialButton" destination="Kz7-IA-Ktv" id="tHZ-yb-5dE"/>
+                <outlet property="switchButton" destination="bO4-t0-MFP" id="2Ze-FW-XNF"/>
+                <outlet property="tipologia" destination="EkP-gr-ow5" id="osL-ed-KgP"/>
+                <outlet property="titolo" destination="gzc-Ag-1tX" id="GiA-kn-66V"/>
+            </connections>
+            <point key="canvasLocation" x="323.5" y="91"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="facebook.png" width="32" height="32"/>
+    </resources>
+</document>
