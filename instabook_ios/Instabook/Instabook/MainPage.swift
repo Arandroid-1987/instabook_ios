@@ -34,10 +34,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
 
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        bookArray = cacheManager.getMondadoriBooks()
-        if(bookArray.count == 0){
         loadNews()
-        }
         self.tableView.reloadData()
     }
     
@@ -68,9 +65,11 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
        
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainPage.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainPage.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainPage.reloadNews(_:)), name: Constants.RELOAD_NEWS_NOTIFICATION_NAME, object: nil);
+
         
         self.citazioneTextView.layer.borderColor = Constants.myColor.CGColor
         self.citazioneTextView.layer.borderWidth = 1.0
@@ -90,12 +89,6 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         placeHolder.addAttribute(NSForegroundColorAttributeName, value: UIColor.lightGrayColor(), range:NSRange(location:0,length:Name.characters.count))
         autoreTextField.attributedPlaceholder = placeHolder
         
-        
-        
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainPage.keyboardWillShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainPage.keyboardWillHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
 
         self.tableView.registerNib(UINib(nibName: "CellCustom", bundle: nil), forCellReuseIdentifier: "rowTable");
         //self.tableView.rowHeight = 250;
@@ -411,18 +404,20 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             let dateFormatter:NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
 
-            if(self.cacheManager.getMondadoriLastDateUpdate() == "" || self.cacheManager.getMondadoriLastDateUpdate() != dateFormatter.stringFromDate(todaysDate))
+            if(self.cacheManager.getLastDateUpdate() == "" || self.cacheManager.getLastDateUpdate() != dateFormatter.stringFromDate(todaysDate))
             {
                 self.cacheManager.deleteNews();
                 self.cacheManager.storeTheNextPageCachedMondadori(Constants.NEWS);
-                let mondadoriParserNews = MondadoriParser();
-                mondadoriParserNews.setUrlNovita(Constants.URL_NOVITA_BASE);
-                self.bookArray = mondadoriParserNews.parse(Constants.NEWS);
+                let firebaseParse = RetriveNews()
+                self.bookArray = firebaseParse.retriveNews("EN");
+                
+                
             }
             else
             {
                 self.bookArray = self.cacheManager.getMondadoriBooks()
             }
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
                 self.tableView.reloadData();
@@ -432,7 +427,11 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         })
     }
 
-    
+    func reloadNews(notification: NSNotification)
+    {
+        bookArray = self.cacheManager.getMondadoriBooks();
+        self.tableView.reloadData();
+    }
 
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
@@ -452,7 +451,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! CellCustom
         
         //Configure CardViewLeft
-
+        cell.cuoreCardViewLeft.image = UIImage(named:"instant_book_icon.png")
         let tapCuoreLeft = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartLeftCardView(_:)))
         cell.cuoreCardViewLeft.addGestureRecognizer(tapCuoreLeft)
         cell.cuoreCardViewLeft.tag = indexPath.row*2
@@ -478,7 +477,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         cell.sharedCardViewLeft.tag = indexPath.row*2
         
         //Configure CardViewRight
-
+        cell.cuoreCardViewRight.image = UIImage(named:"instant_book_icon.png")
         let tapCuoreRight = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartRightCardView(_:)))
 
         cell.cuoreCardViewRight.addGestureRecognizer(tapCuoreRight)
@@ -513,8 +512,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
             
             //PRICE LEFT AND RIGHT
-            cell.prezzoCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).price + " €"
-            cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price + " €"
+            cell.prezzoCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).price
+            cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price
             
            
         }
@@ -541,7 +540,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         
         //DOWNLOAD IMAGE
-        let urlStringLeft:String? = Constants.MONDADORI_BASE_URL + ((bookArray[indexPath.row*2] as! Book).imgLink) as String
+        let urlStringLeft:String? = ((bookArray[indexPath.row*2] as! Book).imgLink) as String
         if(urlStringLeft != nil)
         {
             if(self.cacheManager.isImageCached(urlStringLeft!))
@@ -564,7 +563,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             
         }
         
-        let urlStringRight:String? = Constants.MONDADORI_BASE_URL + ((bookArray[(indexPath.row*2)+1] as! Book).imgLink) as String
+        let urlStringRight:String? = ((bookArray[(indexPath.row*2)+1] as! Book).imgLink) as String
         if(urlStringRight != nil)
         {
             if(self.cacheManager.isImageCached(urlStringRight!))
@@ -706,7 +705,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         print("TODO")
     }
     
-    public override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    /*public override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         // UITableView only moves in one direction, y axis
         let currentOffset = scrollView.contentOffset.y
@@ -726,7 +725,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             
             loadOtherNews(snackbar)
         }
-    }
+    }*/
     
     //ACTION WHEN CLICK THE MICROPHONE BUTTON
     func microphoneClicked()

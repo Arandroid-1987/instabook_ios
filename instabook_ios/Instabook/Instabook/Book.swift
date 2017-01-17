@@ -13,6 +13,7 @@ public class Book:NSObject, NSCoding
 {
     public let GOOGLE_SOURCE = "Google";
     public let MONDADORI_SOURCE = "Mondadori";
+    public let FIREBASE = "Firebase";
     
     public var title:String = "";
     public var price = "";
