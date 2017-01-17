@@ -133,11 +133,11 @@ public class MondadoriParser
                             }
                         }
                     }
-                    cache.storeBookFromMondadori(bookArray)
+                    cache.storeBook(bookArray)
                     let todaysDate:NSDate = NSDate()
                     let dateFormatter:NSDateFormatter = NSDateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd"
-                    cache.storeLastUpdatedDateFromMondadori(dateFormatter.stringFromDate(todaysDate))
+                    cache.storeLastUpdatedDate(dateFormatter.stringFromDate(todaysDate))
                 }
             }
         }

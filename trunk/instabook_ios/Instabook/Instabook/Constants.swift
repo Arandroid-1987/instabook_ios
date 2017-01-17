@@ -14,13 +14,16 @@ public struct Constants
     public static let API_KEY = "AIzaSyALiWCYPKj3UipkXOggNuiQw2vGRkc3eX8"
     
     public static let FIREBASE_TABLE_QUERY_HIT = "query-hit-new2"
+    public static let FIREBASE_TABLE_NEWS = "news"
     public static let COUNTER = "counter_ios"
     public static let DATE_NAME = "date_ios"
     
+    public static let RELOAD_NEWS_NOTIFICATION_NAME = "RELOAD_NEWS_NOTIFICATION_NAME"
+    
     public static let MY_SEARCH_STORED = "mySearch";
     public static let MY_BOOKS_LIKE_STORED = "myBooksLike";
-    public static let BOOKS_MONDADORI_STORED = "mondadoriBooks";
-    public static let BOOKS_MONDADORI_STORED_DATE = "mondadoriBooksDate";
+    public static let BOOKS_STORED = "BOOKS_STORED";
+    public static let BOOKS_STORED_DATE = "BOOKS_STORED_DATE";
     public static let BOOKS_MONDADORI_STORED_BEST_SELLER = "mondadoriBooksBestSeller";
     public static let BOOKS_MONDADORI_STORED_DATE_BEST_SELLER = "mondadoriBooksDateBestSeller";
     public static let NEXT_PAGE_BEST_SELLER_MONDADORI = "nextPageBestSellerMondadori";
