@@ -22,10 +22,17 @@ public class Book:NSObject, NSCoding
     public var imgLink = "";
     public var category = "";
     public var descriptionBook = "";
-    public var rating = "";
+    public var rating = Double();
     public var position = "";
     public var favorite = false;
     public var source = "";
+    public var primaryKey = "";
+    public var userHasVoted = false;
+    public var snippet = "";
+    public var isEbook = false;
+    public var isbn10 = "";
+    public var isbn13 = "";
+    public var printableAuthors = "";
     
     
     public func Book()
@@ -57,7 +64,7 @@ public class Book:NSObject, NSCoding
         if let descriptionBook = aDecoder.decodeObjectForKey("descriptionBook") as? String {
             self.descriptionBook = descriptionBook
         }
-        if let rating = aDecoder.decodeObjectForKey("rating") as? String {
+        if let rating = aDecoder.decodeObjectForKey("rating") as? Double {
             self.rating = rating
         }
         if let position = aDecoder.decodeObjectForKey("position") as? String {
@@ -68,6 +75,21 @@ public class Book:NSObject, NSCoding
         }
         if let source = aDecoder.decodeObjectForKey("source") as? String {
             self.source = source
+        }
+        if let printableAuthors = aDecoder.decodeObjectForKey("printableAuthors") as? String {
+            self.printableAuthors = printableAuthors
+        }
+        if let ebook = aDecoder.decodeObjectForKey("ebook") as? Bool {
+            self.isEbook = ebook
+        }
+        if let isbn10 = aDecoder.decodeObjectForKey("isbn10") as? String {
+            self.isbn10 = isbn10
+        }
+        if let isbn13 = aDecoder.decodeObjectForKey("isbn13") as? String {
+            self.isbn13 = isbn13
+        }
+        if let primaryKey = aDecoder.decodeObjectForKey("primaryKey") as? String {
+            self.primaryKey = primaryKey
         }
     }
     
@@ -84,8 +106,40 @@ public class Book:NSObject, NSCoding
         aCoder.encodeObject(position, forKey: "position")
         aCoder.encodeObject(favorite, forKey: "favorite")
         aCoder.encodeObject(source, forKey: "source")
+        aCoder.encodeObject(printableAuthors, forKey: "printableAuthors")
+        aCoder.encodeObject(isEbook, forKey: "ebook")
+        aCoder.encodeObject(isbn10, forKey: "isbn10")
+        aCoder.encodeObject(isbn13, forKey: "isbn13")
+        aCoder.encodeObject(primaryKey, forKey: "primaryKey")
         
         
+    }
+    
+    
+    public func encodeForFirebase() -> NSDictionary
+    {
+        let dictionary: NSDictionary = [
+            "title" : title,
+            "price" : price,
+            "authors" : authors,
+            "link" : link,
+            "imgLink" : imgLink,
+            "category" : category,
+            "description" : descriptionBook,
+            "rating" : rating,
+            "position" : position,
+            "favorite" : favorite,
+            "source" : source,
+            "ebook" : isEbook,
+            "isbn10": isbn10,
+            "isbn13": isbn13,
+            "primaryKey": primaryKey,
+            "printableAuthors": printableAuthors,
+            "snippet": snippet
+            
+        ]
+        
+        return dictionary;
     }
 
     

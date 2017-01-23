@@ -65,9 +65,9 @@ public class CacheManager
             self.cache.removeObjectForKey(Constants.BOOKS_STORED)
             self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(bookToStored), forKey: Constants.BOOKS_STORED)
         }
-        if self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) != nil
+        if self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) != nil
         {
-            let booksStoredBestSeller = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) as! NSData)) as! Array<Book>
+            let booksStoredBestSeller = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) as! NSData)) as! Array<Book>
             var bookToStored2: Array<Book> = Array<Book>()
             for bookItem in booksStoredBestSeller
             {
@@ -77,9 +77,9 @@ public class CacheManager
                 }
                 bookToStored2.append(bookItem)
             }
-            self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.removeObjectForKey(Constants.BOOKS_STORED_BEST_SELLER)
             
-            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(bookToStored2), forKey: Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(bookToStored2), forKey: Constants.BOOKS_STORED_BEST_SELLER)
             
         }
         
@@ -116,9 +116,9 @@ public class CacheManager
             
         }
         
-        if self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) != nil
+        if self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) != nil
         {
-            let booksStoredBestSeller = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) as! NSData)) as! Array<Book>
+            let booksStoredBestSeller = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) as! NSData)) as! Array<Book>
             var bookToStored2: Array<Book> = Array<Book>()
             for bookItem in booksStoredBestSeller
             {
@@ -128,9 +128,9 @@ public class CacheManager
                 }
                 bookToStored2.append(bookItem)
             }
-            self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.removeObjectForKey(Constants.BOOKS_STORED_BEST_SELLER)
             
-            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(bookToStored2), forKey: Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(bookToStored2), forKey: Constants.BOOKS_STORED_BEST_SELLER)
         }
         //let booksStored2 = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) as? NSData)!) as! Array<Book>
         
@@ -186,22 +186,22 @@ public class CacheManager
     
     public func storeLastUpdatedDateBestSellerMondadori(dateTime: String)
     {
-        self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_DATE_BEST_SELLER)
-        self.cache.setObject(dateTime, forKey: Constants.BOOKS_MONDADORI_STORED_DATE_BEST_SELLER)
+        self.cache.removeObjectForKey(Constants.BOOKS_STORED_DATE_BEST_SELLER)
+        self.cache.setObject(dateTime, forKey: Constants.BOOKS_STORED_DATE_BEST_SELLER)
     }
     
-    public func storeBookFromMondadoriBestSeller(books: Array<Any>)
+    public func storeBookBestSeller(books: Array<Any>)
     {
         
-        if let myBookStoredArray = self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) as? NSData {
+        if let myBookStoredArray = self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) as? NSData {
             
             var myBookStored = NSKeyedUnarchiver.unarchiveObjectWithData(myBookStoredArray) as! Array<Book>
             for book in books
             {
                 myBookStored.append(book as! Book)
             }
-            self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
-            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myBookStored), forKey: Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.removeObjectForKey(Constants.BOOKS_STORED_BEST_SELLER)
+            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myBookStored), forKey: Constants.BOOKS_STORED_BEST_SELLER)
         }
         else
         {
@@ -210,8 +210,8 @@ public class CacheManager
             {
                 myBookStored.append(book as! Book)
             }
-            self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
-            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myBookStored), forKey: Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
+            self.cache.removeObjectForKey(Constants.BOOKS_STORED_BEST_SELLER)
+            self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myBookStored), forKey: Constants.BOOKS_STORED_BEST_SELLER)
         }
     }
     
@@ -251,8 +251,8 @@ public class CacheManager
     
     public func deleteBestSeller()
     {
-        self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER)
-        self.cache.removeObjectForKey(Constants.BOOKS_MONDADORI_STORED_DATE_BEST_SELLER)
+        self.cache.removeObjectForKey(Constants.BOOKS_STORED_BEST_SELLER)
+        self.cache.removeObjectForKey(Constants.BOOKS_STORED_DATE_BEST_SELLER)
     }
     
     public func deleteNews()
@@ -308,7 +308,7 @@ public class CacheManager
         }
     }
     
-    public func getMondadoriBooks() -> Array<Any>
+    public func getBooks() -> Array<Any>
     {
         if let booksArray = self.cache.objectForKey(Constants.BOOKS_STORED) as? NSData {
             
@@ -326,9 +326,9 @@ public class CacheManager
         }
     }
     
-    public func getMondadoriBooksBestSeller() -> Array<Any>
+    public func getBooksBestSeller() -> Array<Any>
     {
-        if let booksArray = self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_BEST_SELLER) as? NSData {
+        if let booksArray = self.cache.objectForKey(Constants.BOOKS_STORED_BEST_SELLER) as? NSData {
             
             var arrayToReturn = Array<Any>()
             for book in NSKeyedUnarchiver.unarchiveObjectWithData(booksArray) as! Array<Book>
@@ -344,11 +344,11 @@ public class CacheManager
         }
     }
     
-    public func getMondadoriBestSellerLastDateUpdate() -> String
+    public func getBestSellerLastDateUpdate() -> String
     {
-        if(self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_DATE_BEST_SELLER) != nil)
+        if(self.cache.objectForKey(Constants.BOOKS_STORED_DATE_BEST_SELLER) != nil)
         {
-            return self.cache.objectForKey(Constants.BOOKS_MONDADORI_STORED_DATE_BEST_SELLER) as! String
+            return self.cache.objectForKey(Constants.BOOKS_STORED_DATE_BEST_SELLER) as! String
         }
         else
         {
@@ -389,81 +389,6 @@ public class CacheManager
         self.cache.setObject(data, forKey: imgUrlBook)
     }
     
-    public func storeTheNextPageCachedMondadoriBestSeller(currentPage: String)
-    {
-        var nextPage = ""
-        switch currentPage
-        {
-            case Constants.CLASSIFICA:
-                nextPage = Constants.CLASSIFICA_PAGE_2
-                break;
-            case Constants.CLASSIFICA_PAGE_2:
-                nextPage = Constants.CLASSIFICA_PAGE_3
-                break;
-            case Constants.CLASSIFICA_PAGE_3:
-                nextPage = Constants.CLASSIFICA_PAGE_4
-                break;
-            case Constants.CLASSIFICA_PAGE_4:
-                nextPage = Constants.CLASSIFICA_PAGE_5
-                break;
-            default:
-                nextPage = Constants.CLASSIFICA_STOP
-                break;
-        }
-        self.cache.removeObjectForKey(Constants.NEXT_PAGE_BEST_SELLER_MONDADORI)
-        self.cache.setObject(nextPage, forKey: Constants.NEXT_PAGE_BEST_SELLER_MONDADORI)
-    }
-    
-    public func storeTheNextPageCachedMondadori(currentPage: String)
-    {
-        var nextPage = ""
-        switch currentPage
-        {
-        case Constants.NEWS:
-            nextPage = Constants.NEWS_PAGE_2
-            break;
-        case Constants.NEWS_PAGE_2:
-            nextPage = Constants.NEWS_PAGE_3
-            break;
-        case Constants.NEWS_PAGE_3:
-            nextPage = Constants.NEWS_PAGE_4
-            break;
-        case Constants.NEWS_PAGE_4:
-            nextPage = Constants.NEWS_PAGE_5
-            break;
-        default:
-            nextPage = Constants.NEWS_STOP;
-            break;
-        }
-        self.cache.removeObjectForKey(Constants.NEXT_PAGE_MONDADORI)
-        self.cache.setObject(nextPage, forKey: Constants.NEXT_PAGE_MONDADORI)
-    }
-    
-    public func getMondadoriNextPageBestSeller() -> String
-    {
-        if(self.cache.objectForKey(Constants.NEXT_PAGE_BEST_SELLER_MONDADORI) != nil)
-        {
-            return self.cache.objectForKey(Constants.NEXT_PAGE_BEST_SELLER_MONDADORI) as! String
-        }
-        else
-        {
-            storeTheNextPageCachedMondadoriBestSeller(Constants.CLASSIFICA)
-            return self.cache.objectForKey(Constants.NEXT_PAGE_BEST_SELLER_MONDADORI) as! String;
-        }
-    }
-    
-    public func getMondadoriNextPage() -> String
-    {
-        if(self.cache.objectForKey(Constants.NEXT_PAGE_MONDADORI) != nil)
-        {
-            return self.cache.objectForKey(Constants.NEXT_PAGE_MONDADORI) as! String
-        }
-        else
-        {
-            storeTheNextPageCachedMondadori(Constants.NEWS)
-            return self.cache.objectForKey(Constants.NEXT_PAGE_MONDADORI) as! String;
-        }
-    }
     
     public func isFavoriteBook(url: String) -> Bool
     {
