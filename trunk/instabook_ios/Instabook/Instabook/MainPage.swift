@@ -17,6 +17,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     var positionFloatingButton: CGFloat = 0.0
     var bookArray = [Any]();
     var cacheManager = CacheManager()
+    var databaseFirebase = DatabaseRealtime()
    
 
 
@@ -407,15 +408,14 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             if(self.cacheManager.getLastDateUpdate() == "" || self.cacheManager.getLastDateUpdate() != dateFormatter.stringFromDate(todaysDate))
             {
                 self.cacheManager.deleteNews();
-                self.cacheManager.storeTheNextPageCachedMondadori(Constants.NEWS);
                 let firebaseParse = RetriveNews()
-                self.bookArray = firebaseParse.retriveNews("EN");
+                self.bookArray = firebaseParse.retriveNews("IT");
                 
                 
             }
             else
             {
-                self.bookArray = self.cacheManager.getMondadoriBooks()
+                self.bookArray = self.cacheManager.getBooks()
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -429,7 +429,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
 
     func reloadNews(notification: NSNotification)
     {
-        bookArray = self.cacheManager.getMondadoriBooks();
+        bookArray = self.cacheManager.getBooks();
         self.tableView.reloadData();
     }
 
@@ -668,21 +668,20 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
     
     //PRESS CARDVIEW RIGHT
-    func goToDetailsRight(sender: UITapGestureRecognizer!) {
+    func goToDetailsRight(sender: UITapGestureRecognizer!)
+    {
+        
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? CardView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
+            databaseFirebase.writeBookClicked(bookPressed, currentCountry: "IT", complexQuery: "")
             Data.sharedInstance().dict.setValue(bookPressed, forKey: "BestSellerBook")
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
             self.presentViewController(viewController, animated: false, completion: nil)
         }
 
-        /*TODO
         
-
-        self.navigationController?.pushViewController(vc, animated: true)
-        */
-
+        
     }
     
     //PRESS CARDVIEW LEFT
@@ -693,6 +692,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         */
         if let button = sender.view as?  CardView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
+            databaseFirebase.writeBookClicked(bookPressed, currentCountry: "IT", complexQuery: "")
             Data.sharedInstance().dict.setValue(bookPressed, forKey: "BestSellerBook")
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
             self.presentViewController(viewController, animated: false, completion: nil)
@@ -748,20 +748,14 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         dispatch_async(backgroundQueue, {
             
-            
-            let nextPage = self.cacheManager.getMondadoriNextPage();
-            if(nextPage == Constants.NEWS_STOP)
+            //CHANGE NEXTPAGE VALUE TO SEE SNACKBAR
+            let nextPage = "";
+            if(nextPage == "")
             {
                 snackBar.hidden = true;
             }
             else
             {
-                self.cacheManager.storeTheNextPageCachedMondadori(nextPage);
-                let mondadoriParserNews = MondadoriParser();
-                mondadoriParserNews.setUrlNovita(Constants.PREFIX_NEWS_URL + nextPage + Constants.SUFFIX_NEWS_URL);
-                var newBookArray = [Any]();
-                newBookArray = mondadoriParserNews.parse(Constants.NEWS)
-                self.bookArray += newBookArray
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     //let position = self.bookArray.count
                     self.tableView.reloadData();

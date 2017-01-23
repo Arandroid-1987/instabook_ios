@@ -102,19 +102,9 @@ public class SingleBookView: UITableViewController,GADInterstitialDelegate
         
         if(b.imgLink != "")
         {
-        //DOWNLOAD IMAGE
         
-            var urlString = ""
-            if(b.imgLink.containsString("http://books.google.com/"))
-            {
-                
-                urlString = b.imgLink
-            }
-            else
-            {
-                
-                urlString = Constants.MONDADORI_BASE_URL + (b.imgLink) as String
-            }
+            let urlString = b.imgLink
+            
             if(urlString != "")
             {
                 let imgURL: NSURL = NSURL(string: urlString)!
@@ -143,11 +133,7 @@ public class SingleBookView: UITableViewController,GADInterstitialDelegate
         cell.titolo.sizeToFit();
         if(b.price != "")
         {
-            if(b.price.containsString("EUR")){
             cell.prezzo.text = b.price
-            }else{
-                cell.prezzo.text = b.price+" €"
-            }
         }
         else
         {
@@ -173,7 +159,7 @@ public class SingleBookView: UITableViewController,GADInterstitialDelegate
         if(b.imgLink.containsString("http://books.google.com/"))
         {
             cell.descrizione.text = b.descriptionBook
-            if(b.rating == "")
+            if(b.rating == 0)
             {
                 cell.star1.hidden = true;
                 cell.star2.hidden = true;
@@ -185,25 +171,25 @@ public class SingleBookView: UITableViewController,GADInterstitialDelegate
             {
                 switch b.rating
                 {
-                    case "5":
+                    case 5:
                         cell.star5.image = UIImage(named:"star-full.png")
                         cell.star4.image = UIImage(named:"star-full.png")
                         cell.star3.image = UIImage(named:"star-full.png")
                         cell.star2.image = UIImage(named:"star-full.png")
                         cell.star1.image = UIImage(named:"star-full.png")
-                    case "4":
+                    case 4:
                         cell.star4.image = UIImage(named:"star-full.png")
                         cell.star3.image = UIImage(named:"star-full.png")
                         cell.star2.image = UIImage(named:"star-full.png")
                         cell.star1.image = UIImage(named:"star-full.png")
-                    case "3":
+                    case 3:
                         cell.star3.image = UIImage(named:"star-full.png")
                         cell.star2.image = UIImage(named:"star-full.png")
                         cell.star1.image = UIImage(named:"star-full.png")
-                    case "2":
+                    case 2:
                         cell.star2.image = UIImage(named:"star-full.png")
                         cell.star1.image = UIImage(named:"star-full.png")
-                    case "1":
+                    case 1:
                         cell.star1.image = UIImage(named:"star-full.png")
                     default:
                         break
@@ -218,9 +204,8 @@ public class SingleBookView: UITableViewController,GADInterstitialDelegate
             cell.star4.hidden = true;
             cell.star5.hidden = true;
             cell.poweredByGoogle.hidden = true;
-            
-            let m = MondadoriParser()
-            cell.descrizione.text = m.getDescrizione(b.link)
+        
+            cell.descrizione.text = b.descriptionBook;
         }
         
         cell.descrizione.sizeToFit();

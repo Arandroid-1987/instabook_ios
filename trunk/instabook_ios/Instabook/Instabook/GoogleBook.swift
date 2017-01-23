@@ -21,6 +21,7 @@ public class GoogleBook
         let databaseFirebase = DatabaseRealtime()
         databaseFirebase.writeNewQueryHit(citazioneFromMainPage, author: authorFromMainPage, currentCountry: "IT");
         var arrayBooksInAuthor = Array<Any>();
+        var arrayBooksQuote = Array<Any>();
         var arrayBooks = Array<Any>();
         let citazione:NSString = citazioneFromMainPage.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!;
         let autore:NSString = authorFromMainPage.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!;
@@ -30,43 +31,28 @@ public class GoogleBook
         {
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=\(citazione)+inauthor:\(autore)&key=\(Constants.API_KEY)")!;
             arrayBooksInAuthor = self.callRESTGoogleBook(url, autore: authorFromMainPage, citazione: citazioneFromMainPage)
-            
+            return arrayBooksInAuthor;
             
         }
         else if(!autore.isEqualToString(""))
         {
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=inauthor:\(autore)&key=\(Constants.API_KEY)")!;
             arrayBooksInAuthor = self.callRESTGoogleBook(url, autore: authorFromMainPage, citazione: "")
-            
+            return arrayBooksInAuthor;
         }
         else
         {
-            url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=\(citazione)+inauthor:&key=\(Constants.API_KEY)")!;
-            arrayBooksInAuthor = self.callRESTGoogleBook(url, autore: "", citazione: citazioneFromMainPage)
+            url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=%22\(citazione)%22&key=\(Constants.API_KEY)")!;
+            arrayBooksQuote = self.callRESTGoogleBook(url, autore: "", citazione: citazioneFromMainPage)
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=\(citazione)&key=\(Constants.API_KEY)")!;
             arrayBooks = self.callRESTGoogleBook(url, autore: "", citazione: citazioneFromMainPage)
         }
         
         var arrayBooksToReturn = Array<Any>();
         
-        for i in 0  ..< arrayBooksInAuthor.count + arrayBooks.count
-        {
-            if( i >= arrayBooksInAuthor.count && i >= arrayBooks.count )
-            {
-                break;
-            }
-            if(i < arrayBooksInAuthor.count)
-            {
-                arrayBooksToReturn.append(arrayBooksInAuthor[i])
-            }
-            
-            if(i < arrayBooks.count)
-            {
-                arrayBooksToReturn.append(arrayBooks[i]);
-            }
-            
-        }
-    
+        arrayBooksToReturn.appendContentsOf(arrayBooksQuote);
+        arrayBooksToReturn.appendContentsOf(arrayBooks);
+        
         return arrayBooksToReturn;
     }
     
@@ -119,6 +105,7 @@ public class GoogleBook
                 for item in items
                 {
                     let bookItem = Book();
+                    bookItem.source = bookItem.GOOGLE_SOURCE;
                     if let title: AnyObject = item.valueForKey("volumeInfo")?.valueForKey("title")
                     {
                         bookItem.title = title as! String;
@@ -144,7 +131,7 @@ public class GoogleBook
                     }
                     if let averageRating: AnyObject = item.valueForKey("volumeInfo")?.valueForKey("averageRating")
                     {
-                        bookItem.rating = "\(averageRating)";
+                        bookItem.rating = Double(averageRating as! NSNumber);
                     }
                     if let saleInfo: AnyObject = item.valueForKey("saleInfo")?.valueForKey("listPrice")?.valueForKey("amount")
                     {

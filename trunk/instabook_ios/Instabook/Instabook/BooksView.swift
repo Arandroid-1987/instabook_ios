@@ -173,14 +173,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
             cell.titolo.text = b.title as String
             cell.titolo.sizeToFit();
-            if(b.price.containsString("EUR"))
-            {
-                cell.prezzo.text = b.price
-            }
-            else
-            {
-                cell.prezzo.text = b.price + " €"
-            }
+            cell.prezzo.text = b.price
 
             let num = indexPath.row+1 as NSNumber
             cell.numero.text = num.stringValue
@@ -203,7 +196,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             cell.layoutIfNeeded();
             
             //DOWNLOAD IMAGE
-            let urlString:String? = Constants.MONDADORI_BASE_URL + ((bookArray[indexPath.row] as! Book).imgLink) as String
+            let urlString:String? = (bookArray[indexPath.row] as! Book).imgLink as String
             if(urlString != nil)
             {
                 let imgURL: NSURL = NSURL(string: urlString!)!
@@ -312,27 +305,12 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             if((bookArray[indexPath.row] as! Book).price != "")
             {
                 let b = (bookArray[indexPath.row] as! Book)
-                if(b.price.containsString("EUR"))
-                {
-                    cell.prezzo.text = b.price
-                }
-                else
-                {
-                    cell.prezzo.text = b.price + " €"
-                }
-
-                //cell.prezzo.text = (bookArray[indexPath.row] as! Book).price + "€"
+                cell.prezzo.text = b.price
+                
             }
             
             var urlString = ""
-            if((bookArray[indexPath.row] as! Book).imgLink.containsString("http://books.google.com/"))
-            {
-                urlString = (bookArray[indexPath.row] as! Book).imgLink
-            }
-            else
-            {
-                urlString = Constants.MONDADORI_BASE_URL + ((bookArray[indexPath.row] as! Book).imgLink) as String
-            }
+            urlString = (bookArray[indexPath.row] as! Book).imgLink
             if(urlString != "")
             {
                 if(self.cacheManager.isImageCached(urlString))
@@ -546,14 +524,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             if (b.price != "")
             {
                 cell.prezzo.hidden = false;
-                if(b.price.containsString("EUR"))
-                {
-                    cell.prezzo.text = b.price
-                }
-                else
-                {
-                    cell.prezzo.text = b.price + " €"
-                }
+                cell.prezzo.text = b.price
             }
             else
             {
@@ -745,6 +716,12 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             if(bookArray.count > 0)
             {
                 Data.sharedInstance().dict.setValue(bookArray[(indexPath.row)] as! Book, forKey: "BestSellerBook")
+                var complexQuery = ""
+                if(((bookArray[(indexPath.row)] as! Book)).source == (bookArray[(indexPath.row)] as! Book).GOOGLE_SOURCE)
+                {
+                    complexQuery = label.text!
+                }
+                DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: "IT", complexQuery: complexQuery)
             }
             tableView.cellForRowAtIndexPath(indexPath)?.selected = false
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
@@ -758,8 +735,17 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         
     }
     
-    private func loadBestSellers()
+    func reloadBestSellers(notification: NSNotification)
     {
+        bookArray = self.cacheManager.getBooksBestSeller();
+        self.nRow = self.bookArray.count
+        self.tableView.reloadData();
+    }
+    
+    func loadBestSellers()
+    {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BooksView.reloadBestSellers(_:)), name: Constants.RELOAD_BESTSELLERS_NOTIFICATION_NAME, object: nil);
+        
         let qualityOfServiceClass = QOS_CLASS_BACKGROUND
         
         let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
@@ -771,18 +757,16 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             let dateFormatter:NSDateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
             
-            if(self.cacheManager.getMondadoriBestSellerLastDateUpdate() == "" || self.cacheManager.getMondadoriBestSellerLastDateUpdate() != dateFormatter.stringFromDate(todaysDate))
+            if(self.cacheManager.getBestSellerLastDateUpdate() == "" || self.cacheManager.getBestSellerLastDateUpdate() != dateFormatter.stringFromDate(todaysDate))
             {
                 self.cacheManager.deleteBestSeller();
-                self.cacheManager.storeTheNextPageCachedMondadoriBestSeller(Constants.CLASSIFICA)
-                let mondadoriParserNews = MondadoriParser();
-                mondadoriParserNews.setUrlNovita(Constants.URL_CLASSIFICA_BASE);
-                self.bookArray = mondadoriParserNews.parse(Constants.CLASSIFICA);
+                let retriveBestSeller = RetriveBestSellers();
+                self.bookArray = retriveBestSeller.retriveBestSellers("IT");
                 
             }
             else
             {
-                self.bookArray = self.cacheManager.getMondadoriBooksBestSeller()
+                self.bookArray = self.cacheManager.getBooksBestSeller();
             }
             
             
@@ -796,6 +780,8 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         })
     }
     
+
+    
     private func loadOtherBestSeller(snackBar: MKSnackbar)
     {
         let qualityOfServiceClass = QOS_CLASS_BACKGROUND
@@ -806,19 +792,14 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         dispatch_async(backgroundQueue, {
 
 
-            let nextPage = self.cacheManager.getMondadoriNextPageBestSeller();
-            if(nextPage == Constants.CLASSIFICA_STOP)
+            //CHANGE NEXT PAGE WITH OTHER VALUE TO SEE SNACKBAR
+            let nextPage = "";
+            if(nextPage == "")
             {
                 snackBar.hidden = true;
             }
             else
             {
-                self.cacheManager.storeTheNextPageCachedMondadoriBestSeller(nextPage);
-                let mondadoriParserNews = MondadoriParser();
-                mondadoriParserNews.setUrlNovita(Constants.URL_CLASSIFICA_BASE + nextPage);
-                var newBookArray = [Any]();
-                newBookArray = mondadoriParserNews.parse(Constants.CLASSIFICA)
-                self.bookArray += newBookArray
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     //let position = self.bookArray.count
                     self.nRow = self.bookArray.count
