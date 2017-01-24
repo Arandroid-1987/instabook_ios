@@ -154,10 +154,11 @@ public class GoogleBook
         mySearch.citazione = citazione
         let todaysDate:NSDate = NSDate()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         mySearch.data = dateFormatter.stringFromDate(todaysDate)
-        if(arrayBooks.count > 0){
-        mySearch.imgLink = (arrayBooks[0] as! Book).imgLink
+        if(arrayBooks.count > 0)
+        {
+            mySearch.imgLink = (arrayBooks[0] as! Book).imgLink
         }
         cacheManager.storeMySearch(mySearch)
         return arrayBooks;
