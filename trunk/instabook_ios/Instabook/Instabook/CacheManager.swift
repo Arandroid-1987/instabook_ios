@@ -373,9 +373,10 @@ public class CacheManager
         if let mySearchStoredArray = self.cache.objectForKey(Constants.MY_SEARCH_STORED) as? NSData {
             
             var arrayToReturn = Array<Any>()
-            for mySearchStoredItem in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchStoredArray) as! Array<MySearch>
+            var mySearchArray = NSKeyedUnarchiver.unarchiveObjectWithData(mySearchStoredArray) as! Array<MySearch>;
+            for index in (0...(mySearchArray.count-1)).reverse()
             {
-                arrayToReturn.append(mySearchStoredItem)
+                arrayToReturn.append(mySearchArray[index]);
             }
             
             return arrayToReturn;
