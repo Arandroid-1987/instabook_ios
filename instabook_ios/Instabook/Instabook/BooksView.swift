@@ -239,30 +239,29 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             }
             cell.data.text = NSLocalizedString("last_searched", comment: "last_searched") + (bookArray[indexPath.row] as! MySearch).data
             
-            let urlString:String? = ((bookArray[indexPath.row] as! MySearch).imgLink) as String
-            if(urlString != nil)
+            
+            if((bookArray[indexPath.row] as! MySearch).imgLink != nil)
             {
-                if(self.cacheManager.isImageCached(urlString!))
+                let urlString = ((bookArray[indexPath.row] as! MySearch).imgLink) as String
+                if(self.cacheManager.isImageCached(urlString))
                 {
-                    cell.imageBook.image = self.cacheManager.getImageCached(urlString!)
+                    cell.imageBook.image = self.cacheManager.getImageCached(urlString)
                 }
                 else
                 {
-                    let imgURL: NSURL = NSURL(string: urlString!)!
+                    let imgURL: NSURL = NSURL(string: urlString)!
                     let request: NSURLRequest = NSURLRequest(URL: imgURL)
                     NSURLConnection.sendAsynchronousRequest(
                         request, queue: NSOperationQueue.mainQueue(),
                         completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
                             if error == nil {
                                 cell.imageBook.image = UIImage(data: data!)
-                                self.cacheManager.storeImage(urlString!, data: data!)
+                                self.cacheManager.storeImage(urlString, data: data!)
                             }
                     })
                 }
                 
             }
-
-            
             return cell;
         }else if (titleName == NSLocalizedString("my_books", comment: "my_books") && bookArray.count > indexPath.row){
             print(bookArray.count)
@@ -722,6 +721,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     complexQuery = label.text!
                 }
                 DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: "IT", complexQuery: complexQuery)
+                DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[indexPath.row] as! Book, query: complexQuery, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
             }
             tableView.cellForRowAtIndexPath(indexPath)?.selected = false
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController

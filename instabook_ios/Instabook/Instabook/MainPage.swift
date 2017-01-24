@@ -37,6 +37,10 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         super.viewWillAppear(animated)
         loadNews()
         self.tableView.reloadData()
+        if(cacheManager.getUUID() == "")
+        {
+            cacheManager.storeUUID(UIDevice.currentDevice().identifierForVendor!.UUIDString);
+        }
     }
     
     
