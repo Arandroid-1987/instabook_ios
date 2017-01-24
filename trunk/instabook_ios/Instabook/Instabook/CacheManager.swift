@@ -49,6 +49,67 @@ public class CacheManager
         }
     }
     
+    public func storeSearch(search: String, id: Int)
+    {
+        
+        if(id == Constants.ID_SEARCH_CITAZIONE)
+        {
+            if let myStoredSearchArray = self.cache.objectForKey(Constants.ALL_SEARCH_STORED) as? NSData {
+                var myStoredSearch = NSKeyedUnarchiver.unarchiveObjectWithData(myStoredSearchArray) as!  Array<String>
+                var i = 0;
+                for myStoredSearchItem in myStoredSearch
+                {
+                    if (myStoredSearchItem == search)
+                    {
+                        myStoredSearch.removeAtIndex(i)
+                        break;
+                        
+                    }
+                    i += 1;
+                }
+                
+                myStoredSearch.append(search)
+                self.cache.removeObjectForKey(Constants.ALL_SEARCH_STORED)
+                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_SEARCH_STORED)
+                
+            }
+            else
+            {
+                var myStoredSearch: Array<String> = Array<String>()
+                myStoredSearch.append(search)
+                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_SEARCH_STORED)
+            }
+        }
+        else if(id == Constants.ID_SEARCH_AUTORE)
+        {
+            if let myStoredSearchArray = self.cache.objectForKey(Constants.ALL_AUTHOR_STORED) as? NSData {
+                var myStoredSearch = NSKeyedUnarchiver.unarchiveObjectWithData(myStoredSearchArray) as!  Array<String>
+                var i = 0;
+                for myStoredSearchItem in myStoredSearch
+                {
+                    if (myStoredSearchItem == search)
+                    {
+                        myStoredSearch.removeAtIndex(i)
+                        break;
+                        
+                    }
+                    i += 1;
+                }
+                
+                myStoredSearch.append(search)
+                self.cache.removeObjectForKey(Constants.ALL_AUTHOR_STORED)
+                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_AUTHOR_STORED)
+                
+            }
+            else
+            {
+                var myStoredSearch: Array<String> = Array<String>()
+                myStoredSearch.append(search)
+                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_SEARCH_STORED)
+            }
+        }
+    }
+    
     public func storeLikeBook(book: Book)
     {
         if let booksStored = NSKeyedUnarchiver.unarchiveObjectWithData((self.cache.objectForKey(Constants.BOOKS_STORED) as? NSData)!) as? Array<Book>
@@ -190,6 +251,35 @@ public class CacheManager
         self.cache.setObject(dateTime, forKey: Constants.BOOKS_STORED_DATE_BEST_SELLER)
     }
     
+    public func storeUUID(uuid: String)
+    {
+        self.cache.setObject(uuid, forKey: Constants.UUID);
+    }
+    
+    public func storeSelectedLang(lang: String)
+    {
+        self.cache.setObject(lang, forKey: Constants.LAUNGUAGE_SELECETED)
+    }
+    
+    public func getUUID() -> String
+    {
+        if(self.cache.stringForKey(Constants.UUID) == nil)
+        {
+            return "";
+        }
+        
+        return self.cache.stringForKey(Constants.UUID)!;
+    }
+    
+    public func getStoredLang() -> String
+    {
+        if(self.cache.stringForKey(Constants.LAUNGUAGE_SELECETED) == nil)
+        {
+            return "";
+        }
+        return self.cache.stringForKey(Constants.LAUNGUAGE_SELECETED)!;
+    }
+    
     public func storeBookBestSeller(books: Array<Any>)
     {
         
@@ -261,12 +351,18 @@ public class CacheManager
         self.cache.removeObjectForKey(Constants.BOOKS_STORED_DATE)
     }
     
+    public func deleteLanguageSelected()
+    {
+        self.cache.removeObjectForKey(Constants.LAUNGUAGE_SELECETED);
+    }
+    
     public func deleteAll()
     {
         deleteMyBook();
         deleteMySearch();
         deleteNews();
         deleteBestSeller();
+        deleteLanguageSelected();
         for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys {
             NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
         }
@@ -342,6 +438,46 @@ public class CacheManager
         {
             return Array<Any>();
         }
+    }
+    
+    public func getAllSerach(id: Int) -> Array<Any>
+    {
+        if(id == Constants.ID_SEARCH_CITAZIONE)
+        {
+            if let mySearchs = self.cache.objectForKey(Constants.ALL_SEARCH_STORED) as? NSData {
+                
+                var arrayToReturn = Array<Any>()
+                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<Book>
+                {
+                    arrayToReturn.append(mySearch)
+                }
+                
+                return arrayToReturn;
+            }
+            else
+            {
+                return Array<Any>();
+            }
+        }
+        else if(id == Constants.ID_SEARCH_AUTORE)
+        {
+            if let mySearchs = self.cache.objectForKey(Constants.ALL_AUTHOR_STORED) as? NSData {
+                
+                var arrayToReturn = Array<Any>()
+                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<Book>
+                {
+                    arrayToReturn.append(mySearch)
+                }
+                
+                return arrayToReturn;
+            }
+            else
+            {
+                return Array<Any>();
+            }
+        }
+        
+        return Array<Any>();
     }
     
     public func getBestSellerLastDateUpdate() -> String

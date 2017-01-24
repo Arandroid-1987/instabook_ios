@@ -10,12 +10,12 @@ import Foundation
 
 public class Books
 {
-
-public var array = [Any]();
-
+    
+    public var array = [Any]();
+    
     public func Books()
-{
-
-}
-
+    {
+        
+    }
+    
 }

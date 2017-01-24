@@ -109,8 +109,88 @@ public class DatabaseRealtime
     }
     
     
-    public func writeNewAggregateVote()
+    private func writeNewAggregateVote(book: Book, query: String, score: Int, uuid: String, currentCountry: String )
     {
+        refFirebase = FIRDatabase.database().reference()
+        let primaryKey = generateFirebasePath(query);
+        let bookPrimaryKey = getPrimaryKeyBook(book);
+        let table = Constants.FIREBASE_TABLE_VOTES_AGG;
+        
+        refFirebase.child(table).child(currentCountry).child(primaryKey).observeSingleEventOfType(.Value)
+        {
+            (snap:FIRDataSnapshot) in
+            if(snap.hasChild(bookPrimaryKey))
+            {
+                let ref = self.refFirebase.child(table).child(currentCountry).child(primaryKey).child(bookPrimaryKey)
+                ref.child(Constants.SCORE_NAME).runTransactionBlock{ (currentData: FIRMutableData) -> FIRTransactionResult in
+                    
+                    var value = currentData.value as? Int
+                    
+                    if value == nil
+                    {
+                        value = score
+                    }
+                    
+                    currentData.value = value! + score
+                    return FIRTransactionResult.successWithValue(currentData)
+                    
+                }
+                
+                ref.child(Constants.BOOK_NAME).runTransactionBlock{ (currentData: FIRMutableData) -> FIRTransactionResult in
+                    
+                    currentData.value = book.encodeForFirebase();
+                    return FIRTransactionResult.successWithValue(currentData)
+                    
+                }
+                
+            }
+            else
+            {
+                var dati_firebase = NSDictionary();
+                dati_firebase = ["book": book.encodeForFirebase(), "score": score]
+                self.refFirebase.child(table).child(currentCountry).child(primaryKey).child(bookPrimaryKey).setValue(dati_firebase)
+            }
+        }
+
+    }
+    
+    public func writeNewSingleAndAggregateVote(book: Book, query: String, score: Int, uuid: String, currentCountry: String )
+    {
+        refFirebase = FIRDatabase.database().reference()
+        let primaryKey = generateFirebasePath(query);
+        let bookPrimaryKey = getPrimaryKeyBook(book);
+        let table = Constants.FIREBASE_TABLE_VOTES;
+        
+        refFirebase.child(table).child(currentCountry).child(primaryKey).child(uuid).observeSingleEventOfType(.Value)
+        {
+            (snap:FIRDataSnapshot) in
+            if(snap.hasChild(bookPrimaryKey))
+            {//Libro già votato non dobbiamo accettare altre votazioni TODO
+                
+            }
+            else
+            {//voto su nuovo libro e poi scrivo sull'aggregato
+                let todaysDate:NSDate = NSDate()
+                var dati_firebase = NSDictionary();
+                
+                dati_firebase = ["book": book.encodeForFirebase(), "date": DateHelper.encodeDateForFirebase(todaysDate), "score": score]
+                
+                self.refFirebase.child(table).child(currentCountry).child(primaryKey).child(uuid).child(bookPrimaryKey).setValue(dati_firebase)
+                
+                self.writeNewAggregateVote(book, query: query, score: score, uuid: uuid, currentCountry: currentCountry)
+            }
+        }
+        
+    }
+    
+    public func writeMissingResult(missingResult: MissingResult)
+    {
+        refFirebase = FIRDatabase.database().reference()
+        let table = Constants.FIREBASE_TABLE_MISSING_RESULTS;
+        let key = refFirebase.child(table).key;
+        
+        let dati_firebase = missingResult.encodeForFirebase();
+        self.refFirebase.child(table).child(key).setValue(dati_firebase);
         
     }
     
@@ -181,7 +261,7 @@ public class DatabaseRealtime
     public func generateFirebasePath(primaryKey: String) -> String
     {
         let primaryKeyReplacing = primaryKey.stringByReplacingOccurrencesOfString(".", withString: "").stringByReplacingOccurrencesOfString("#", withString: " ").stringByReplacingOccurrencesOfString("$", withString: " ").stringByReplacingOccurrencesOfString("[", withString: " ").stringByReplacingOccurrencesOfString("]", withString: " ").stringByReplacingOccurrencesOfString("\"", withString: "")
-        return primaryKeyReplacing
+        return primaryKeyReplacing.lowercaseString
     }
     
     public func getPrimaryKeyBook(book: Book) -> String
