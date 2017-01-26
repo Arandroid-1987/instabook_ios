@@ -1,20 +1,20 @@
 {
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
-    "8936c616-63e4-48ad-a647-022897879055++8348" : {
+    "8936c616-63e4-48ad-a647-022897879055++5997" : {
 
     },
-    "8936c616-63e4-48ad-a647-022897879055++505" : {
+    "8936c616-63e4-48ad-a647-022897879055++8348" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "8936c616-63e4-48ad-a647-022897879055++8348" : 0,
-    "8936c616-63e4-48ad-a647-022897879055++505" : 0
+    "8936c616-63e4-48ad-a647-022897879055++5997" : 0,
+    "8936c616-63e4-48ad-a647-022897879055++8348" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "EDE0468F-E8C4-423D-90D5-3B8FDD1CC3AC",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "8936c616-63e4-48ad-a647-022897879055++8348" : "Instabook\/",
-    "8936c616-63e4-48ad-a647-022897879055++505" : ""
+    "8936c616-63e4-48ad-a647-022897879055++5997" : "",
+    "8936c616-63e4-48ad-a647-022897879055++8348" : "Instabook\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Instabook",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -23,7 +23,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/arandroid.svn.cloudforge.com\/instabook_ios",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8936c616-63e4-48ad-a647-022897879055++505"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8936c616-63e4-48ad-a647-022897879055++5997"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/arandroid.svn.cloudforge.com\/instabook_ios",

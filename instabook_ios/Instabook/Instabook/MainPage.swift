@@ -17,13 +17,18 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     var positionFloatingButton: CGFloat = 0.0
     var bookArray = [Any]();
     var cacheManager = CacheManager()
+    var pastUrls = Array<String>()
+    var autocompleteUrls = Array<String>()
+    
+    var pastUrls2 = Array<String>()
+    var autocompleteUrls2 = Array<String>()
     var databaseFirebase = DatabaseRealtime()
    
 
-
     @IBOutlet weak var citazioneTextView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
-
+    
+    
     var keyboardOpened = false;
     var keyboardHeight: CGFloat = 0.0;
     let floatingButton : UIButton = UIButton(type: UIButtonType.Custom) as UIButton
@@ -31,6 +36,9 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
 
     @IBOutlet var Open: UIBarButtonItem!
     @IBOutlet weak var autoreTextField: UITextField!
+    
+    var autocompleteTableView = UITableView()
+    var autocompleteTableView2 = UITableView()
     
 
     public override func viewWillAppear(animated: Bool) {
@@ -48,7 +56,40 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     public override func viewDidLoad() {
         super.viewDidLoad();
         
-       
+        pastUrls = self.cacheManager.getAllSerach(Constants.ID_SEARCH_AUTORE)
+        pastUrls2 = self.cacheManager.getAllSerach(Constants.ID_SEARCH_CITAZIONE)
+        
+        autocompleteTableView = UITableView(frame: CGRectMake(8,autoreTextField.frame.origin.y + autoreTextField.frame.height,self.view.frame.width-24,40), style: UITableViewStyle.Plain)
+        
+        autocompleteTableView.delegate = self
+        
+        autocompleteTableView.dataSource = self
+        
+        autocompleteTableView.scrollEnabled = true
+        
+        autocompleteTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        autocompleteTableView.hidden = true
+        
+        autocompleteTableView.dequeueReusableCellWithIdentifier("AutoCompleteRowIdentifier")
+        
+        self.tableView.addSubview(autocompleteTableView)
+        
+        autocompleteTableView2 = UITableView(frame: CGRectMake(8,citazioneTextView.frame.origin.y + citazioneTextView.frame.height,self.view.frame.width-24,40), style: UITableViewStyle.Plain)
+        
+        autocompleteTableView2.delegate = self
+        
+        autocompleteTableView2.dataSource = self
+        
+        autocompleteTableView2.scrollEnabled = true
+        
+        autocompleteTableView2.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        autocompleteTableView2.hidden = true
+        
+        autocompleteTableView2.dequeueReusableCellWithIdentifier("AutoCompleteRowIdentifier2")
+        
+        self.tableView.addSubview(autocompleteTableView2)
         
         self.citazioneTextView.delegate = self;
         self.citazioneTextView.scrollRangeToVisible(NSMakeRange(0, 0))
@@ -138,7 +179,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
 
     public func textViewDidBeginEditing(textView: UITextView) {
-        
+        self.autocompleteTableView.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         let border2 = CALayer()
         let width2 = CGFloat(2.0)
@@ -173,7 +214,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
     
     public func textViewDidEndEditing(textView: UITextView) {
-    
+        autocompleteTableView2.hidden = true
         let border2 = CALayer()
         let width2 = CGFloat(2.0)
         border2.borderColor = UIColor.whiteColor().CGColor
@@ -192,6 +233,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
     
     public func textFieldDidBeginEditing(textField: UITextField) {
+        self.autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         let border2 = CALayer()
         let width2 = CGFloat(2.0)
@@ -204,7 +246,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
 
     public func textFieldDidEndEditing(textField: UITextField) {
-        
+        autocompleteTableView.hidden = true
         let border2 = CALayer()
         let width2 = CGFloat(2.0)
         border2.borderColor = UIColor.whiteColor().CGColor
@@ -238,6 +280,9 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
 
     public override func scrollViewDidScroll(scrollView: UIScrollView) {
 
+        if(scrollView != autocompleteTableView && scrollView != autocompleteTableView2){
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
 
         positionFloatingButton = view.bounds.height + scrollView.contentOffset.y;
         if(keyboardOpened)
@@ -248,13 +293,15 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         floatingButton.layer.shadowOpacity = 0.2;
         floatingButton.layer.shadowRadius = 0.0;
         self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
-        
+        }
 
     }
     
     //ACTION WHEN CLICK THE FLOATING BUTTON
     func buttonClicked()
     {
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
         if Reachability.isConnectedToNetwork() == true
         {
             var citazione:NSString = self.citazioneTextView.text!
@@ -437,7 +484,36 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         self.tableView.reloadData();
     }
 
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(tableView == autocompleteTableView){
+        
+        let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        
+        autoreTextField.text = selectedCell.textLabel!.text
+        
+        autocompleteTableView.hidden = true
+        }
+        
+        if(tableView == autocompleteTableView2){
+            
+            let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+            
+            citazioneTextView.text = selectedCell.textLabel!.text
+            
+            autocompleteTableView2.hidden = true
+        }
+    }
+    
+
+    
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if(tableView == autocompleteTableView){
+            return autocompleteUrls.count
+        }else
+        if(tableView == autocompleteTableView2){
+        return autocompleteUrls2.count
+        }else{
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         if (bookArray.count % 2 == 0  )
@@ -448,9 +524,43 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         {
             return (self.bookArray.count / 2) + 1;
         }
+        }
     }
     
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        if (tableView == autocompleteTableView2 ){
+            
+            let autoCompleteRowIdentifier = "AutoCompleteRowIdentifier2"
+            
+            let cell = UITableViewCell(style: UITableViewCellStyle.Default , reuseIdentifier: autoCompleteRowIdentifier)
+            
+            
+            let index = indexPath.row as Int
+            
+            
+            
+            cell.textLabel!.text = autocompleteUrls2[index]
+            
+            return cell
+            
+        }else if (tableView == autocompleteTableView ){
+            
+            let autoCompleteRowIdentifier = "AutoCompleteRowIdentifier"
+            
+            let cell = UITableViewCell(style: UITableViewCellStyle.Default , reuseIdentifier: autoCompleteRowIdentifier)
+
+            
+                        let index = indexPath.row as Int
+            
+            
+            
+            cell.textLabel!.text = autocompleteUrls[index]
+            
+            return cell
+        
+        }else{
         
         let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! CellCustom
         
@@ -592,14 +702,18 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         
         cell.layoutIfNeeded();
+            
+            return cell;
+    }
         
-        return cell;
     }
     
 
     //PRESS BUTTON SHARED LEFT CARD
     func sharedLeftCardView(sender: UITapGestureRecognizer)
     {
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? UIImageView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
@@ -614,8 +728,11 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     
     
     //PRESS BUTTON SHARED RIGHT CARD
+    
     func sharedRightCardView(sender: UITapGestureRecognizer)
     {
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? UIImageView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
@@ -629,6 +746,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     
     //PRESS HEART RIGHT
     func heartRightCardView(sender: UITapGestureRecognizer!) {
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? UIImageView {
              if(button.image!.isEqual(UIImage(named: "heart.png")))
@@ -650,6 +769,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     
     //PRESS HEART LEFT
     func heartLeftCardView(sender: UITapGestureRecognizer!) {
+       autocompleteTableView.hidden = true
+       autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? UIImageView {
                 if(button.image!.isEqual(UIImage(named: "heart.png")))
@@ -675,6 +796,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     func goToDetailsRight(sender: UITapGestureRecognizer!)
     {
         
+        autocompleteTableView.hidden = true
+        autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? CardView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
@@ -690,6 +813,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     
     //PRESS CARDVIEW LEFT
     func goToDetailsLeft(sender: UITapGestureRecognizer!) {
+       autocompleteTableView.hidden = true
+       autocompleteTableView2.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         /*let vc = UIActivityViewController(activityItems: [], applicationActivities: [])
         self.navigationController?.pushViewController(vc, animated: true)
@@ -773,6 +898,125 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             
             
         })
+    }
+    
+    public func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }else{
+        
+            
+            autocompleteTableView2.hidden = false
+            
+            let substring = (citazioneTextView.text! as NSString).stringByReplacingCharactersInRange(range, withString: text)
+            
+            
+            
+            searchAutocompleteEntriesWithSubstring2(substring)
+        
+        }
+        return true
+    }
+    
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+        
+    {
+        
+        autocompleteTableView.hidden = false
+        
+        let substring = (autoreTextField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        
+        
+        
+        searchAutocompleteEntriesWithSubstring(substring)
+        
+        return true     // not sure about this - could be false
+        
+    }
+    
+    
+    
+    func searchAutocompleteEntriesWithSubstring(substring: String)
+        
+    {
+        
+        
+        
+        autocompleteUrls.removeAll(keepCapacity: false)
+        
+        for curString in pastUrls
+        {
+            var myString:NSString! = curString as NSString
+            
+            if(substring.length > 1){
+            
+            if(myString.uppercaseString.hasPrefix(substring.uppercaseString))
+            
+            
+            {
+                autocompleteUrls.append(curString)
+                
+            }
+            }
+        }
+        
+        if(autocompleteUrls.count == 0)
+        {
+        autocompleteTableView.hidden = true
+        }
+        
+        var y = CGFloat(autocompleteUrls.count)
+        if(y > 3){y = 3}
+
+        autocompleteTableView.frame = CGRectMake(8,autoreTextField.frame.origin.y + autoreTextField.frame.height,self.view.frame.width-24,y*45)
+        
+        self.autocompleteTableView.reloadData()
+        
+
+    }
+    
+    func searchAutocompleteEntriesWithSubstring2(substring: String)
+        
+    {
+        
+        
+        
+        autocompleteUrls2.removeAll(keepCapacity: false)
+        
+        for curString in pastUrls2
+        {
+            var myString:NSString! = curString as NSString
+            
+            if(substring.length > 1){
+                
+                if(myString.uppercaseString.hasPrefix(substring.uppercaseString))
+                    
+                    
+                {
+                    autocompleteUrls2.append(curString)
+                    
+                }
+            }
+        }
+        
+        if(autocompleteUrls2.count == 0)
+        {
+            autocompleteTableView2.hidden = true
+        }
+        
+        var y = CGFloat(autocompleteUrls2.count)
+        if(y > 3){y = 3}
+        autocompleteTableView2.frame = CGRectMake(8,citazioneTextView.frame.origin.y + citazioneTextView.frame.height,self.citazioneTextView.frame.width,y*45)
+        
+        self.autocompleteTableView2.reloadData()
+        
+        
     }
 
    // func someAction(sender:UITapGestureRecognizer){

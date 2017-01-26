@@ -105,7 +105,7 @@ public class CacheManager
             {
                 var myStoredSearch: Array<String> = Array<String>()
                 myStoredSearch.append(search)
-                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_SEARCH_STORED)
+                self.cache.setObject(NSKeyedArchiver.archivedDataWithRootObject(myStoredSearch), forKey: Constants.ALL_AUTHOR_STORED)
             }
         }
     }
@@ -441,14 +441,14 @@ public class CacheManager
         }
     }
     
-    public func getAllSerach(id: Int) -> Array<Any>
+    public func getAllSerach(id: Int) -> Array<String>
     {
         if(id == Constants.ID_SEARCH_CITAZIONE)
         {
             if let mySearchs = self.cache.objectForKey(Constants.ALL_SEARCH_STORED) as? NSData {
                 
-                var arrayToReturn = Array<Any>()
-                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<Book>
+                var arrayToReturn = Array<String>()
+                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<String>
                 {
                     arrayToReturn.append(mySearch)
                 }
@@ -457,15 +457,15 @@ public class CacheManager
             }
             else
             {
-                return Array<Any>();
+                return Array<String>();
             }
         }
         else if(id == Constants.ID_SEARCH_AUTORE)
         {
             if let mySearchs = self.cache.objectForKey(Constants.ALL_AUTHOR_STORED) as? NSData {
                 
-                var arrayToReturn = Array<Any>()
-                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<Book>
+                var arrayToReturn = Array<String>()
+                for mySearch in NSKeyedUnarchiver.unarchiveObjectWithData(mySearchs) as! Array<String>
                 {
                     arrayToReturn.append(mySearch)
                 }
@@ -474,11 +474,11 @@ public class CacheManager
             }
             else
             {
-                return Array<Any>();
+                return Array<String>();
             }
         }
         
-        return Array<Any>();
+        return Array<String>();
     }
     
     public func getBestSellerLastDateUpdate() -> String

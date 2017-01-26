@@ -68,6 +68,9 @@
 		789A03401E056EC9004AB0A8 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 789A033F1E056EC9004AB0A8 /* libxml2.2.dylib */; };
 		789A03481E057C48004AB0A8 /* heart-white-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A03471E057C48004AB0A8 /* heart-white-full.png */; };
 		789A034A1E057C52004AB0A8 /* heart-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 789A03491E057C52004AB0A8 /* heart-white.png */; };
+		789A7A111E3805410088B947 /* FirstBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 789A7A101E3805410088B947 /* FirstBookCell.xib */; };
+		789A7A131E3807930088B947 /* FirstBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A7A121E3807930088B947 /* FirstBookCell.swift */; };
+		789FBD851E2A86CF00426882 /* AutocompleteTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FBD841E2A86CF00426882 /* AutocompleteTextField.swift */; };
 		78A261041DE4F0BB00FB79BF /* SearchBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */; };
 		78A261061DE4F34000FB79BF /* SearchBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A261051DE4F34000FB79BF /* SearchBookCell.swift */; };
 		78A261081DE50C0B00FB79BF /* DescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78A261071DE50C0B00FB79BF /* DescriptionCell.xib */; };
@@ -202,6 +205,9 @@
 		789A033F1E056EC9004AB0A8 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = /usr/lib/libxml2.2.dylib; sourceTree = "<absolute>"; };
 		789A03471E057C48004AB0A8 /* heart-white-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-white-full.png"; path = "../../../../Downloads/Image/heart-white-full.png"; sourceTree = "<group>"; };
 		789A03491E057C52004AB0A8 /* heart-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heart-white.png"; path = "../../../../Downloads/Image/heart-white.png"; sourceTree = "<group>"; };
+		789A7A101E3805410088B947 /* FirstBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstBookCell.xib; sourceTree = "<group>"; };
+		789A7A121E3807930088B947 /* FirstBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstBookCell.swift; sourceTree = "<group>"; };
+		789FBD841E2A86CF00426882 /* AutocompleteTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutocompleteTextField.swift; sourceTree = "<group>"; };
 		78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBookCell.xib; sourceTree = "<group>"; };
 		78A261051DE4F34000FB79BF /* SearchBookCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBookCell.swift; sourceTree = "<group>"; };
 		78A261071DE50C0B00FB79BF /* DescriptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DescriptionCell.xib; sourceTree = "<group>"; };
@@ -406,13 +412,16 @@
 				86A68E971DDF24680041FD62 /* CellCustom.swift */,
 				8611CD251DDF597D005FE9DB /* CardView.swift */,
 				78FDBE921DE0B39F004345E4 /* BookCell.swift */,
+				789A7A121E3807930088B947 /* FirstBookCell.swift */,
 				78A261091DE513E300FB79BF /* DescriptionCell.swift */,
 				783420981DEB812300D4AFFC /* SettingsCell.swift */,
 				78A261051DE4F34000FB79BF /* SearchBookCell.swift */,
+				789A7A101E3805410088B947 /* FirstBookCell.xib */,
 				78FDBE8E1DE0B360004345E4 /* BookCell.xib */,
 				78A261031DE4F0BB00FB79BF /* SearchBookCell.xib */,
 				78A261071DE50C0B00FB79BF /* DescriptionCell.xib */,
 				783420961DEB7E3400D4AFFC /* SettingsCell.xib */,
+				789FBD841E2A86CF00426882 /* AutocompleteTextField.swift */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -712,6 +721,7 @@
 				781B9F711DF5CF4B007D8166 /* iPad_152pt_@2x.png in Resources */,
 				864301BC1DDD333D00E78810 /* search.png in Resources */,
 				86351E751DDF140400185FB3 /* CellCustom.xib in Resources */,
+				789A7A111E3805410088B947 /* FirstBookCell.xib in Resources */,
 				781B9F8B1DF5CF4B007D8166 /* macOS_64pt_@1x.png in Resources */,
 				789A03481E057C48004AB0A8 /* heart-white-full.png in Resources */,
 				781B9F7D1DF5CF4B007D8166 /* iPhone_180pt_@3x.png in Resources */,
@@ -879,6 +889,7 @@
 				782F28611DED8B2B00EBD10F /* CacheManager.swift in Sources */,
 				782F28621DED8B2B00EBD10F /* MySearch.swift in Sources */,
 				78FDBE931DE0B39F004345E4 /* BookCell.swift in Sources */,
+				789FBD851E2A86CF00426882 /* AutocompleteTextField.swift in Sources */,
 				FAF952631E37721B00248615 /* MissingResult.swift in Sources */,
 				FACC32FF1E36B52D0008C353 /* DateHelpers.swift in Sources */,
 				864301C21DDD3CA900E78810 /* ImageRotation.swift in Sources */,
@@ -906,6 +917,7 @@
 				FA5D7F961E2EB1450073A656 /* RetriveNews.swift in Sources */,
 				8613B7D41DE088D500BC4C17 /* HTMLNode.swift in Sources */,
 				86914D801DDD176B0099C88A /* SWRevealViewController.m in Sources */,
+				789A7A131E3807930088B947 /* FirstBookCell.swift in Sources */,
 				78A261061DE4F34000FB79BF /* SearchBookCell.swift in Sources */,
 				8613B7D51DE088D500BC4C17 /* HTMLParser.swift in Sources */,
 				86A68E981DDF24680041FD62 /* CellCustom.swift in Sources */,
