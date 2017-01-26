@@ -11,8 +11,8 @@ import Foundation
 public class GoogleBook
 {
     
-    
     public func GoogleBook(){}
+    
     
     
     
@@ -29,19 +29,27 @@ public class GoogleBook
         var url:NSURL ;
         if(!autore.isEqualToString("") && !citazione.isEqualToString(""))
         {
+            CacheManager().storeSearch(authorFromMainPage, id: Constants.ID_SEARCH_AUTORE)
+            CacheManager().storeSearch(citazioneFromMainPage, id: Constants.ID_SEARCH_CITAZIONE)
+            
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=\(citazione)+inauthor:\(autore)&key=\(Constants.API_KEY)")!;
             arrayBooksInAuthor = self.callRESTGoogleBook(url, autore: authorFromMainPage, citazione: citazioneFromMainPage)
+            
             return arrayBooksInAuthor;
             
         }
         else if(!autore.isEqualToString(""))
         {
+            CacheManager().storeSearch(authorFromMainPage, id: Constants.ID_SEARCH_AUTORE)
+        
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=inauthor:\(autore)&key=\(Constants.API_KEY)")!;
             arrayBooksInAuthor = self.callRESTGoogleBook(url, autore: authorFromMainPage, citazione: "")
             return arrayBooksInAuthor;
         }
         else
         {
+            CacheManager().storeSearch(citazioneFromMainPage, id: Constants.ID_SEARCH_CITAZIONE)
+            
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=%22\(citazione)%22&key=\(Constants.API_KEY)")!;
             arrayBooksQuote = self.callRESTGoogleBook(url, autore: "", citazione: citazioneFromMainPage)
             url = NSURL(string: "https://www.googleapis.com/books/v1/volumes?q=\(citazione)&key=\(Constants.API_KEY)")!;

@@ -84,6 +84,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         self.tableView.registerNib(UINib(nibName: "BookCell", bundle: nil), forCellReuseIdentifier: "rowTable3");
         self.tableView.registerNib(UINib(nibName: "BookCell", bundle: nil), forCellReuseIdentifier: "rowTable4");
         self.tableView.registerNib(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "rowTable5");
+        self.tableView.registerNib(UINib(nibName: "FirstBookCell", bundle: nil), forCellReuseIdentifier: "rowTable6");
         //self.tableView.rowHeight = 250;
         self.tableView.estimatedRowHeight = 300.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -144,7 +145,85 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         if(titleName == NSLocalizedString("bestSellers", comment: "bestSellers") && bookArray.count != 0){
             
             let b = (bookArray[(indexPath.row)] as! Book)
-            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! BookCell
+            
+            if(indexPath.row == 0){
+            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable6", forIndexPath: indexPath) as! FirstBookCell
+                cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+                cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                cell.cuore.layer.shadowOpacity = 0.2;
+                cell.cuore.layer.shadowRadius = 0.0;
+                if(b.favorite == true){
+                    cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
+                }
+                else{
+                    cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
+                    
+                }
+                cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
+                cell.cuore.tag = indexPath.row
+                
+                cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+                cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                cell.shared.layer.shadowOpacity = 0.2;
+                cell.shared.layer.shadowRadius = 0.0;
+                cell.shared.setImage(UIImage(named:"share.png"), forState: .Normal)
+                cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
+                cell.shared.tag = indexPath.row
+                
+                
+                cell.titolo.text = b.title as String
+                cell.titolo.sizeToFit();
+                if(b.price.containsString("EUR"))
+                {
+                    cell.prezzo.text = b.price
+                }
+                else
+                {
+                    cell.prezzo.text = b.price
+                }
+                
+                let num = indexPath.row+1 as NSNumber
+                cell.numero.text = num.stringValue
+                
+                var auth = ""
+                var ind = 0
+                for i in b.authors
+                {
+                    
+                    auth.appendContentsOf(i)
+                    ind += 1
+                    if(ind < b.authors.count)
+                    {
+                        auth.appendContentsOf(", ")
+                    }
+                    
+                }
+                
+                cell.autore.text = auth
+                cell.layoutIfNeeded();
+                
+                //DOWNLOAD IMAGE
+                let urlString:String? = ((bookArray[indexPath.row] as! Book).imgLink) as String
+                if(urlString != nil)
+                {
+                    let imgURL: NSURL = NSURL(string: urlString!)!
+                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                    NSURLConnection.sendAsynchronousRequest(
+                        request, queue: NSOperationQueue.mainQueue(),
+                        completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                            if error == nil {
+                                cell.copertina.image = UIImage(data: data!)
+                            }
+                    })
+                }
+                
+                
+                return cell;
+
+            }else{
+             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! BookCell
             
             cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
             cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
@@ -212,7 +291,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
             
             return cell;
-        
+        }
         }else if (titleName == NSLocalizedString("mySearches", comment: "mySearches")){
             
             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable2", forIndexPath: indexPath) as! SearchBookCell
@@ -721,7 +800,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     complexQuery = label.text!
                 }
                 DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: "IT", complexQuery: complexQuery)
-                DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[indexPath.row] as! Book, query: complexQuery, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
+                //--> QUESTO METODO VA CHIAMATO PER LE VOTAZIONI SOLO DOPO LA RICERCA SU GOOGLE DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[indexPath.row] as! Book, query: complexQuery, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
             }
             tableView.cellForRowAtIndexPath(indexPath)?.selected = false
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController

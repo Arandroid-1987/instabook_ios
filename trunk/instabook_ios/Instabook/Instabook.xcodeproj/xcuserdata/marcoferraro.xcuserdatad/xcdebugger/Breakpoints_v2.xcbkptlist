@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503789005.212256"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,13 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
-            landmarkName = "MainPage"
-            landmarkType = "3">
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "textFieldDidEndEditing(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
             landmarkType = "5">
             <Locations>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503360124.09414"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "textViewDidChange(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "textViewDidEndEditing(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,28 +218,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,11 +234,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabook/BooksView.swift"
+            timestampString = "506989211.250619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -454,27 +454,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "tableView(_:numberOfRowsInSection:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -486,11 +470,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "186"
-            endingLineNumber = "186"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabook/BooksView.swift"
+            timestampString = "506989211.250619"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -502,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "502304837.803923"
+            timestampString = "506459170.053242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "MainPage"
             landmarkType = "3">
          </BreakpointContent>
@@ -518,11 +518,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/GoogleBook.swift"
-            timestampString = "502135756.883267"
+            timestampString = "507141465.304329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "callRESTGoogleBook(_:autore:citazione:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -550,27 +550,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "692"
-            endingLineNumber = "692"
-            landmarkName = "goToDetailsRight(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "700"
-            endingLineNumber = "700"
+            startingLineNumber = "822"
+            endingLineNumber = "822"
             landmarkName = "goToDetailsLeft(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -582,11 +566,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "699"
-            endingLineNumber = "699"
+            startingLineNumber = "830"
+            endingLineNumber = "830"
             landmarkName = "goToDetailsLeft(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -598,13 +582,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "618"
-            endingLineNumber = "618"
-            landmarkName = "MainPage"
-            landmarkType = "3">
+            startingLineNumber = "829"
+            endingLineNumber = "829"
+            landmarkName = "goToDetailsLeft(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -614,11 +598,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "sharedRightCardView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -630,43 +614,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "607"
-            endingLineNumber = "607"
-            landmarkName = "sharedLeftCardView(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "603"
-            endingLineNumber = "603"
-            landmarkName = "sharedLeftCardView(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
+            startingLineNumber = "743"
+            endingLineNumber = "743"
             landmarkName = "sharedRightCardView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -678,11 +630,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "651"
-            endingLineNumber = "651"
+            startingLineNumber = "726"
+            endingLineNumber = "726"
+            landmarkName = "sharedLeftCardView(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabook/MainPage.swift"
+            timestampString = "507141252.193937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "722"
+            endingLineNumber = "722"
+            landmarkName = "sharedLeftCardView(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabook/MainPage.swift"
+            timestampString = "507141252.193937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "754"
+            endingLineNumber = "754"
             landmarkName = "heartRightCardView(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -694,12 +678,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "688"
-            endingLineNumber = "688"
-            landmarkName = "goToDetailsRight(_:)"
+            startingLineNumber = "777"
+            endingLineNumber = "777"
+            landmarkName = "heartLeftCardView(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -710,13 +694,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
-            landmarkName = "MainPage"
-            landmarkType = "3">
+            startingLineNumber = "816"
+            endingLineNumber = "816"
+            landmarkName = "goToDetailsLeft(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Instabook/MainPage.swift"
+            timestampString = "507141252.193937"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "721"
+            endingLineNumber = "721"
+            landmarkName = "sharedLeftCardView(_:)"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -790,11 +790,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "buttonClicked()"
             landmarkType = "5">
          </BreakpointContent>
@@ -806,11 +806,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -822,11 +822,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -838,11 +838,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503358104.367614"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -854,11 +854,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503789005.212256"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "448"
+            endingLineNumber = "448"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -902,11 +902,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/BooksView.swift"
-            timestampString = "503789005.212256"
+            timestampString = "506989211.250619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "782"
-            endingLineNumber = "782"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
             landmarkName = "BooksView"
             landmarkType = "3">
          </BreakpointContent>
@@ -982,11 +982,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "364"
+            endingLineNumber = "364"
             landmarkName = "buttonClicked()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1076,13 +1076,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "MainPage"
-            landmarkType = "3">
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "viewWillTransitionToSize(_:withTransitionCoordinator:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1092,11 +1092,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/MainPage.swift"
-            timestampString = "503790898.539488"
+            timestampString = "507141252.193937"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
             landmarkName = "buttonClicked()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1108,11 +1108,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Instabook/GoogleBook.swift"
-            timestampString = "502135756.883267"
+            timestampString = "507141465.304329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "callRESTGoogleBook(_:autore:citazione:)"
             landmarkType = "5">
          </BreakpointContent>
