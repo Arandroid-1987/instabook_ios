@@ -88,8 +88,8 @@ public class AutocompleteTextField:UITextField {
         autoCompleteAttributes = [NSForegroundColorAttributeName:UIColor.blackColor()]
         autoCompleteAttributes![NSFontAttributeName] = UIFont.boldSystemFontOfSize(12)
         self.clearButtonMode = .Always
-        self.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
-        self.addTarget(self, action: "textFieldDidEndEditing", forControlEvents: .EditingDidEnd)
+        self.addTarget(self, action: #selector(AutocompleteTextField.textFieldDidChange), forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(AutocompleteTextField.textFieldDidEndEditing), forControlEvents: .EditingDidEnd)
     }
     
     private func setupAutocompleteTable(view:UIView){
@@ -193,13 +193,13 @@ extension AutocompleteTextField: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if cell.respondsToSelector("setSeparatorInset:"){
+        if cell.respondsToSelector(Selector("setSeparatorInset:")){
             cell.separatorInset = autoCompleteSeparatorInset
         }
-        if cell.respondsToSelector("setPreservesSuperviewLayoutMargins:"){
+        if cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")){
             cell.preservesSuperviewLayoutMargins = false
         }
-        if cell.respondsToSelector("setLayoutMargins:"){
+        if cell.respondsToSelector(Selector("setLayoutMargins:")){
             cell.layoutMargins = autoCompleteSeparatorInset
         }
     }

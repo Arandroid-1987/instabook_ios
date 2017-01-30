@@ -146,66 +146,131 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
             let b = (bookArray[(indexPath.row)] as! Book)
             
-            if(indexPath.row == 0){
-            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable6", forIndexPath: indexPath) as! FirstBookCell
-                cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
-                cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-                cell.cuore.layer.shadowOpacity = 0.2;
-                cell.cuore.layer.shadowRadius = 0.0;
-                if(b.favorite == true){
-                    cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
-                }
-                else{
-                    cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
+            if(indexPath.row == 0)
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("rowTable6", forIndexPath: indexPath) as! FirstBookCell
+                //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+                //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.cuore.layer.shadowOpacity = 0.2;
+                //cell.cuore.layer.shadowRadius = 0.0;
+                    if(b.favorite == true)
+                    {
+                        cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
+                    }
+                    else{
+                        cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
                     
-                }
-                cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-                cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
-                cell.cuore.tag = indexPath.row
+                    }
+                //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                    cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
+                    cell.cuore.tag = indexPath.row
                 
-                cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
-                cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-                cell.shared.layer.shadowOpacity = 0.2;
-                cell.shared.layer.shadowRadius = 0.0;
-                cell.shared.setImage(UIImage(named:"share.png"), forState: .Normal)
-                cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-                cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
-                cell.shared.tag = indexPath.row
+                //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+                //cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.shared.layer.shadowOpacity = 0.2;
+                //cell.shared.layer.shadowRadius = 0.0;
+                    cell.shared.setImage(UIImage(named:"share_yellow.png"), forState: .Normal)
+                //cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                    cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
+                    cell.shared.tag = indexPath.row
                 
                 
-                cell.titolo.text = b.title as String
-                cell.titolo.sizeToFit();
-                if(b.price.containsString("EUR"))
-                {
+                    cell.titolo.text = b.title as String
+                    cell.titolo.sizeToFit();
                     cell.prezzo.text = b.price
+                
+                    let num = indexPath.row+1 as NSNumber
+                    cell.numero.text = num.stringValue
+                
+                    var auth = ""
+                    var ind = 0
+                    for i in b.authors
+                    {
+                    
+                        auth.appendContentsOf(i)
+                        ind += 1
+                        if(ind < b.authors.count)
+                        {
+                            auth.appendContentsOf(", ")
+                        }
+                    
+                    }
+                
+                    cell.autore.text = auth
+                    cell.layoutIfNeeded();
+                
+                    //DOWNLOAD IMAGE
+                    let urlString:String? = ((bookArray[indexPath.row] as! Book).imgLink) as String
+                    if(urlString != nil)
+                    {
+                        let imgURL: NSURL = NSURL(string: urlString!)!
+                        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                        NSURLConnection.sendAsynchronousRequest(
+                            request, queue: NSOperationQueue.mainQueue(),
+                            completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                                if error == nil {
+                                    cell.copertina.image = UIImage(data: data!)
+                                }
+                        })
+                    }
+                
+                    return cell;
+            }
+            else
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! BookCell
+            
+                //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+                //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.cuore.layer.shadowOpacity = 0.2;
+                //cell.cuore.layer.shadowRadius = 0.0;
+                if(b.favorite == true)
+                {
+                    cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
                 }
                 else
                 {
-                    cell.prezzo.text = b.price
+                    cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
                 }
+                //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
+                cell.cuore.tag = indexPath.row
+            
+                //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+                //cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.shared.layer.shadowOpacity = 0.2;
+                //cell.shared.layer.shadowRadius = 0.0;
+                cell.shared.setImage(UIImage(named:"share_yellow.png"), forState: .Normal)
+                //cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
+                cell.shared.tag = indexPath.row
                 
+                cell.titolo.text = b.title as String
+                cell.titolo.sizeToFit();
+                cell.prezzo.text = b.price
+
                 let num = indexPath.row+1 as NSNumber
                 cell.numero.text = num.stringValue
-                
+            
                 var auth = ""
                 var ind = 0
                 for i in b.authors
                 {
-                    
+                
                     auth.appendContentsOf(i)
                     ind += 1
                     if(ind < b.authors.count)
                     {
                         auth.appendContentsOf(", ")
                     }
-                    
-                }
                 
+                }
+            
                 cell.autore.text = auth
                 cell.layoutIfNeeded();
-                
+            
                 //DOWNLOAD IMAGE
-                let urlString:String? = ((bookArray[indexPath.row] as! Book).imgLink) as String
+                let urlString:String? = (bookArray[indexPath.row] as! Book).imgLink as String
                 if(urlString != nil)
                 {
                     let imgURL: NSURL = NSURL(string: urlString!)!
@@ -218,91 +283,14 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                             }
                     })
                 }
-                
-                
                 return cell;
-
-            }else{
-             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! BookCell
-            
-            cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
-            cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.cuore.layer.shadowOpacity = 0.2;
-            cell.cuore.layer.shadowRadius = 0.0;
-            if(b.favorite == true){
-                cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
-            }
-            else{
-              cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
-            
-            }
-            cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-            cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
-            cell.cuore.tag = indexPath.row
-            
-            cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
-            cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.shared.layer.shadowOpacity = 0.2;
-            cell.shared.layer.shadowRadius = 0.0;
-            cell.shared.setImage(UIImage(named:"share.png"), forState: .Normal)
-            cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-            cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
-            cell.shared.tag = indexPath.row
-            
-            
-            cell.titolo.text = b.title as String
-            cell.titolo.sizeToFit();
-            cell.prezzo.text = b.price
-
-            let num = indexPath.row+1 as NSNumber
-            cell.numero.text = num.stringValue
-            
-            var auth = ""
-            var ind = 0
-            for i in b.authors
-            {
-                
-                auth.appendContentsOf(i)
-                ind += 1
-                if(ind < b.authors.count)
-                {
-                    auth.appendContentsOf(", ")
-                }
-                
             }
             
-            cell.autore.text = auth
-            cell.layoutIfNeeded();
-            
-            //DOWNLOAD IMAGE
-            let urlString:String? = (bookArray[indexPath.row] as! Book).imgLink as String
-            if(urlString != nil)
-            {
-                let imgURL: NSURL = NSURL(string: urlString!)!
-                let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                NSURLConnection.sendAsynchronousRequest(
-                    request, queue: NSOperationQueue.mainQueue(),
-                    completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
-                        if error == nil {
-                            cell.copertina.image = UIImage(data: data!)
-                        }
-                })
-            }
-            
-            
-            return cell;
         }
-        }else if (titleName == NSLocalizedString("mySearches", comment: "mySearches")){
+        else if (titleName == NSLocalizedString("mySearches", comment: "mySearches"))
+        {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable2", forIndexPath: indexPath) as! SearchBookCell
-            cell.deleteButton.tag = indexPath.row;
-            cell.deleteButton.layer.cornerRadius = 0.5 * cell.deleteButton.bounds.size.width
-            cell.deleteButton.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.deleteButton.layer.shadowOpacity = 0.2;
-            cell.deleteButton.layer.shadowRadius = 0.0;
-            cell.deleteButton.setImage(UIImage(named:"delete.png"), forState: .Normal)
-            cell.deleteButton.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-            cell.deleteButton.addTarget(self, action: #selector(BooksView.deleteSearch(_:)), forControlEvents: .TouchUpInside)
             
             cell.titoloRicerca.text = (bookArray[indexPath.row] as! MySearch).citazione
             if((bookArray[indexPath.row] as! MySearch).autore != "")
@@ -316,33 +304,18 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     cell.titoloRicerca.text = NSLocalizedString("author_full_stop", comment: "author_full_stop") + (bookArray[indexPath.row] as! MySearch).autore
                 }
             }
-            cell.data.text = NSLocalizedString("last_searched", comment: "last_searched") + (bookArray[indexPath.row] as! MySearch).data
+            cell.data.text = (bookArray[indexPath.row] as! MySearch).data
+            cell.tag = indexPath.row;
             
+            //ADD MANAGER SWIPE
+            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(BooksView.respondToSwipeGesture(_:)))
+            swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
+            self.tableView.addGestureRecognizer(swipeLeft)
             
-            if((bookArray[indexPath.row] as! MySearch).imgLink != nil)
-            {
-                let urlString = ((bookArray[indexPath.row] as! MySearch).imgLink) as String
-                if(self.cacheManager.isImageCached(urlString))
-                {
-                    cell.imageBook.image = self.cacheManager.getImageCached(urlString)
-                }
-                else
-                {
-                    let imgURL: NSURL = NSURL(string: urlString)!
-                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                    NSURLConnection.sendAsynchronousRequest(
-                        request, queue: NSOperationQueue.mainQueue(),
-                        completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
-                            if error == nil {
-                                cell.imageBook.image = UIImage(data: data!)
-                                self.cacheManager.storeImage(urlString, data: data!)
-                            }
-                    })
-                }
-                
-            }
             return cell;
-        }else if (titleName == NSLocalizedString("my_books", comment: "my_books") && bookArray.count > indexPath.row){
+        }
+        else if (titleName == NSLocalizedString("my_books", comment: "my_books") && bookArray.count > indexPath.row)
+        {
             print(bookArray.count)
             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable3", forIndexPath: indexPath) as! BookCell
             cell.numero.hidden = true
@@ -412,10 +385,10 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 
             }
             
-            cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
-            cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.cuore.layer.shadowOpacity = 0.2;
-            cell.cuore.layer.shadowRadius = 0.0;
+            //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+            //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+            //cell.cuore.layer.shadowOpacity = 0.2;
+            //cell.cuore.layer.shadowRadius = 0.0;
             if(b.favorite == true)
             {
                 cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
@@ -425,14 +398,14 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
             }
 
-            cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+            //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
             cell.cuore.addTarget(self, action: #selector(BooksView.removeFromPreferred(_:)), forControlEvents: .TouchUpInside)
-            cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
-            cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.shared.layer.shadowOpacity = 0.2;
-            cell.shared.layer.shadowRadius = 0.0;
-            cell.shared.setImage(UIImage(named:"share.png"), forState: .Normal)
-            cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+            //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+            //cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+            //cell.shared.layer.shadowOpacity = 0.2;
+            //cell.shared.layer.shadowRadius = 0.0;
+            cell.shared.setImage(UIImage(named:"share_yellow.png"), forState: .Normal)
+            //cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
             cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
             cell.shared.tag = indexPath.row;
             cell.cuore.tag = indexPath.row;
@@ -447,7 +420,8 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
       //let tapSharedLeft = UITapGestureRecognizer(target:self, action:Selector("@connected1:"))
        //cell.shared.addGestureRecognizer(tapSharedLeft)
        //cell.shared.tag = indexPath.row
-        else if (titleName == NSLocalizedString("action_settings", comment: "action_settings")){
+        else if (titleName == NSLocalizedString("action_settings", comment: "action_settings"))
+        {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable5", forIndexPath: indexPath) as! SettingsCell
            
@@ -475,7 +449,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             else if(NSLocalizedString("settings_license", comment: "settings_license") == tipologia){
                 
                 cell.tipologia.text = tipologia
-                cell.titolo.text = NSLocalizedString("settings_license", comment: "settings_license")
+                cell.titolo.text = NSLocalizedString("settings_manage_license", comment: "settings_manage_license")
                 cell.descrizione.text = NSLocalizedString("settings_manage_license_description", comment: "settings_manage_license_description")
                 cell.switchButton.hidden = true
                 cell.socialButton.hidden = true
@@ -558,7 +532,9 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
              return cell
             
-        }else if (bookArray.count > 0 && label.text != NSLocalizedString("my_books", comment: "my_books")){
+        }
+        else if (bookArray.count > 0 && label.text != NSLocalizedString("my_books", comment: "my_books"))
+        {
         
             let b = (bookArray[(indexPath.row)] as! Book)
             
@@ -569,10 +545,10 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
             let cell = tableView.dequeueReusableCellWithIdentifier("rowTable4", forIndexPath: indexPath) as! BookCell
             
-            cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
-            cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.cuore.layer.shadowOpacity = 0.2;
-            cell.cuore.layer.shadowRadius = 0.0;
+            //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+            //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+            //cell.cuore.layer.shadowOpacity = 0.2;
+            //cell.cuore.layer.shadowRadius = 0.0;
             if(b.favorite == true)
             {
                 cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
@@ -582,17 +558,17 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
             }
 
-            cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+            //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
             cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
             cell.cuore.tag = indexPath.row
 
-            cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
-            cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-            cell.shared.layer.shadowOpacity = 0.2;
-            cell.shared.layer.shadowRadius = 0.0;
-            cell.shared.setImage(UIImage(named:"share.png"), forState: .Normal)
-            cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-            cell.shared.tag = indexPath.row
+            //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+            //cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+            //cell.shared.layer.shadowOpacity = 0.2;
+            //cell.shared.layer.shadowRadius = 0.0;
+            cell.shared.setImage(UIImage(named:"share_yellow.png"), forState: .Normal)
+            //cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+            //cell.shared.tag = indexPath.row
             cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
 
             
@@ -962,6 +938,60 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     {
         let buttonTag = sender.tag
         self.cacheManager.removeStoreMySearch((bookArray[buttonTag] as! MySearch))
+        bookArray = self.cacheManager.getMySearchStored()
+        nRow = bookArray.count
+        self.tableView.reloadData()
+    }
+    
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+        
+        let retriveXY = gesture.locationInView(self.tableView);
+        let retriveIndex = self.tableView.indexPathForRowAtPoint(retriveXY)
+        let retriveCell = self.tableView.cellForRowAtIndexPath(retriveIndex!)
+        let buttonTag = retriveCell?.tag
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction
+            {
+                case UISwipeGestureRecognizerDirection.Right:
+                    print("Swiped right")
+                case UISwipeGestureRecognizerDirection.Down:
+                    print("Swiped down")
+                case UISwipeGestureRecognizerDirection.Left:
+                    //self.cacheManager.removeStoreMySearch((bookArray[buttonTag!] as! MySearch))
+                    //bookArray = self.cacheManager.getMySearchStored()
+                    bookArray.removeAtIndex(buttonTag!)
+                    nRow = bookArray.count
+                    self.tableView.reloadData()
+                    let snackbar = MKSnackbar(
+                        withTitle: NSLocalizedString("research_removed", comment: "research_removed"),
+                        withDuration: 1.5,
+                        withTitleColor:nil,
+                        withActionButtonTitle: NSLocalizedString("annulla", comment: "annulla").uppercaseString,
+                        withActionButtonColor: UIColor.yellowColor())
+                    snackbar.tag = buttonTag!
+                    snackbar.actionButtonSelector(withTarget: self, andAction: #selector(BooksView.annullaDelete(_:)))
+                    snackbar.show()
+                    //AVVIO IL THREAD E MI VERIFICO SE CI STA ANCORA LA POSSIBILITA DI ANNULLARE LA CANCELLAZIONE
+                    let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+                    let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+                    dispatch_async(backgroundQueue, {() -> Void in
+                        
+                        while(snackbar.isShowing){}
+                        if(!snackbar.isPressed)
+                        {
+                            self.cacheManager.removeStoreMySearch((self.cacheManager.getMySearchStored()[buttonTag!] as! MySearch))
+                        }
+                    })
+                case UISwipeGestureRecognizerDirection.Up:
+                    print("Swiped up")
+                default:
+                    break
+            }
+        }
+    }
+    
+    func annullaDelete(sender: AnyObject)
+    {
         bookArray = self.cacheManager.getMySearchStored()
         nRow = bookArray.count
         self.tableView.reloadData()

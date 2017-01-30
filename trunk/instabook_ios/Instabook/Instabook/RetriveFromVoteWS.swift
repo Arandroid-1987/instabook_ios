@@ -79,7 +79,7 @@ public class RetriveFromVoteWS
                 {
                     book.link = link as! NSString as String;
                 }
-                if let rating: Double = item.valueForKey("rating") as! Double
+                if let rating: Double = item.valueForKey("rating") as? Double
                 {
                     book.rating = rating;
                 }

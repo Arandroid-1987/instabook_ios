@@ -12,7 +12,4 @@ public class SearchBookCell: UITableViewCell
 {
     @IBOutlet weak var data: UILabel!
     @IBOutlet weak var titoloRicerca: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var imageBook: UIImageView!
-    
 }
