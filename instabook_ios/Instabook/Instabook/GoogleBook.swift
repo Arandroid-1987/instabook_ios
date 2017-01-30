@@ -149,7 +149,28 @@ public class GoogleBook
                             bookItem.price += " \(currencyCode)"
                         }
                     }
-
+                    if let isEbook: AnyObject = item.valueForKey("saleInfo")?.valueForKey("isEbook")
+                    {
+                        bookItem.isEbook = isEbook as! Bool;
+                    }
+                    if let searchInfo: AnyObject = item.valueForKey("searchInfo")?.valueForKey("textSnippet")
+                    {
+                        bookItem.snippet = searchInfo as! String;
+                    }
+                    if let industryIdentifiers: AnyObject = item.valueForKey("volumeInfo")?.valueForKey("industryIdentifiers")
+                    {
+                        for industryId in industryIdentifiers as! NSArray
+                        {
+                            if((industryId.valueForKey("type") as! String) == "ISBN_10")
+                            {
+                                bookItem.isbn10 = industryId.valueForKey("identifier") as! String
+                            }
+                            else if((industryId.valueForKey("type") as! String) == "ISBN_13")
+                            {
+                                bookItem.isbn13 = industryId.valueForKey("identifier") as! String
+                            }
+                        }
+                    }
                     
                     arrayBooks.append(bookItem);
                 }
@@ -162,7 +183,7 @@ public class GoogleBook
         mySearch.citazione = citazione
         let todaysDate:NSDate = NSDate()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "dd MMMM yyyy HH:mm"
         mySearch.data = dateFormatter.stringFromDate(todaysDate)
         if(arrayBooks.count > 0)
         {

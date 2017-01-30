@@ -280,19 +280,20 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
 
     public override func scrollViewDidScroll(scrollView: UIScrollView) {
 
-        if(scrollView != autocompleteTableView && scrollView != autocompleteTableView2){
-        autocompleteTableView.hidden = true
-        autocompleteTableView2.hidden = true
-
-        positionFloatingButton = view.bounds.height + scrollView.contentOffset.y;
-        if(keyboardOpened)
+        if(scrollView != autocompleteTableView && scrollView != autocompleteTableView2)
         {
-            positionFloatingButton -= keyboardHeight
-        }
-        floatingButton.layer.shadowOffset = CGSizeMake(0.1, 1.0);
-        floatingButton.layer.shadowOpacity = 0.2;
-        floatingButton.layer.shadowRadius = 0.0;
-        self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
+            autocompleteTableView.hidden = true
+            autocompleteTableView2.hidden = true
+
+            positionFloatingButton = view.bounds.height + scrollView.contentOffset.y;
+            if(keyboardOpened)
+            {
+                positionFloatingButton -= keyboardHeight
+            }
+            floatingButton.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+            floatingButton.layer.shadowOpacity = 0.2;
+            floatingButton.layer.shadowRadius = 0.0;
+            self.tableView.addSubview(Utils.createFloatingButton(floatingButton, viewWidht: view.bounds.width, position: positionFloatingButton))
         }
 
     }
@@ -952,7 +953,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         for curString in pastUrls
         {
-            var myString:NSString! = curString as NSString
+            let myString:NSString! = curString as NSString
             
             if(substring.length > 1){
             
@@ -991,7 +992,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         for curString in pastUrls2
         {
-            var myString:NSString! = curString as NSString
+            let myString:NSString! = curString as NSString
             
             if(substring.length > 1){
                 

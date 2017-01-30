@@ -374,6 +374,10 @@ public class CacheManager
             
             var arrayToReturn = Array<Any>()
             var mySearchArray = NSKeyedUnarchiver.unarchiveObjectWithData(mySearchStoredArray) as! Array<MySearch>;
+            if(mySearchArray.count == 0)
+            {
+                return Array<Any>();
+            }
             for index in (0...(mySearchArray.count-1)).reverse()
             {
                 arrayToReturn.append(mySearchArray[index]);

@@ -15,18 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="493" height="251"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lkb-8S-d4G" customClass="CardView" customModule="Instabook" customModuleProvider="target">
-                        <rect key="frame" x="8" y="8" width="477" height="236"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lkb-8S-d4G" customClass="CardView" customModule="Instabook" customModuleProvider="target">
+                        <rect key="frame" x="9" y="8" width="490" height="235"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="instant_book_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="12G-Xb-XHR">
-                                <rect key="frame" x="366" y="87" width="103" height="143"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="143" id="goK-bs-hGC"/>
-                                    <constraint firstAttribute="width" constant="103" id="oaV-FL-cly"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4f-US-TWO">
-                                <rect key="frame" x="0.0" y="10" width="461" height="21"/>
+                                <rect key="frame" x="13" y="10" width="461" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="461" id="lpG-iq-FXZ"/>
                                 </constraints>
@@ -35,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0CU-BU-FA6">
-                                <rect key="frame" x="0.0" y="39" width="285" height="21"/>
+                                <rect key="frame" x="13" y="39" width="285" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="285" id="sjF-Hq-Bzz"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="xkn-tb-w6o"/>
@@ -44,54 +37,31 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2z-Pe-aWC">
-                                <rect key="frame" x="8" y="170" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="RcL-Qc-1Aj"/>
-                                    <constraint firstAttribute="height" constant="60" id="djc-Gu-Qsk"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="t2z-Pe-aWC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0CU-BU-FA6" secondAttribute="bottom" constant="1" id="5L9-4s-B7k"/>
                             <constraint firstItem="W4f-US-TWO" firstAttribute="top" secondItem="Lkb-8S-d4G" secondAttribute="top" constant="10" id="9en-he-bHI"/>
                             <constraint firstAttribute="trailing" secondItem="W4f-US-TWO" secondAttribute="trailing" constant="16" id="EIX-Wv-e4a"/>
-                            <constraint firstItem="t2z-Pe-aWC" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="HSp-cc-VvD"/>
-                            <constraint firstItem="12G-Xb-XHR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0CU-BU-FA6" secondAttribute="trailing" constant="5" id="Jwt-7a-xoT"/>
-                            <constraint firstAttribute="trailing" secondItem="12G-Xb-XHR" secondAttribute="trailing" constant="8" id="ZQK-Ct-jaI"/>
-                            <constraint firstAttribute="bottom" secondItem="t2z-Pe-aWC" secondAttribute="bottom" constant="5.5" id="aXY-Qy-d5a"/>
-                            <constraint firstItem="12G-Xb-XHR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W4f-US-TWO" secondAttribute="bottom" constant="1" id="cFK-C5-rrQ"/>
-                            <constraint firstAttribute="bottom" secondItem="12G-Xb-XHR" secondAttribute="bottom" constant="5.5" id="gCn-tm-Ro8"/>
                             <constraint firstItem="0CU-BU-FA6" firstAttribute="top" secondItem="W4f-US-TWO" secondAttribute="bottom" constant="8" id="kGI-Iu-OOT"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Lkb-8S-d4G" firstAttribute="centerY" secondItem="5d8-1S-pL2" secondAttribute="centerY" id="Hif-3H-Srv"/>
+                    <constraint firstItem="W4f-US-TWO" firstAttribute="leading" secondItem="5d8-1S-pL2" secondAttribute="leadingMargin" constant="13" id="2ci-9g-UCu"/>
+                    <constraint firstItem="0CU-BU-FA6" firstAttribute="leading" secondItem="5d8-1S-pL2" secondAttribute="leadingMargin" constant="13" id="BKg-B6-ca8"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Lkb-8S-d4G" secondAttribute="bottom" id="KXC-He-oFn"/>
                     <constraint firstAttribute="topMargin" secondItem="Lkb-8S-d4G" secondAttribute="top" id="OpM-st-fQE"/>
                     <constraint firstItem="Lkb-8S-d4G" firstAttribute="centerX" secondItem="5d8-1S-pL2" secondAttribute="centerX" id="VxB-my-bBe"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="W4f-US-TWO" secondAttribute="leading" id="XPW-XP-dpb"/>
                     <constraint firstAttribute="leadingMargin" secondItem="Lkb-8S-d4G" secondAttribute="leading" id="aqM-IN-PAs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Lkb-8S-d4G" secondAttribute="trailing" id="cNA-ig-1kZ"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="0CU-BU-FA6" secondAttribute="leading" id="fp6-9S-AFX"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="0CU-BU-FA6" secondAttribute="bottom" constant="25" id="r2x-0g-5cM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="data" destination="0CU-BU-FA6" id="yPh-uW-u2b"/>
-                <outlet property="deleteButton" destination="t2z-Pe-aWC" id="8aM-tl-lwl"/>
-                <outlet property="imageBook" destination="12G-Xb-XHR" id="qt9-WI-JdJ"/>
                 <outlet property="titoloRicerca" destination="W4f-US-TWO" id="7AE-gy-kZn"/>
             </connections>
             <point key="canvasLocation" x="312.5" y="4"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="instant_book_icon.png" width="512" height="512"/>
-    </resources>
 </document>

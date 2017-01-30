@@ -8,6 +8,8 @@ import UIKit
 
 public class MKSnackbar: UIControl {
     
+    public var isPressed: Bool = false;
+    
     public var text: String? {
         didSet {
             if let textLabel = self.textLabel {
@@ -84,6 +86,7 @@ public class MKSnackbar: UIControl {
     }
     
     private func setup() {
+        self.isPressed = false;
         if actionTitleColor == nil {
             actionTitleColor = UIColor.whiteColor()
         }
@@ -186,6 +189,7 @@ public class MKSnackbar: UIControl {
     
     internal func actionButtonClicked(sender: AnyObject) {
         performDelegateAction(#selector(MKSnackbarDelegate.actionClicked(_:)))
+        isPressed = true;
         if let actionButton = actionButton {
             actionButton.enabled = false
         }
