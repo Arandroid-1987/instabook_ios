@@ -19,7 +19,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Dp-2U-r9D" customClass="CardView" customModule="Instabook" customModuleProvider="target">
                         <rect key="frame" x="251" y="20" width="214" height="190"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FF4908C7-A580-41A4-816D-0AD4355802EB" translatesAutoresizingMaskIntoConstraints="NO" id="nsn-hD-lSD">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67054030-9ACB-4A1B-8C66-10740C80AA1F" translatesAutoresizingMaskIntoConstraints="NO" id="nsn-hD-lSD">
                                 <rect key="frame" x="8" y="11" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="M5Z-s5-psW"/>
@@ -89,7 +89,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yl7-6h-RXs" customClass="CardView" customModule="Instabook" customModuleProvider="target">
                         <rect key="frame" x="28" y="20" width="213" height="190"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FF4908C7-A580-41A4-816D-0AD4355802EB" translatesAutoresizingMaskIntoConstraints="NO" id="Qba-SS-yFb">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="67054030-9ACB-4A1B-8C66-10740C80AA1F" translatesAutoresizingMaskIntoConstraints="NO" id="Qba-SS-yFb">
                                 <rect key="frame" x="8" y="11" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="dyv-5E-7fY"/>
@@ -183,7 +183,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="FF4908C7-A580-41A4-816D-0AD4355802EB" width="24" height="24">
+        <image name="67054030-9ACB-4A1B-8C66-10740C80AA1F" width="24" height="24">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
