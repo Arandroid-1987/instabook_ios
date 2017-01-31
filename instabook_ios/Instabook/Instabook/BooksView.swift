@@ -155,14 +155,14 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 //cell.cuore.layer.shadowRadius = 0.0;
                     if(b.favorite == true)
                     {
-                        cell.cuore.setImage(UIImage(named:"heart-full.png"), forState: .Normal)
+                        cell.cuore.setImage(UIImage(named:"heart-white-full.png"), forState: .Normal)
                     }
                     else{
-                        cell.cuore.setImage(UIImage(named:"heart.png"), forState: .Normal)
+                        cell.cuore.setImage(UIImage(named:"heart-white.png"), forState: .Normal)
                     
                     }
                 //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
-                    cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferred(_:)), forControlEvents: .TouchUpInside)
+                    cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferredFirstCell(_:)), forControlEvents: .TouchUpInside)
                     cell.cuore.tag = indexPath.row
                 
                 //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
@@ -910,6 +910,26 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             sender.setImage(UIImage(named:"heart.png"), forState: .Normal)
         }
 
+        
+    }
+    
+    func addToPreferredFirstCell(sender: UIButton)
+    {
+        if(sender.currentImage!.isEqual(UIImage(named: "heart-white.png")))
+        {
+            let bookLike = bookArray[sender.tag] as! Book
+            bookLike.favorite = true
+            self.cacheManager.storeLikeBook(bookLike)
+            sender.setImage(UIImage(named:"heart-white-full.png"), forState: .Normal)
+        }
+        else
+        {
+            let bookDisLike = bookArray[sender.tag] as! Book
+            bookDisLike.favorite = false
+            self.cacheManager.removeStoreLikeBook(bookDisLike)
+            sender.setImage(UIImage(named:"heart-white.png"), forState: .Normal)
+        }
+        
         
     }
 
