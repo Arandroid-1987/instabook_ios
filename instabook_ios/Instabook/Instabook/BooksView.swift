@@ -24,7 +24,9 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var Back: UIButton!
     @IBOutlet weak var googleView: UIView!
     @IBOutlet weak var backView: UIView!
-   
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var imageEmptyView: UIImageView!
+    @IBOutlet weak var labelEmptyView: UILabel!
     override func viewWillAppear(animated: Bool)
     {
         super.viewWillAppear(animated)
@@ -85,6 +87,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         self.tableView.registerNib(UINib(nibName: "BookCell", bundle: nil), forCellReuseIdentifier: "rowTable4");
         self.tableView.registerNib(UINib(nibName: "SettingsCell", bundle: nil), forCellReuseIdentifier: "rowTable5");
         self.tableView.registerNib(UINib(nibName: "FirstBookCell", bundle: nil), forCellReuseIdentifier: "rowTable6");
+        
         //self.tableView.rowHeight = 250;
         self.tableView.estimatedRowHeight = 300.0
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -100,14 +103,33 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         }
         else if (titleName == NSLocalizedString("my_books", comment: "my_books"))
         {
+            self.tableView.registerNib(UINib(nibName: "HowToSearch", bundle: nil), forCellReuseIdentifier: "HeaderCell");
             googleView.hidden = true
             bookArray = self.cacheManager.getMyBooksLikeStored();
             nRow = bookArray.count
+            
+            if(nRow == 0)
+            {
+                self.tableView.hidden = true;
+                self.emptyView.hidden = false;
+                self.imageEmptyView.image = UIImage(named:"book_nothing");
+                self.labelEmptyView.text = NSLocalizedString("no_book_found", comment: "no_book_found")
+            }
+            
         }
         else if (titleName == NSLocalizedString("mySearches", comment: "mySearches"))
         {
+            self.tableView.registerNib(UINib(nibName: "HowToSearch", bundle: nil), forCellReuseIdentifier: "HeaderCell");
             bookArray = self.cacheManager.getMySearchStored();
             nRow = bookArray.count
+            
+            if(nRow == 0)
+            {
+                self.tableView.hidden = true;
+                self.emptyView.hidden = false;
+                self.imageEmptyView.image = UIImage(named:"no_search");
+                self.labelEmptyView.text = NSLocalizedString("no_query_found", comment: "no_query_found")
+            }
         }
         else if (titleName == NSLocalizedString("action_settings", comment: "action_settings"))
         {
@@ -132,6 +154,57 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             }
         
         }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (titleName == NSLocalizedString("mySearches", comment: "mySearches"))
+        {
+            let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HowToSearch
+            headerCell.title.text = NSLocalizedString("how_to", comment: "how_to");
+            headerCell.descriptionText.text = NSLocalizedString("saved_queries_tutorial", comment: "saved_queries_tutorial");
+            headerCell.button.setTitle(NSLocalizedString("ok_i_got_it", comment: "ok_i_got_it"), forState: .Normal)
+            headerCell.button.addTarget(self, action: #selector(BooksView.removeTutorialSearch), forControlEvents: UIControlEvents.TouchUpInside)
+            return headerCell;
+        }
+        else if (titleName == NSLocalizedString("my_books", comment: "my_books"))
+        {
+            let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HowToSearch
+            headerCell.title.text = NSLocalizedString("how_to", comment: "how_to");
+            headerCell.descriptionText.text = NSLocalizedString("favorite_books_tutorial", comment: "favorite_books_tutorial");
+            headerCell.button.setTitle(NSLocalizedString("ok_i_got_it", comment: "ok_i_got_it"), forState: .Normal)
+            headerCell.button.addTarget(self, action: #selector(BooksView.removeTutorialMyBook), forControlEvents: UIControlEvents.TouchUpInside)
+            return headerCell;
+        }
+        
+        return nil;
+    }
+    
+    
+    func removeTutorialSearch()
+    {
+        cacheManager.setOffTutorialSearch();
+        self.tableView.reloadData();
+    }
+    
+    func removeTutorialMyBook()
+    {
+        cacheManager.setOffTutorialMyBooks();
+        self.tableView.reloadData();
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (nRow > 0 && cacheManager.getTutorialSearch() && titleName == NSLocalizedString("mySearches", comment: "mySearches"))
+        {
+            return 250.0;
+        }
+        else if (nRow > 0 && cacheManager.getTutorialMyBooks() && titleName == NSLocalizedString("my_books", comment: "my_books"))
+        {
+            return 250.0;
+        }
+        
+        
+        return 0;
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -939,6 +1012,13 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         self.cacheManager.removeStoreLikeBook(bookArray[buttonTag] as! Book)
         bookArray = self.cacheManager.getMyBooksLikeStored()
         nRow = bookArray.count
+        if(nRow == 0)
+        {
+            self.tableView.hidden = true;
+            self.emptyView.hidden = false;
+            self.imageEmptyView.image = UIImage(named:"book_nothing");
+            self.labelEmptyView.text = NSLocalizedString("no_book_found", comment: "no_book_found")
+        }
         self.tableView.reloadData()
     }
     
@@ -981,6 +1061,13 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     //bookArray = self.cacheManager.getMySearchStored()
                     bookArray.removeAtIndex(buttonTag!)
                     nRow = bookArray.count
+                    if(nRow == 0)
+                    {
+                        self.tableView.hidden = true;
+                        self.emptyView.hidden = false;
+                        self.imageEmptyView.image = UIImage(named:"no_search");
+                        self.labelEmptyView.text = NSLocalizedString("no_query_found", comment: "no_query_found")
+                    }
                     self.tableView.reloadData()
                     let snackbar = MKSnackbar(
                         withTitle: NSLocalizedString("research_removed", comment: "research_removed"),
@@ -1014,6 +1101,11 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     {
         bookArray = self.cacheManager.getMySearchStored()
         nRow = bookArray.count
+        if(nRow > 0)
+        {
+            self.tableView.hidden = false;
+            self.emptyView.hidden = true;
+        }
         self.tableView.reloadData()
     }
     
