@@ -44,6 +44,8 @@ public struct Constants
     public static let LAUNGUAGE_SELECETED = "LAUNGUAGE_SELECETED";
     public static let UUID = "UUID";
     public static let BUYED_REMOVE_ADS = "BUYED_REMOVE_ADS";
+    public static let TUTORIAL_SEARCH = "TUTORIAL_SEARCH";
+    public static let TUTORIAL_MY_BOOKS = "TUTORIAL_MY_BOOKS";
     
     public static let SHARED = "Condiviso usando InstaBook. Ti potrebbe interessare ";
     public static let myColor = UIColor(red: 48.0/255.0, green: 63.0/255.0, blue: 159.0/255.0, alpha: 0.9);

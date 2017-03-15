@@ -56,8 +56,6 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     public override func viewDidLoad() {
         super.viewDidLoad();
         
-        pastUrls = self.cacheManager.getAllSerach(Constants.ID_SEARCH_AUTORE)
-        pastUrls2 = self.cacheManager.getAllSerach(Constants.ID_SEARCH_CITAZIONE)
         
         autocompleteTableView = UITableView(frame: CGRectMake(8,autoreTextField.frame.origin.y + autoreTextField.frame.height,self.view.frame.width-24,40), style: UITableViewStyle.Plain)
         
@@ -179,6 +177,8 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
 
     public func textViewDidBeginEditing(textView: UITextView) {
+        self.pastUrls = self.cacheManager.getAllSerach(Constants.ID_SEARCH_AUTORE)
+        self.pastUrls2 = self.cacheManager.getAllSerach(Constants.ID_SEARCH_CITAZIONE)
         self.autocompleteTableView.hidden = true
         self.revealViewController().rightRevealToggle(nil)
         let border2 = CALayer()
@@ -193,6 +193,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
     }
     
     public func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        
         
         if(textView.textColor != UIColor.whiteColor()){
             textView.text = "";
@@ -561,137 +562,139 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             
             return cell
         
-        }else{
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! CellCustom
-        
-        //Configure CardViewLeft
-        cell.cuoreCardViewLeft.image = UIImage(named:"instant_book_icon.png")
-        let tapCuoreLeft = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartLeftCardView(_:)))
-        cell.cuoreCardViewLeft.addGestureRecognizer(tapCuoreLeft)
-        cell.cuoreCardViewLeft.tag = indexPath.row*2
-        if((bookArray[(indexPath.row*2)] as! Book).favorite)
-        {
-            cell.cuoreCardViewLeft.image = UIImage(named:"heart-full.png")
         }
         else
         {
-            cell.cuoreCardViewLeft.image = UIImage(named:"heart.png")
-        }
         
-
-        let tapCardViewLeft = UITapGestureRecognizer(target: self, action: #selector(MainPage.goToDetailsLeft(_:)))
-
-        cell.cardViewLeft.addGestureRecognizer(tapCardViewLeft)
-        cell.cardViewLeft.tag = indexPath.row*2
+            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable", forIndexPath: indexPath) as! CellCustom
         
-
-        let tapSharedLeft = UITapGestureRecognizer(target:self, action:#selector(MainPage.sharedLeftCardView(_:)))
-
-        cell.sharedCardViewLeft.addGestureRecognizer(tapSharedLeft)
-        cell.sharedCardViewLeft.tag = indexPath.row*2
-        
-        //Configure CardViewRight
-        cell.cuoreCardViewRight.image = UIImage(named:"instant_book_icon.png")
-        let tapCuoreRight = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartRightCardView(_:)))
-
-        cell.cuoreCardViewRight.addGestureRecognizer(tapCuoreRight)
-        cell.cuoreCardViewRight.tag = (indexPath.row*2)+1
-        if((bookArray[(indexPath.row*2)+1] as! Book).favorite)
-        {
-            cell.cuoreCardViewRight.image = UIImage(named:"heart-full.png")
-        }
-        else
-        {
-            cell.cuoreCardViewRight.image = UIImage(named:"heart.png")
-        }
-        
-        let tapCardViewRight = UITapGestureRecognizer(target: self, action: #selector(MainPage.goToDetailsRight(_:)))
-
-        cell.cardViewRight.addGestureRecognizer(tapCardViewRight)
-        cell.cardViewRight.tag = (indexPath.row*2)+1
-        
-
-        let tapSharedRight = UITapGestureRecognizer(target:self, action:#selector(MainPage.sharedRightCardView(_:)))
-        cell.sharedCardViewRight.addGestureRecognizer(tapSharedRight)
-        cell.sharedCardViewRight.tag = (indexPath.row*2)+1
-        
-        //DRAW INFORMATION ON CARD VIEW
-        if (bookArray.count % 2 == 0  )
-        {
-           
-            //TITLE LEFT AND RIGHT
-            //cell.titoloCardViewLeft.sizeToFit();
-            cell.titoloCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).title as String
-            //cell.titoloCardViewRight.sizeToFit();
-            cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
-            
-            //PRICE LEFT AND RIGHT
-            cell.prezzoCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).price
-            cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price
-            
-           
-        }
-        else
-        {
-            if (self.tableView.numberOfRowsInSection(self.tableView.numberOfSections - 1) == indexPath.row)
+            //Configure CardViewLeft
+            cell.cuoreCardViewLeft.image = UIImage(named:"instant_book_icon.png")
+            let tapCuoreLeft = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartLeftCardView(_:)))
+            cell.cuoreCardViewLeft.addGestureRecognizer(tapCuoreLeft)
+            cell.cuoreCardViewLeft.tag = indexPath.row*2
+            if((bookArray[(indexPath.row*2)] as! Book).favorite)
             {
-                //TITLE LEFT AND RIGHT
-                cell.titoloCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).title as String
-                cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
-                
+                cell.cuoreCardViewLeft.image = UIImage(named:"heart-full.png")
             }
             else
             {
+                cell.cuoreCardViewLeft.image = UIImage(named:"heart.png")
+            }
+        
+
+            let tapCardViewLeft = UITapGestureRecognizer(target: self, action: #selector(MainPage.goToDetailsLeft(_:)))
+
+            cell.cardViewLeft.addGestureRecognizer(tapCardViewLeft)
+            cell.cardViewLeft.tag = indexPath.row*2
+        
+
+            let tapSharedLeft = UITapGestureRecognizer(target:self, action:#selector(MainPage.sharedLeftCardView(_:)))
+
+            cell.sharedCardViewLeft.addGestureRecognizer(tapSharedLeft)
+            cell.sharedCardViewLeft.tag = indexPath.row*2
+        
+            //Configure CardViewRight
+            cell.cuoreCardViewRight.image = UIImage(named:"instant_book_icon.png")
+            let tapCuoreRight = UITapGestureRecognizer(target:self, action:#selector(MainPage.heartRightCardView(_:)))
+
+            cell.cuoreCardViewRight.addGestureRecognizer(tapCuoreRight)
+            cell.cuoreCardViewRight.tag = (indexPath.row*2)+1
+            if((bookArray[(indexPath.row*2)+1] as! Book).favorite)
+            {
+                cell.cuoreCardViewRight.image = UIImage(named:"heart-full.png")
+            }
+            else
+            {
+                cell.cuoreCardViewRight.image = UIImage(named:"heart.png")
+            }
+        
+            let tapCardViewRight = UITapGestureRecognizer(target: self, action: #selector(MainPage.goToDetailsRight(_:)))
+
+            cell.cardViewRight.addGestureRecognizer(tapCardViewRight)
+            cell.cardViewRight.tag = (indexPath.row*2)+1
+        
+
+            let tapSharedRight = UITapGestureRecognizer(target:self, action:#selector(MainPage.sharedRightCardView(_:)))
+            cell.sharedCardViewRight.addGestureRecognizer(tapSharedRight)
+            cell.sharedCardViewRight.tag = (indexPath.row*2)+1
+        
+            //DRAW INFORMATION ON CARD VIEW
+            if (bookArray.count % 2 == 0  )
+            {
+           
                 //TITLE LEFT AND RIGHT
-                cell.titoloCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).title as String
+                //cell.titoloCardViewLeft.sizeToFit();
+                cell.titoloCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).title as String
+                //cell.titoloCardViewRight.sizeToFit();
                 cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
-                
+            
                 //PRICE LEFT AND RIGHT
-                cell.prezzoCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).price + " €"
-                cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price + " €"
-            }
-        }
-        
-        
-        //DOWNLOAD IMAGE
-        let urlStringLeft:String? = ((bookArray[indexPath.row*2] as! Book).imgLink) as String
-        if(urlStringLeft != nil)
-        {
-            if(self.cacheManager.isImageCached(urlStringLeft!))
-            {
-                cell.copertinaCardViewLeft.image = self.cacheManager.getImageCached(urlStringLeft!)
-            }
-            else
-            {
-                let imgURL: NSURL = NSURL(string: urlStringLeft!)!
-                let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                NSURLConnection.sendAsynchronousRequest(
-                    request, queue: NSOperationQueue.mainQueue(),
-                    completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
-                        if error == nil {
-                            cell.copertinaCardViewLeft.image = UIImage(data: data!)
-                            self.cacheManager.storeImage(urlStringLeft!, data: data!)
-                        }
-                })
-            }
+                cell.prezzoCardViewLeft.text = (bookArray[(indexPath.row*2)] as! Book).price
+                cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price
             
-        }
-        
-        let urlStringRight:String? = ((bookArray[(indexPath.row*2)+1] as! Book).imgLink) as String
-        if(urlStringRight != nil)
-        {
-            if(self.cacheManager.isImageCached(urlStringRight!))
-            {
-                cell.copertinaCardViewRight.image = self.cacheManager.getImageCached(urlStringRight!)
+           
             }
             else
             {
-                let imgURL: NSURL = NSURL(string: urlStringRight!)!
-                let request: NSURLRequest = NSURLRequest(URL: imgURL)
-                NSURLConnection.sendAsynchronousRequest(
-                    request, queue: NSOperationQueue.mainQueue(),
-                    completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                if (self.tableView.numberOfRowsInSection(self.tableView.numberOfSections - 1) == indexPath.row)
+                {
+                    //TITLE LEFT AND RIGHT
+                    cell.titoloCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).title as String
+                    cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
+                
+                }
+                else
+                {
+                    //TITLE LEFT AND RIGHT
+                    cell.titoloCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).title as String
+                    cell.titoloCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).title as String
+                
+                    //PRICE LEFT AND RIGHT
+                    cell.prezzoCardViewLeft.text = (bookArray[indexPath.row*2] as! Book).price + " €"
+                    cell.prezzoCardViewRight.text = (bookArray[(indexPath.row*2)+1] as! Book).price + " €"
+                }
+            }
+        
+        
+            //DOWNLOAD IMAGE
+            let urlStringLeft:String? = ((bookArray[indexPath.row*2] as! Book).imgLink) as String
+            if(urlStringLeft != nil)
+            {
+                if(self.cacheManager.isImageCached(urlStringLeft!))
+                {
+                    cell.copertinaCardViewLeft.image = self.cacheManager.getImageCached(urlStringLeft!)
+                }
+                else
+                {
+                    let imgURL: NSURL = NSURL(string: urlStringLeft!)!
+                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                    NSURLConnection.sendAsynchronousRequest(
+                        request, queue: NSOperationQueue.mainQueue(),
+                        completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                            if error == nil {
+                                cell.copertinaCardViewLeft.image = UIImage(data: data!)
+                                self.cacheManager.storeImage(urlStringLeft!, data: data!)
+                            }
+                    })
+                }
+            
+            }
+        
+            let urlStringRight:String? = ((bookArray[(indexPath.row*2)+1] as! Book).imgLink) as String
+            if(urlStringRight != nil)
+            {
+                if(self.cacheManager.isImageCached(urlStringRight!))
+                {
+                    cell.copertinaCardViewRight.image = self.cacheManager.getImageCached(urlStringRight!)
+                }
+                else
+                {
+                    let imgURL: NSURL = NSURL(string: urlStringRight!)!
+                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                    NSURLConnection.sendAsynchronousRequest(
+                        request, queue: NSOperationQueue.mainQueue(),
+                        completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
                         if error == nil {
                             cell.copertinaCardViewRight.image = UIImage(data: data!)
                             self.cacheManager.storeImage(urlStringRight!, data: data!)
@@ -704,7 +707,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         
         cell.layoutIfNeeded();
             
-            return cell;
+       return cell;
     }
         
     }

@@ -261,6 +261,36 @@ public class CacheManager
         self.cache.setObject(lang, forKey: Constants.LAUNGUAGE_SELECETED)
     }
     
+    public func setOffTutorialSearch()
+    {
+        self.cache.setObject(false, forKey: Constants.TUTORIAL_SEARCH)
+    }
+    
+    public func getTutorialSearch() -> Bool
+    {
+        if(self.cache.objectForKey(Constants.TUTORIAL_SEARCH) == nil)
+        {
+            return true;
+        }
+        
+        return self.cache.objectForKey(Constants.TUTORIAL_SEARCH) as! Bool;
+    }
+    
+    public func setOffTutorialMyBooks()
+    {
+        self.cache.setObject(false, forKey: Constants.TUTORIAL_MY_BOOKS)
+    }
+    
+    public func getTutorialMyBooks() -> Bool
+    {
+        if(self.cache.objectForKey(Constants.TUTORIAL_MY_BOOKS) == nil)
+        {
+            return true;
+        }
+        
+        return self.cache.objectForKey(Constants.TUTORIAL_MY_BOOKS) as! Bool;
+    }
+    
     public func getUUID() -> String
     {
         if(self.cache.stringForKey(Constants.UUID) == nil)
