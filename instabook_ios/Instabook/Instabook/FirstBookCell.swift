@@ -12,6 +12,9 @@ import Foundation
 public class FirstBookCell: UITableViewCell
 {
     
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
+    @IBOutlet weak var sceltoDaVoi: UIImageView!
     @IBOutlet weak var titolo: UILabel!
     @IBOutlet weak var autore: UILabel!
     

@@ -166,10 +166,13 @@ public class DatabaseRealtime
             (snap:FIRDataSnapshot) in
             if(snap.hasChild(bookPrimaryKey))
             {//Libro già votato non dobbiamo accettare altre votazioni TODO
-                
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: Constants.LOAD_SNACKBAR_KO_NOTIFICATION_NAME, object: nil));
             }
             else
             {//voto su nuovo libro e poi scrivo sull'aggregato
+                
+                NSNotificationCenter.defaultCenter().postNotification(NSNotification.init(name: Constants.LOAD_SNACKBAR_OK_NOTIFICATION_NAME, object: nil));
+                
                 let todaysDate:NSDate = NSDate()
                 var dati_firebase = NSDictionary();
                 
@@ -178,6 +181,8 @@ public class DatabaseRealtime
                 self.refFirebase.child(table).child(currentCountry).child(primaryKey).child(uuid).child(bookPrimaryKey).setValue(dati_firebase)
                 
                 self.writeNewAggregateVote(book, query: query, score: score, uuid: uuid, currentCountry: currentCountry)
+                
+                
             }
         }
         

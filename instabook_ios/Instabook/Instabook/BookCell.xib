@@ -77,10 +77,33 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyQ-h8-EKq">
+                                <rect key="frame" x="243" y="183" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="W7H-3y-pmm"/>
+                                    <constraint firstAttribute="height" constant="40" id="yuP-mh-iXD"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.82745098039999998" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="up-button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soC-yR-kan">
+                                <rect key="frame" x="288" y="183" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="vjB-qa-zTI"/>
+                                    <constraint firstAttribute="height" constant="40" id="ylM-je-dsd"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.82745098039999998" blue="0.043137254899999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="down-button.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ekK-gB-9d4" secondAttribute="bottom" constant="11.5" id="89n-4K-FAW"/>
+                            <constraint firstItem="soC-yR-kan" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BSe-m5-2sj" secondAttribute="bottom" constant="1" id="E62-5M-TWR"/>
                             <constraint firstAttribute="trailing" secondItem="12G-Xb-XHR" secondAttribute="trailing" constant="20" id="EgX-h8-g10"/>
                             <constraint firstAttribute="bottom" secondItem="12G-Xb-XHR" secondAttribute="bottom" constant="22" id="F8k-db-vrR"/>
                             <constraint firstItem="ekK-gB-9d4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BSe-m5-2sj" secondAttribute="bottom" constant="1" id="Gck-P8-FPW"/>
@@ -89,12 +112,23 @@
                             <constraint firstItem="Qae-23-zQF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BSe-m5-2sj" secondAttribute="bottom" constant="72" id="Oxc-W9-sRy"/>
                             <constraint firstItem="BSe-m5-2sj" firstAttribute="top" secondItem="0CU-BU-FA6" secondAttribute="bottom" constant="8" id="PHN-at-SSK"/>
                             <constraint firstItem="12G-Xb-XHR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e2g-qr-LHn" secondAttribute="bottom" constant="33" id="RKY-1k-cva"/>
+                            <constraint firstItem="soC-yR-kan" firstAttribute="leading" secondItem="kyQ-h8-EKq" secondAttribute="trailing" constant="3" id="VjD-BE-1lV"/>
+                            <constraint firstItem="12G-Xb-XHR" firstAttribute="leading" secondItem="soC-yR-kan" secondAttribute="trailing" constant="28" id="ajD-nQ-FrW"/>
+                            <constraint firstItem="kyQ-h8-EKq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="BSe-m5-2sj" secondAttribute="bottom" constant="1" id="bPM-J2-Ibs"/>
+                            <constraint firstItem="12G-Xb-XHR" firstAttribute="leading" secondItem="soC-yR-kan" secondAttribute="trailing" constant="26" id="cCs-kn-Sks"/>
                             <constraint firstItem="e2g-qr-LHn" firstAttribute="top" secondItem="Lkb-8S-d4G" secondAttribute="top" constant="8" id="dKp-32-s1p"/>
                             <constraint firstItem="0CU-BU-FA6" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="dbp-0C-Mrt"/>
                             <constraint firstItem="ekK-gB-9d4" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="mih-7u-Tby"/>
                             <constraint firstItem="Qae-23-zQF" firstAttribute="leading" secondItem="ekK-gB-9d4" secondAttribute="trailing" constant="5" id="nAg-XS-qs5"/>
+                            <constraint firstItem="soC-yR-kan" firstAttribute="leading" secondItem="kyQ-h8-EKq" secondAttribute="trailing" constant="5" id="nng-hF-B6A"/>
                             <constraint firstAttribute="trailing" secondItem="e2g-qr-LHn" secondAttribute="trailing" constant="14" id="p7I-vf-ekm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="VjD-BE-1lV"/>
+                                <exclude reference="ajD-nQ-FrW"/>
+                            </mask>
+                        </variation>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="599-Ks-73r">
                         <rect key="frame" x="17" y="8" width="382" height="34"/>
@@ -119,8 +153,10 @@
                     <constraint firstItem="e2g-qr-LHn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="599-Ks-73r" secondAttribute="trailing" constant="42" id="W3V-89-BPj"/>
                     <constraint firstAttribute="leadingMargin" secondItem="Lkb-8S-d4G" secondAttribute="leading" id="aqM-IN-PAs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Lkb-8S-d4G" secondAttribute="trailing" id="cNA-ig-1kZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="soC-yR-kan" secondAttribute="bottom" constant="12" id="otY-mC-oOq"/>
                     <constraint firstAttribute="trailingMargin" secondItem="e2g-qr-LHn" secondAttribute="trailing" constant="14" id="s1c-Be-SFY"/>
                     <constraint firstItem="e2g-qr-LHn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="599-Ks-73r" secondAttribute="trailing" constant="1" id="wD2-L1-upD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kyQ-h8-EKq" secondAttribute="bottom" constant="12" id="xuN-5P-eVp"/>
                     <constraint firstItem="0CU-BU-FA6" firstAttribute="top" secondItem="599-Ks-73r" secondAttribute="bottom" constant="8" id="zp6-zj-yTu"/>
                 </constraints>
                 <variation key="default">
@@ -134,15 +170,19 @@
                 <outlet property="autore" destination="0CU-BU-FA6" id="xPe-IJ-av3"/>
                 <outlet property="copertina" destination="12G-Xb-XHR" id="PCB-JZ-Ib6"/>
                 <outlet property="cuore" destination="ekK-gB-9d4" id="LV0-bx-uQO"/>
+                <outlet property="downButton" destination="soC-yR-kan" id="mb1-R4-jRy"/>
                 <outlet property="numero" destination="e2g-qr-LHn" id="2SD-dl-gx2"/>
                 <outlet property="prezzo" destination="BSe-m5-2sj" id="ByS-W0-mpP"/>
                 <outlet property="shared" destination="Qae-23-zQF" id="ZS0-rx-I6Q"/>
                 <outlet property="titolo" destination="599-Ks-73r" id="Lx2-cc-90R"/>
+                <outlet property="upButton" destination="kyQ-h8-EKq" id="fig-mz-OHJ"/>
             </connections>
             <point key="canvasLocation" x="312.5" y="4"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="down-button.png" width="24" height="24"/>
         <image name="instant_book_icon.png" width="512" height="512"/>
+        <image name="up-button.png" width="24" height="24"/>
     </resources>
 </document>

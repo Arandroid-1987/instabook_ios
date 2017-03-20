@@ -78,19 +78,50 @@
                                     <constraint firstAttribute="width" secondItem="12G-Xb-XHR" secondAttribute="height" multiplier="143:193" id="qWg-yv-fS8"/>
                                 </constraints>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scelto_da _voi.png" translatesAutoresizingMaskIntoConstraints="NO" id="0sd-W1-g8H">
+                                <rect key="frame" x="357" y="0.0" width="120" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0sd-W1-g8H" secondAttribute="height" multiplier="20:19" id="tjP-Wy-cbw"/>
+                                </constraints>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8t8-oN-Wml">
+                                <rect key="frame" x="347" y="392" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="2yf-tT-Bbe"/>
+                                    <constraint firstAttribute="height" constant="40" id="Iz9-Lp-ohB"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="up-button.png"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8s5-yl-f1y">
+                                <rect key="frame" x="396" y="392" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5jT-62-3fB"/>
+                                    <constraint firstAttribute="width" constant="40" id="nyD-6f-gTV"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="down-button.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Qae-23-zQF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="12G-Xb-XHR" secondAttribute="bottom" constant="8" id="0tm-eb-zge"/>
                             <constraint firstItem="Qae-23-zQF" firstAttribute="leading" secondItem="ekK-gB-9d4" secondAttribute="trailing" constant="5" id="53P-sn-ZVA"/>
+                            <constraint firstAttribute="bottom" secondItem="8s5-yl-f1y" secondAttribute="bottom" constant="13" id="FkZ-DW-D6r"/>
+                            <constraint firstItem="0sd-W1-g8H" firstAttribute="top" secondItem="Lkb-8S-d4G" secondAttribute="top" id="GoW-p1-EUe"/>
                             <constraint firstItem="12G-Xb-XHR" firstAttribute="centerX" secondItem="Lkb-8S-d4G" secondAttribute="centerX" id="LT8-5r-fjR"/>
                             <constraint firstItem="BSe-m5-2sj" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="NzO-uw-Jyu"/>
                             <constraint firstItem="BSe-m5-2sj" firstAttribute="top" secondItem="0CU-BU-FA6" secondAttribute="bottom" constant="8" id="PHN-at-SSK"/>
                             <constraint firstItem="12G-Xb-XHR" firstAttribute="top" secondItem="BSe-m5-2sj" secondAttribute="bottom" constant="-6" id="Ue2-Js-oBu"/>
+                            <constraint firstAttribute="trailing" secondItem="8s5-yl-f1y" secondAttribute="trailing" constant="41" id="Xqj-X1-0A5"/>
                             <constraint firstItem="e2g-qr-LHn" firstAttribute="top" secondItem="Lkb-8S-d4G" secondAttribute="top" constant="22" id="dKp-32-s1p"/>
                             <constraint firstItem="0CU-BU-FA6" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="dbp-0C-Mrt"/>
+                            <constraint firstItem="0sd-W1-g8H" firstAttribute="leading" secondItem="12G-Xb-XHR" secondAttribute="trailing" constant="62" id="mNW-yD-kEz"/>
                             <constraint firstItem="ekK-gB-9d4" firstAttribute="leading" secondItem="Lkb-8S-d4G" secondAttribute="leading" constant="8" id="mih-7u-Tby"/>
+                            <constraint firstItem="8s5-yl-f1y" firstAttribute="top" relation="greaterThanOrEqual" secondItem="12G-Xb-XHR" secondAttribute="bottom" constant="8" id="nPH-B7-Bpd"/>
+                            <constraint firstAttribute="bottom" secondItem="8t8-oN-Wml" secondAttribute="bottom" constant="13" id="no0-HN-ccR"/>
                             <constraint firstAttribute="trailing" secondItem="e2g-qr-LHn" secondAttribute="trailing" constant="14" id="p7I-vf-ekm"/>
+                            <constraint firstItem="8s5-yl-f1y" firstAttribute="leading" secondItem="8t8-oN-Wml" secondAttribute="trailing" constant="9" id="tbC-6D-2oh"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titolo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="599-Ks-73r">
@@ -105,6 +136,7 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="0sd-W1-g8H" secondAttribute="trailing" id="14q-fH-xhZ"/>
                     <constraint firstAttribute="topMargin" secondItem="599-Ks-73r" secondAttribute="top" constant="-20" id="3GG-NX-Yt7"/>
                     <constraint firstItem="599-Ks-73r" firstAttribute="leading" secondItem="5d8-1S-pL2" secondAttribute="leadingMargin" constant="9" id="EGu-BI-7j2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="0CU-BU-FA6" secondAttribute="trailing" id="HKg-lx-WMg"/>
@@ -132,15 +164,21 @@
                 <outlet property="autore" destination="0CU-BU-FA6" id="SdB-Iq-qFS"/>
                 <outlet property="copertina" destination="12G-Xb-XHR" id="ubg-M7-iti"/>
                 <outlet property="cuore" destination="ekK-gB-9d4" id="OVd-Ss-vqR"/>
+                <outlet property="downButton" destination="8s5-yl-f1y" id="jUe-VN-Ncj"/>
                 <outlet property="numero" destination="e2g-qr-LHn" id="tql-uy-nFu"/>
                 <outlet property="prezzo" destination="BSe-m5-2sj" id="qJ8-6s-uEk"/>
+                <outlet property="sceltoDaVoi" destination="0sd-W1-g8H" id="9Kx-zM-r8V"/>
                 <outlet property="shared" destination="Qae-23-zQF" id="2sj-4l-ofu"/>
                 <outlet property="titolo" destination="599-Ks-73r" id="UmL-hs-zeT"/>
+                <outlet property="upButton" destination="8t8-oN-Wml" id="IEB-ZK-hVa"/>
             </connections>
             <point key="canvasLocation" x="312.5" y="109"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="down-button.png" width="24" height="24"/>
         <image name="instant_book_icon.png" width="512" height="512"/>
+        <image name="scelto_da _voi.png" width="3000" height="3000"/>
+        <image name="up-button.png" width="24" height="24"/>
     </resources>
 </document>

@@ -12,6 +12,7 @@ import GoogleMobileAds
 class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, GADInterstitialDelegate
 {
     var nRow = 0
+    var sceltoDaVoi = false;
     var titleName = String()
     var bookArray = [Any]();
     
@@ -142,6 +143,17 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         else
         {
         
+            self.tableView.registerNib(UINib(nibName: "HowToSearch", bundle: nil), forCellReuseIdentifier: "HeaderCell");
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BooksView.loadSnackbarOK(_:)), name: Constants.LOAD_SNACKBAR_OK_NOTIFICATION_NAME, object: nil);
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(BooksView.loadSnackbarKO(_:)), name: Constants.LOAD_SNACKBAR_KO_NOTIFICATION_NAME, object: nil);
+            
+            let qualityOfServiceClass = QOS_CLASS_BACKGROUND
+            
+            let backgroundQueue = dispatch_get_global_queue(qualityOfServiceClass, 0)
+            
+            
             if(Data.sharedInstance().dict.valueForKey("GoogleBooks") == nil)
             {
                 nRow = 0
@@ -152,8 +164,31 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 bookArray = books.array
                 nRow = bookArray.count
             }
+            
+            //CHIAMATA AL SERVIZIO PER RECUPERARE I DATI DEL LIBRO VOTATO 
+            
+            dispatch_async(backgroundQueue, {
+                
+                let bookSceltoDaVoi: Book? = RetriveFromVoteWS.retriveBook(Data.sharedInstance().dict.valueForKey("Titolo") as! String, country: "IT")
+                
+                if(bookSceltoDaVoi != nil)
+                {
+                    self.bookArray.insert(bookSceltoDaVoi!, atIndex: 0)
+                    self.nRow = self.nRow + 1;
+                    self.sceltoDaVoi = true;
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.tableView.reloadData()
+                    })
+                }
+                
+            })
         
         }
+    }
+    
+    deinit
+    {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -175,6 +210,15 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             headerCell.button.addTarget(self, action: #selector(BooksView.removeTutorialMyBook), forControlEvents: UIControlEvents.TouchUpInside)
             return headerCell;
         }
+        else if(titleName != NSLocalizedString("action_settings", comment: "action_settings") && titleName != NSLocalizedString("bestSellers", comment: "bestSellers"))
+        {
+            let  headerCell = tableView.dequeueReusableCellWithIdentifier("HeaderCell") as! HowToSearch
+            headerCell.title.text = NSLocalizedString("how_to", comment: "how_to");
+            headerCell.descriptionText.text = NSLocalizedString("search_result_tutorial", comment: "search_result_tutorial");
+            headerCell.button.setTitle(NSLocalizedString("ok_i_got_it", comment: "ok_i_got_it"), forState: .Normal)
+            headerCell.button.addTarget(self, action: #selector(BooksView.removeTutorialGoogleSearch), forControlEvents: UIControlEvents.TouchUpInside)
+            return headerCell;
+        }
         
         return nil;
     }
@@ -185,6 +229,13 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         cacheManager.setOffTutorialSearch();
         self.tableView.reloadData();
     }
+    
+    func removeTutorialGoogleSearch()
+    {
+        cacheManager.setOffTutorialGoogleSearch();
+        self.tableView.reloadData();
+    }
+    
     
     func removeTutorialMyBook()
     {
@@ -199,6 +250,10 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             return 250.0;
         }
         else if (nRow > 0 && cacheManager.getTutorialMyBooks() && titleName == NSLocalizedString("my_books", comment: "my_books"))
+        {
+            return 250.0;
+        }
+        else if(nRow > 0 && cacheManager.getTutorialGoogleSearch() && titleName != NSLocalizedString("action_settings", comment: "action_settings") && titleName != NSLocalizedString("bestSellers", comment: "bestSellers"))
         {
             return 250.0;
         }
@@ -616,8 +671,96 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 b.favorite = true;
             }
             
-            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable4", forIndexPath: indexPath) as! BookCell
+            if(indexPath.row == 0 && sceltoDaVoi)
+            {
+                let cell = tableView.dequeueReusableCellWithIdentifier("rowTable6", forIndexPath: indexPath) as! FirstBookCell
+                
+                cell.numero.hidden = true;
+                cell.sceltoDaVoi.hidden = false;
+                cell.upButton.hidden = false;
+                cell.upButton.tag = indexPath.row;
+                cell.upButton.addTarget(self, action: #selector(BooksView.upButton(_:)), forControlEvents: .TouchUpInside)
+                cell.downButton.hidden = false;
+                cell.downButton.tag = indexPath.row;
+                cell.downButton.addTarget(self, action: #selector(BooksView.downButton(_:)), forControlEvents: .TouchUpInside)
+                //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
+                //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.cuore.layer.shadowOpacity = 0.2;
+                //cell.cuore.layer.shadowRadius = 0.0;
+                if(b.favorite == true)
+                {
+                    cell.cuore.setImage(UIImage(named:"heart-white-full.png"), forState: .Normal)
+                }
+                else{
+                    cell.cuore.setImage(UIImage(named:"heart-white.png"), forState: .Normal)
+                    
+                }
+                //cell.cuore.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.cuore.addTarget(self, action: #selector(BooksView.addToPreferredFirstCell(_:)), forControlEvents: .TouchUpInside)
+                cell.cuore.tag = indexPath.row
+                
+                //cell.shared.layer.cornerRadius = 0.5 * cell.shared.bounds.size.width
+                //cell.shared.layer.shadowOffset = CGSizeMake(0.1, 1.0);
+                //cell.shared.layer.shadowOpacity = 0.2;
+                //cell.shared.layer.shadowRadius = 0.0;
+                cell.shared.setImage(UIImage(named:"share_yellow.png"), forState: .Normal)
+                //cell.shared.backgroundColor = UIColor(red: 255.0/255, green: 217.0/255, blue: 3.0/255, alpha: 1.0)
+                cell.shared.addTarget(self, action: #selector(BooksView.share(_:)), forControlEvents: .TouchUpInside)
+                cell.shared.tag = indexPath.row
+                
+                
+                cell.titolo.text = b.title as String
+                cell.titolo.sizeToFit();
+                cell.prezzo.text = b.price
+                
+                let num = indexPath.row+1 as NSNumber
+                cell.numero.text = num.stringValue
+                
+                var auth = ""
+                var ind = 0
+                for i in b.authors
+                {
+                    
+                    auth.appendContentsOf(i)
+                    ind += 1
+                    if(ind < b.authors.count)
+                    {
+                        auth.appendContentsOf(", ")
+                    }
+                    
+                }
+                
+                cell.autore.text = auth
+                cell.layoutIfNeeded();
+                
+                //DOWNLOAD IMAGE
+                let urlString:String? = ((bookArray[indexPath.row] as! Book).imgLink) as String
+                if(urlString != nil)
+                {
+                    let imgURL: NSURL = NSURL(string: urlString!)!
+                    let request: NSURLRequest = NSURLRequest(URL: imgURL)
+                    NSURLConnection.sendAsynchronousRequest(
+                        request, queue: NSOperationQueue.mainQueue(),
+                        completionHandler: {(response: NSURLResponse?,data: NSData?,error: NSError?) -> Void in
+                            if error == nil {
+                                cell.copertina.image = UIImage(data: data!)
+                            }
+                    })
+                }
+                
+                return cell;
+            }
+
             
+     
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("rowTable4", forIndexPath: indexPath) as! BookCell
+            cell.upButton.hidden = false;
+            cell.upButton.tag = indexPath.row;
+            cell.upButton.addTarget(self, action: #selector(BooksView.upButton(_:)), forControlEvents: .TouchUpInside)
+            cell.downButton.hidden = false;
+            cell.downButton.tag = indexPath.row;
+            cell.downButton.addTarget(self, action: #selector(BooksView.downButton(_:)), forControlEvents: .TouchUpInside)
             //cell.cuore.layer.cornerRadius = 0.5 * cell.cuore.bounds.size.width
             //cell.cuore.layer.shadowOffset = CGSizeMake(0.1, 1.0);
             //cell.cuore.layer.shadowOpacity = 0.2;
@@ -849,7 +992,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     complexQuery = label.text!
                 }
                 DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: "IT", complexQuery: complexQuery)
-                //--> QUESTO METODO VA CHIAMATO PER LE VOTAZIONI SOLO DOPO LA RICERCA SU GOOGLE DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[indexPath.row] as! Book, query: complexQuery, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
+             
             }
             tableView.cellForRowAtIndexPath(indexPath)?.selected = false
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
@@ -964,6 +1107,38 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             }
 
         }
+    }
+    
+    func loadSnackbarOK(notification: NSNotification)
+    {
+        let snackbar = MKSnackbar(
+            withTitle: NSLocalizedString("thanks_for_your_vote", comment: "thanks_for_your_vote"),
+            withDuration: nil,
+            withTitleColor: nil,
+            withActionButtonTitle: "",
+            withActionButtonColor: UIColor.lightGrayColor())
+        snackbar.show()
+    }
+    
+    func loadSnackbarKO(notification: NSNotification)
+    {
+        let snackbar = MKSnackbar(
+            withTitle: NSLocalizedString("you_voted_already", comment: "you_voted_already"),
+            withDuration: nil,
+            withTitleColor: nil,
+            withActionButtonTitle: "",
+            withActionButtonColor: UIColor.lightGrayColor())
+        snackbar.show()
+    }
+    
+    func upButton(sender: UIButton)
+    {
+        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
+    }
+    
+    func downButton(sender: UIButton)
+    {
+        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: -1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
     }
     
     func addToPreferred(sender: UIButton)
