@@ -13,6 +13,10 @@ import UIKit
 public class BookCell: UITableViewCell
 {
     
+   
+    
+    @IBOutlet weak var upButton: UIButton!
+    @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var titolo: UILabel!
     @IBOutlet weak var autore: UILabel!
     

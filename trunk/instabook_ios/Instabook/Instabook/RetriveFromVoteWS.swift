@@ -9,16 +9,18 @@
 import Foundation
 public class RetriveFromVoteWS
 {
-    public func retriveBook(quote: String, country: String) -> Book
+    public static func retriveBook(quote: String, country: String) -> Book?
     {
         let book = Book()
         
-        let url =  NSURL(string: "\(Constants.VOTEWS_LINK)?query=\(quote)&language=\(country)")!;
+        
+        let urlString:NSString = "\(Constants.VOTEWS_LINK)?query=\(quote)&language=\(country)"
+        let urlStringEncode = urlString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+        
+        let url =  NSURL(string: urlStringEncode)!;
         var jsonData: NSObject;
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url);
         request.HTTPMethod = "GET";
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type");
-        request.setValue("application/json", forHTTPHeaderField: "Accept");
         //var reponseError: NSError?;
         var response: NSURLResponse?;
         let urlData: NSData?
@@ -53,7 +55,7 @@ public class RetriveFromVoteWS
             {
                 if(jsonData.valueForKeyPath("book") == nil)
                 {
-                    return book;
+                    return nil;
                 }
                 let item = jsonData.valueForKey("book") as! NSObject;
                 if let title: AnyObject = item.valueForKey("title")

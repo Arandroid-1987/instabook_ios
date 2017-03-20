@@ -125,6 +125,9 @@
 		FA72FAC01E79E396007745EE /* HowToSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72FABF1E79E396007745EE /* HowToSearch.swift */; };
 		FA72FAC41E79FA83007745EE /* book_nothing.png in Resources */ = {isa = PBXBuildFile; fileRef = FA72FAC31E79FA83007745EE /* book_nothing.png */; };
 		FA72FAC61E7A008D007745EE /* no_search.png in Resources */ = {isa = PBXBuildFile; fileRef = FA72FAC51E7A008D007745EE /* no_search.png */; };
+		FA7F4DB01E8076EB00E0CCD3 /* scelto_da _voi.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7F4DAF1E8076EB00E0CCD3 /* scelto_da _voi.png */; };
+		FA7F4DB31E807B6500E0CCD3 /* down-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7F4DB11E807B6500E0CCD3 /* down-button.png */; };
+		FA7F4DB41E807B6500E0CCD3 /* up-button.png in Resources */ = {isa = PBXBuildFile; fileRef = FA7F4DB21E807B6500E0CCD3 /* up-button.png */; };
 		FA8D69451E1C581E004BADC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA8D69431E1C581E004BADC3 /* Localizable.strings */; };
 		FAA9D3521E1D426700FAF713 /* birra.png in Resources */ = {isa = PBXBuildFile; fileRef = FAA9D3511E1D426700FAF713 /* birra.png */; };
 		FACC32FB1E3648250008C353 /* RetriveBestSellers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACC32FA1E3648250008C353 /* RetriveBestSellers.swift */; };
@@ -276,6 +279,9 @@
 		FA72FABF1E79E396007745EE /* HowToSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToSearch.swift; sourceTree = "<group>"; };
 		FA72FAC31E79FA83007745EE /* book_nothing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book_nothing.png; sourceTree = "<group>"; };
 		FA72FAC51E7A008D007745EE /* no_search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_search.png; sourceTree = "<group>"; };
+		FA7F4DAF1E8076EB00E0CCD3 /* scelto_da _voi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scelto_da _voi.png"; sourceTree = "<group>"; };
+		FA7F4DB11E807B6500E0CCD3 /* down-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down-button.png"; sourceTree = "<group>"; };
+		FA7F4DB21E807B6500E0CCD3 /* up-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up-button.png"; sourceTree = "<group>"; };
 		FA8D693F1E1C5382004BADC3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
 		FA8D69401E1C5382004BADC3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA8D69411E1C538B004BADC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -441,6 +447,9 @@
 		864301B51DDD332E00E78810 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				FA7F4DB11E807B6500E0CCD3 /* down-button.png */,
+				FA7F4DB21E807B6500E0CCD3 /* up-button.png */,
+				FA7F4DAF1E8076EB00E0CCD3 /* scelto_da _voi.png */,
 				FA72FAC51E7A008D007745EE /* no_search.png */,
 				FA72FAC31E79FA83007745EE /* book_nothing.png */,
 				FA72FABD1E79E2AD007745EE /* tutorial_clipart.png */,
@@ -736,6 +745,7 @@
 				869F305A1DDE7BA8003FD98B /* Main.storyboard in Resources */,
 				FA72FAC41E79FA83007745EE /* book_nothing.png in Resources */,
 				781B9F711DF5CF4B007D8166 /* iPad_152pt_@2x.png in Resources */,
+				FA7F4DB41E807B6500E0CCD3 /* up-button.png in Resources */,
 				864301BC1DDD333D00E78810 /* search.png in Resources */,
 				86351E751DDF140400185FB3 /* CellCustom.xib in Resources */,
 				789A7A111E3805410088B947 /* FirstBookCell.xib in Resources */,
@@ -781,11 +791,13 @@
 				781B9F841DF5CF4B007D8166 /* iPhone_87pt_@3x.png in Resources */,
 				8637ED591DDDBA0D00238833 /* instant_book_icon.png in Resources */,
 				8637ED5A1DDDBA0D00238833 /* powered_by_google.png in Resources */,
+				FA7F4DB31E807B6500E0CCD3 /* down-button.png in Resources */,
 				781B9F851DF5CF4B007D8166 /* iTunes_1024pt_@2x.png in Resources */,
 				781B9F881DF5CF4B007D8166 /* macOS_16pt_@1x.png in Resources */,
 				781B9F7B1DF5CF4B007D8166 /* iPhone_120pt_@2x.png in Resources */,
 				7833C7D41DEC7DDB00C30528 /* GoogleService-Info.plist in Resources */,
 				78FDBE8F1DE0B360004345E4 /* BookCell.xib in Resources */,
+				FA7F4DB01E8076EB00E0CCD3 /* scelto_da _voi.png in Resources */,
 				78DFCB661E1B1EDF003326D8 /* ic_book_white.png in Resources */,
 				781B9F7F1DF5CF4B007D8166 /* iPhone_40pt_@1x.png in Resources */,
 				78DFCB641E1B1ECD003326D8 /* facebook.png in Resources */,

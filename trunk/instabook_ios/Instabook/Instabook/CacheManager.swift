@@ -261,6 +261,21 @@ public class CacheManager
         self.cache.setObject(lang, forKey: Constants.LAUNGUAGE_SELECETED)
     }
     
+    public func setOffTutorialGoogleSearch()
+    {
+        self.cache.setObject(false, forKey: Constants.TUTORIAL_GOOGLE_SEARCH)
+    }
+    
+    public func getTutorialGoogleSearch() -> Bool
+    {
+        if(self.cache.objectForKey(Constants.TUTORIAL_GOOGLE_SEARCH) == nil)
+        {
+            return true;
+        }
+        
+        return self.cache.objectForKey(Constants.TUTORIAL_GOOGLE_SEARCH) as! Bool;
+    }
+    
     public func setOffTutorialSearch()
     {
         self.cache.setObject(false, forKey: Constants.TUTORIAL_SEARCH)

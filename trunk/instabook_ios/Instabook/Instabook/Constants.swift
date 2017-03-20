@@ -32,6 +32,8 @@ public struct Constants
     
     public static let RELOAD_NEWS_NOTIFICATION_NAME = "RELOAD_NEWS_NOTIFICATION_NAME"
     public static let RELOAD_BESTSELLERS_NOTIFICATION_NAME = "RELOAD_BESTSELLERS_NOTIFICATION_NAME"
+    public static let LOAD_SNACKBAR_KO_NOTIFICATION_NAME = "LOAD_SNACKBAR_KO_NOTIFICATION_NAME"
+    public static let LOAD_SNACKBAR_OK_NOTIFICATION_NAME = "LOAD_SNACKBAR_OK_NOTIFICATION_NAME"
     
     public static let MY_SEARCH_STORED = "MY_SEARCH_STORED";
     public static let MY_BOOKS_LIKE_STORED = "MY_BOOKS_LIKE_STORED";
@@ -46,6 +48,8 @@ public struct Constants
     public static let BUYED_REMOVE_ADS = "BUYED_REMOVE_ADS";
     public static let TUTORIAL_SEARCH = "TUTORIAL_SEARCH";
     public static let TUTORIAL_MY_BOOKS = "TUTORIAL_MY_BOOKS";
+    public static let TUTORIAL_GOOGLE_SEARCH = "TUTORIAL_GOOGLE_SEARCH";
+    
     
     public static let SHARED = "Condiviso usando InstaBook. Ti potrebbe interessare ";
     public static let myColor = UIColor(red: 48.0/255.0, green: 63.0/255.0, blue: 159.0/255.0, alpha: 0.9);
