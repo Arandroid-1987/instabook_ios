@@ -19,7 +19,7 @@ public class GoogleBook
     public class func searchCitanzione(citazioneFromMainPage: String, authorFromMainPage: String) -> Array<Any>
     {
         let databaseFirebase = DatabaseRealtime()
-        databaseFirebase.writeNewQueryHit(citazioneFromMainPage, author: authorFromMainPage, currentCountry: "IT");
+        databaseFirebase.writeNewQueryHit(citazioneFromMainPage, author: authorFromMainPage, currentCountry: CacheManager().getStoredLang().lowercaseString);
         var arrayBooksInAuthor = Array<Any>();
         var arrayBooksQuote = Array<Any>();
         var arrayBooks = Array<Any>();

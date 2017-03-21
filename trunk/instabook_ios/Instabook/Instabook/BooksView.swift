@@ -169,7 +169,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             
             dispatch_async(backgroundQueue, {
                 
-                let bookSceltoDaVoi: Book? = RetriveFromVoteWS.retriveBook(Data.sharedInstance().dict.valueForKey("Titolo") as! String, country: "IT")
+                let bookSceltoDaVoi: Book? = RetriveFromVoteWS.retriveBook(Data.sharedInstance().dict.valueForKey("Titolo") as! String, country: self.cacheManager.getStoredLang().lowercaseString)
                 
                 if(bookSceltoDaVoi != nil)
                 {
@@ -991,7 +991,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 {
                     complexQuery = label.text!
                 }
-                DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: "IT", complexQuery: complexQuery)
+                DatabaseRealtime().writeBookClicked(bookArray[(indexPath.row)] as! Book, currentCountry: cacheManager.getStoredLang().lowercaseString, complexQuery: complexQuery)
              
             }
             tableView.cellForRowAtIndexPath(indexPath)?.selected = false
@@ -1032,7 +1032,7 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             {
                 self.cacheManager.deleteBestSeller();
                 let retriveBestSeller = RetriveBestSellers();
-                self.bookArray = retriveBestSeller.retriveBestSellers("IT");
+                self.bookArray = retriveBestSeller.retriveBestSellers(self.cacheManager.getStoredLang());
                 
             }
             else
@@ -1133,12 +1133,12 @@ class BooksView: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     
     func upButton(sender: UIButton)
     {
-        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
+        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: 1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: self.cacheManager.getStoredLang().lowercaseString)
     }
     
     func downButton(sender: UIButton)
     {
-        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: -1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: NSLocale.currentLocale().objectForKey(NSLocaleLanguageCode) as! String)
+        DatabaseRealtime().writeNewSingleAndAggregateVote(bookArray[sender.tag] as! Book, query: Data.sharedInstance().dict.valueForKey("Titolo") as! String, score: -1, uuid: UIDevice.currentDevice().identifierForVendor!.UUIDString, currentCountry: self.cacheManager.getStoredLang().lowercaseString)
     }
     
     func addToPreferred(sender: UIButton)

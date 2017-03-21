@@ -462,7 +462,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
             {
                 self.cacheManager.deleteNews();
                 let firebaseParse = RetriveNews()
-                self.bookArray = firebaseParse.retriveNews("IT");
+                self.bookArray = firebaseParse.retriveNews(self.cacheManager.getStoredLang());
                 
                 
             }
@@ -805,7 +805,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         self.revealViewController().rightRevealToggle(nil)
         if let button = sender.view as? CardView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
-            databaseFirebase.writeBookClicked(bookPressed, currentCountry: "IT", complexQuery: "")
+            databaseFirebase.writeBookClicked(bookPressed, currentCountry: cacheManager.getStoredLang().lowercaseString, complexQuery: "")
             Data.sharedInstance().dict.setValue(bookPressed, forKey: "BestSellerBook")
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
             self.presentViewController(viewController, animated: false, completion: nil)
@@ -825,7 +825,7 @@ public class MainPage: UITableViewController, UITextViewDelegate, UITextFieldDel
         */
         if let button = sender.view as?  CardView {
             let bookPressed: Book = self.bookArray[button.tag] as! Book
-            databaseFirebase.writeBookClicked(bookPressed, currentCountry: "IT", complexQuery: "")
+            databaseFirebase.writeBookClicked(bookPressed, currentCountry: cacheManager.getStoredLang().lowercaseString, complexQuery: "")
             Data.sharedInstance().dict.setValue(bookPressed, forKey: "BestSellerBook")
             let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Book") as UIViewController
             self.presentViewController(viewController, animated: false, completion: nil)

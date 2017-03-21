@@ -34,6 +34,12 @@ public class RetriveFromVoteWS
             urlData = nil
         }
         
+        if(urlData == nil)
+        {
+            return nil;
+        }
+        
+        
         if(urlData != nil)
         {
             let responseData:NSString = NSString(data:urlData!, encoding:NSUTF8StringEncoding)!;
