@@ -238,7 +238,7 @@ public class DatabaseRealtime
                     let todaysDate:NSDate = NSDate()
                     let dati_firebase = ["author": author, "query": queryText, "date" : DateHelper.encodeDateForFirebase(todaysDate), "counter" : 1 ]
                     
-                    self.refFirebase.child(table).child("IT").child(primaryKey).setValue(dati_firebase)
+                    self.refFirebase.child(table).child(CacheManager().getStoredLang().lowercaseString).child(primaryKey).setValue(dati_firebase)
                 }
             }
         }

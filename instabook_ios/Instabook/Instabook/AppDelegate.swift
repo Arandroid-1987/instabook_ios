@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         FIRApp.configure()
+        let cacheManager:CacheManager = CacheManager();
+        cacheManager.storeSelectedLang(NSLocale.preferredLanguages()[0].componentsSeparatedByString("-")[0].uppercaseString);
         //GADMobileAds.configureWithApplicationID("ca-app-pub-2997805148414323~9368463696");
         // Override point for customization after application launch.
         return true
